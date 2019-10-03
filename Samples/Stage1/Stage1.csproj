@@ -45,6 +45,7 @@
     <Compile Include="Attr\ExpectedExceptionAttribute.cs" />
     <Compile Include="ComparableTest.cs" />
     <Compile Include="EnumerableEnumeratorTests.cs" />
+    <Compile Include="EventTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryableLinqTest.cs" />
     <Compile Include="ReflectionTest.cs" />
