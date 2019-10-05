@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
+using Stage1.Attr;
 
 namespace Stage1
 {
@@ -9,7 +10,7 @@ namespace Stage1
     public class ThreadsTest
     {
         [Test]
-        public void ConcurrentPrintTest1()
+        public void ConcurrentPrintTest()
         {
             var timeout = 1000;
             var isRun = true;
@@ -44,7 +45,7 @@ namespace Stage1
         }
 
         [Test]
-        public void ConcurrentFillDictionary()
+        public void ConcurrentFillDictionaryTest()
         {
             var dict = new Dictionary<string, string>();
             var locker = new object();
@@ -120,5 +121,54 @@ namespace Stage1
                 }
             }
         }
+
+        [Test]
+        [Timeout(5000)]
+        [ExpectedException(typeof(AssertionException))]
+        public void ConcurrentMutableStructTest()
+        {
+            LargeStruct mutable = new LargeStruct();
+
+            ThreadPool.QueueUserWorkItem(delegate
+            {
+                decimal n = 0;
+                while (true)
+                {
+                    var newStruct = new LargeStruct
+                    {
+                        D1 = n,
+                        D2 = n,
+                        D3 = n,
+                        D4 = n,
+                        D5 = n,
+                    };
+                    mutable = newStruct;
+                    n++;
+                }
+            });
+
+            while (true)
+                Validate(mutable);
+        }
+
+        private static void Validate(LargeStruct largeStruct)
+        {
+            decimal n = largeStruct.D1;
+            Assert.IsTrue(n == largeStruct.D2);
+            Assert.IsTrue(n == largeStruct.D3);
+            Assert.IsTrue(n == largeStruct.D4);
+            Assert.IsTrue(n == largeStruct.D5);
+        }
+
+        private struct LargeStruct
+        {
+            public decimal D1;
+            public decimal D2;
+            public decimal D3;
+            public decimal D4;
+            public decimal D5;
+        }
     }
+
+    
 }
