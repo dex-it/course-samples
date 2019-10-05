@@ -49,6 +49,7 @@
     <Compile Include="ComparableTest.cs" />
     <Compile Include="EnumerableEnumeratorTests.cs" />
     <Compile Include="EventTest.cs" />
+    <Compile Include="ExceptionHandlingTests.cs" />
     <Compile Include="OOPTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryableLinqTest.cs" />
@@ -58,6 +59,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
