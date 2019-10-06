@@ -25,6 +25,8 @@ namespace Stage1
     {
         public static int WordCount(this string str)
         {
+            if (str == null) throw new ArgumentNullException(nameof(str));
+
             return str.Split(new char[] { ' ', '.', '?', '!' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
         }

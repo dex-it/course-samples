@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attr\ExpectedExceptionAttribute.cs" />
+    <Compile Include="BoxingUnboxingTests.cs" />
     <Compile Include="ComparableTest.cs" />
     <Compile Include="EnumerableEnumeratorTests.cs" />
     <Compile Include="EventTest.cs" />
@@ -57,6 +58,8 @@
     <Compile Include="ReflectionTest.cs" />
     <Compile Include="RegularExpressionTests.cs" />
     <Compile Include="ThreadsTest.cs" />
+    <Compile Include="TypeConversionTests.cs" />
+    <Compile Include="ValueAndReferenceTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
