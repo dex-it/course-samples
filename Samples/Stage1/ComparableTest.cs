@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Linq;
 using NUnit.Framework;
-using Stage1.Attr;
 
 namespace Stage1
 {
@@ -10,13 +9,15 @@ namespace Stage1
     public class ComparableTest
     {
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Test1()
         {
             var collection = Enumerable.Range(1, 10).Select(x => new SampleTestObj() {Code = x});
 
-            // операция сортировки бросит ошибку
-            var sorted = collection.OrderBy(obj => obj).ToArray();
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // операция сортировки бросит ошибку
+                var sorted = collection.OrderBy(obj => obj).ToArray();
+            });
         }
 
         private class SampleTestObj
@@ -48,19 +49,18 @@ namespace Stage1
             {
                 Console.WriteLine(temp.Fahrenheit);
             }
-            
+
             // развернем лист
             temperatures.Reverse();
             Console.WriteLine("---");
-            
+
             // или Linq sort
-            foreach (Temperature temp in temperatures.OfType<Temperature>().OrderBy(x=>x))
+            foreach (Temperature temp in temperatures.OfType<Temperature>().OrderBy(x => x))
             {
                 Console.WriteLine(temp.Fahrenheit);
             }
+        }
 
-        }        
-        
         private class Temperature : IComparable
         {
             // The temperature value

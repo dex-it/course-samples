@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
-using Stage1.Attr;
 
 namespace Stage1
 {
@@ -124,7 +123,6 @@ namespace Stage1
 
         [Test]
         [Timeout(5000)]
-        [ExpectedException(typeof(AssertionException))]
         public void ConcurrentMutableStructTest()
         {
             LargeStruct mutable = new LargeStruct();
@@ -147,8 +145,13 @@ namespace Stage1
                 }
             });
 
-            while (true)
-                Validate(mutable);
+            Assert.Throws<AssertionException>(() =>
+            {
+                while (true)
+                {
+                    Validate(mutable);
+                }
+            });
         }
 
         private static void Validate(LargeStruct largeStruct)
@@ -169,6 +172,4 @@ namespace Stage1
             public decimal D5;
         }
     }
-
-    
 }
