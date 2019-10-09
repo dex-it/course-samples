@@ -15,12 +15,12 @@ namespace Stage1
             Assert.AreEqual(car.GetType(), carType);
         }
     }
-    
+
     public interface ICar
     {
         void Go(Point p); //едем в точку p
     }
-    
+
     public class PetrolCar : ICar
     {
         public void Go(Point p)
@@ -28,7 +28,7 @@ namespace Stage1
             // сжигаем бензин, едем
         }
     }
- 
+
     public class DieselCar : ICar
     {
         public void Go(Point p)
@@ -36,7 +36,7 @@ namespace Stage1
             // сжигаем дизельное топливо, едем
         }
     }
- 
+
     public class ElectroCar : ICar
     {
         public void Go(Point p)
