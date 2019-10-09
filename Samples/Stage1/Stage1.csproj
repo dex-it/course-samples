@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComparableTest.cs" />
+    <Compile Include="DisposableTests.cs" />
     <Compile Include="EnumerableEnumeratorTests.cs" />
     <Compile Include="EventTest.cs" />
     <Compile Include="ExceptionHandlingTests.cs" />
