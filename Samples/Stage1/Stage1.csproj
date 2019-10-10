@@ -49,7 +49,8 @@
     <Compile Include="DictionaryTests.cs" />
     <Compile Include="DisposableTests.cs" />
     <Compile Include="EnumerableEnumeratorTests.cs" />
-    <Compile Include="EqualsAndHashCodeTests.cs" />
+    <Compile Include="EqualsAndHashCodeReferenceTests.cs" />
+    <Compile Include="EqualsAndHashCodeStructTests.cs" />
     <Compile Include="EventTest.cs" />
     <Compile Include="ExceptionHandlingTests.cs" />
     <Compile Include="ExpressionTests.cs" />

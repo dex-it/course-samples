@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Stage1
 {
-    public class EqualsAndHashCodeTests
+    public class EqualsAndHashCodeReferenceTests
     {
         [Test]
         public void FigureEqualsTest()
@@ -40,34 +40,34 @@ namespace Stage1
             Assert.AreEqual(30, f2.GetHashCode());
             Assert.AreEqual(50, f3.GetHashCode());
         }
-    }
-    
-    public class Figure
-    {
-        public int Length { get; }
-        public int Width { get; }
- 
-        public Figure(int length, int width)
-        {
-            Length = length;
-            Width = width;
-        }
- 
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-                return false;
-
-            if (!(obj is Figure))
-                return false;
-
-            var figure = (Figure) obj;
-            return figure.Length == Length && figure.Width == Width;
-        }
         
-        public override int GetHashCode()
+        private class Figure
         {
-            return Length + Width;
+            public int Length { get; }
+            public int Width { get; }
+ 
+            public Figure(int length, int width)
+            {
+                Length = length;
+                Width = width;
+            }
+ 
+            public override bool Equals(object obj)
+            {
+                if (obj == null)
+                    return false;
+
+                if (!(obj is Figure))
+                    return false;
+
+                var figure = (Figure) obj;
+                return figure.Length == Length && figure.Width == Width;
+            }
+        
+            public override int GetHashCode()
+            {
+                return Length + Width;
+            }
         }
     }
 }
