@@ -55,6 +55,7 @@
     <Compile Include="ExceptionHandlingTests.cs" />
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="FactoryTests.cs" />
+    <Compile Include="GenericTest.cs" />
     <Compile Include="ListTests.cs" />
     <Compile Include="OOPTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
