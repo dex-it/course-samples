@@ -9,6 +9,7 @@ namespace Stage1
     public class EnumerableEnumeratorTests
     {
         [Test]
+        // добавляю коментарий
         public void EnumerableTest()
         {
             Person[] peopleArray = new Person[3]
