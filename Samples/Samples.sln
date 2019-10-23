@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1", "Stage1\Stage1.csproj", "{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animals", "Animals\Animals.csproj", "{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFEF9D9F-9E1B-4D51-B969-97CA0855C8A1}
 	EndGlobalSection
 EndGlobal
