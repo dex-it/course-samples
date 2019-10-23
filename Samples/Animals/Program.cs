@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Animals
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Cat myCat = new Cat();
+            Console.WriteLine(myCat.Name);
+            Console.ReadKey();
+        }
+    }
+}
