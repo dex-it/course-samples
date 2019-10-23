@@ -10,6 +10,7 @@ namespace Stage1
     {
         [Test]
         // добавляю коментарий
+        // 
         public void EnumerableTest()
         {
             Person[] peopleArray = new Person[3]
