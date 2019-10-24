@@ -1,6 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1", "Stage1\Stage1.csproj", "{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dex.ABolokan.Services", "Dex.ABolokan.Services\Dex.ABolokan.Services.csproj", "{8C1DC01A-C51D-4077-99C1-359303137902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dex.ABolokan.ConsoleApp", "Dex.ABolokan.ConsoleApp\Dex.ABolokan.ConsoleApp.csproj", "{906785B3-263C-44E8-A9A1-01ABA01B2A5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +19,19 @@ Global
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C1DC01A-C51D-4077-99C1-359303137902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C1DC01A-C51D-4077-99C1-359303137902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C1DC01A-C51D-4077-99C1-359303137902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C1DC01A-C51D-4077-99C1-359303137902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906785B3-263C-44E8-A9A1-01ABA01B2A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906785B3-263C-44E8-A9A1-01ABA01B2A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906785B3-263C-44E8-A9A1-01ABA01B2A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906785B3-263C-44E8-A9A1-01ABA01B2A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64A03B5E-7CC1-400F-A0C1-090861B01637}
 	EndGlobalSection
 EndGlobal

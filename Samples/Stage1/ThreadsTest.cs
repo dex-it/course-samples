@@ -103,18 +103,18 @@ namespace Stage1
                 lock (locker1) // блокировка 1
                 {
                     Thread.Sleep(1000);
-                    lock (locker2) // блокировка 2
-                    {
-                        Console.WriteLine("Thread 1 got both locks");
-                    }
-                }
+					lock (locker2) // блокировка 2
+					{
+						Console.WriteLine("Thread 1 got both locks");
+					}
+				}
             });
 
             // thread 2
             lock (locker2) // блокировка 2
             {
                 Thread.Sleep(1000);
-                lock (locker1) // блокировка 1
+                //lock (locker1) // блокировка 1
                 {
                     Console.WriteLine("Thread 2 got both locks");
                 }
