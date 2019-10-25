@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1", "Stage1\Stage1.csproj", "{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animals", "Animals\Animals.csproj", "{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1Paragraph3", "Stage1Paragraph3\Stage1Paragraph3.csproj", "{08AA0962-0CB2-4C99-BED4-F62B0B65013A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC77EAC-5565-4BB3-8EFE-2648F0AE5787}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08AA0962-0CB2-4C99-BED4-F62B0B65013A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08AA0962-0CB2-4C99-BED4-F62B0B65013A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08AA0962-0CB2-4C99-BED4-F62B0B65013A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08AA0962-0CB2-4C99-BED4-F62B0B65013A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

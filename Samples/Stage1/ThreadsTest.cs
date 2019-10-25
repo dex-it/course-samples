@@ -96,7 +96,7 @@ namespace Stage1
         {
             var locker1 = new object();
             var locker2 = new object();
-
+            
             // thread 1
             ThreadPool.QueueUserWorkItem(_ =>
             {
@@ -109,7 +109,7 @@ namespace Stage1
                     }
                 }
             });
-
+            
             // thread 2
             lock (locker2) // блокировка 2
             {

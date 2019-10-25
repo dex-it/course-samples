@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAF02D07-BF35-4889-9F59-2E4F5BA5D88D}</ProjectGuid>
+    <ProjectGuid>{08AA0962-0CB2-4C99-BED4-F62B0B65013A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Animals</RootNamespace>
-    <AssemblyName>Animals</AssemblyName>
+    <RootNamespace>Stage1Paragraph3</RootNamespace>
+    <AssemblyName>Stage1Paragraph3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,15 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Cat.cs" />
-    <Compile Include="Dog.cs" />
-    <Compile Include="Elephant.cs" />
-    <Compile Include="Insect.cs" />
-    <Compile Include="Mammal.cs" />
+    <Compile Include="Phone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="WiredPhone.cs" />
+    <Compile Include="CellPhone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
