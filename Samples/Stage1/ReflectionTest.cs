@@ -11,28 +11,20 @@ namespace Stage1
         [Test]
         public void Test1()
         {
-            var user = new TestUser()
-            {
-                Id = 1,
-                Name = "Max",
-                Birthday = DateTime.Now.AddYears(-25),
-                Salary = 1000
-            };
 
-            Console.WriteLine(CreateObjectPropertiesString(user));
         }
 
-        private class TestUser
+      
+        private class Car
         {
-            public int Id { get; set; }
             public string Name { get; set; }
-            public decimal Salary { get; set; }
-            public DateTime Birthday { get; set; }
+            public int Price { get; set; }
+            public DateTime ProductionDate { get; set; }
+            public bool IsNew { get; set; }
+
         }
 
-        /// <summary>
-        /// Принимает объект любого типа и формирует строку из значение публичных свойств
-        /// </summary>
+            
         /// <param name="target"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>

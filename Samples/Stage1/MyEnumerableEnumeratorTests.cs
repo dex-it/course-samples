@@ -25,7 +25,6 @@ namespace Stage1
                 Console.WriteLine((car as Car)?.Name);
             }
 
-
             var parkingEnumerator = parking.GetEnumerator();
 
             while (parkingEnumerator.MoveNext())
@@ -33,9 +32,9 @@ namespace Stage1
                 var car = (Car)parkingEnumerator.Current;
                 Console.WriteLine(car?.Number);
             }
+            
             parkingEnumerator.Reset();
         }
-
     }
 
     public class Car
@@ -43,6 +42,7 @@ namespace Stage1
         public string Name { get; set; }
         public string Number { get; set; }
     }
+    
     public class Parking
     {
         private Car[] _cars;

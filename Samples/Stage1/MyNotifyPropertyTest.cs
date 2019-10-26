@@ -7,8 +7,12 @@ using Stage1.Annotations;
 namespace Stage1
 {
     [TestFixture]
-    public class EventTest
+    public class MyNotifyPropertyTest
     {
+        // реализовать интерфейс INotifyPropertyChanged на произвольном классе,
+        //   продемонстрировать его работу
+
+
         [Test]
         public void PropertyChangedTest()
         {
@@ -21,10 +25,12 @@ namespace Stage1
             
             person.PropertyChanged += handler;
 
-            
             person.FirstName = "NewFirstname";
-            person.PropertyChanged -= handler;
             
+            
+            person.PropertyChanged -= handler;
+            person.LastName = "NewLastName";
+
         }
 
         public class Person : INotifyPropertyChanged
