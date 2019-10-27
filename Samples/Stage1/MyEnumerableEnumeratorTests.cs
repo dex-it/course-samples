@@ -35,15 +35,16 @@ namespace Stage1
             
             parkingEnumerator.Reset();
         }
-    }
 
-    public class Car
-    {
+
+        private class Car
+        {
         public string Name { get; set; }
         public string Number { get; set; }
-    }
-    
-    public class Parking
+        
+        }
+
+        private class Parking
     {
         private Car[] _cars;
 
@@ -62,7 +63,8 @@ namespace Stage1
          }
 
     }
-    public class ParkingEnum : IEnumerator
+
+        private class ParkingEnum : IEnumerator
     {
         private Car[] _car;
 
@@ -103,5 +105,5 @@ namespace Stage1
 
 
     }
-    
+    }
 }

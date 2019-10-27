@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Stage1
 {
     //UI ?
-    public class MyListTests
+    public class MyDictionaryTests
     {
         private class Person
         {

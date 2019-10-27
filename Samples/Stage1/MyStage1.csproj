@@ -59,13 +59,13 @@
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="FactoryTests.cs" />
     <Compile Include="GenericTest.cs" />
-    <Compile Include="MyListTests.cs" />
+    <Compile Include="MyDictionaryTests.cs" />
     <Compile Include="MyOOPTest.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyQueryableLinqTest.cs" />
-    <Compile Include="ReflectionTest.cs" />
-    <Compile Include="SerializationTest.cs" />
+    <Compile Include="MyReflectionTest.cs" />
+    <Compile Include="MySerializationTest.cs" />
     <Compile Include="ThreadsTest.cs" />
   </ItemGroup>
   <ItemGroup>
