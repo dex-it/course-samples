@@ -10,6 +10,7 @@ namespace Stage1.MyThreadsTest
         {
             /// Кол-во задач в очереди на обработку
             int Amount { get; }
+            
             /// <summary>
             /// Запустить обработку очереди и установить максимальное кол-во параллельных задач
             /// </summary>
@@ -31,6 +32,7 @@ namespace Stage1.MyThreadsTest
             /// 
 
             void Add(Action action);
+            
             /// <summary>
             /// Очистить очередь задач
             /// </summary>
