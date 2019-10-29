@@ -75,25 +75,22 @@ namespace Stage1
         [Test(Description = "Пример try-catch-finally. Явная генерация пользовательского исключения, его перехват и повторная генерация.")]
         public void TryCatchFinallyTest()
         {
-            Assert.Throws<MyException>(() =>
+            try
             {
-                try
+                int x = 0;
+                if (x == 0)
                 {
-                    int x = 0;
-                    if (x == 0)
-                    {
-                        throw new MyException("Недопустимое значение переменной"); // Явная генерация пользовательского исключения
-                    }
+                    throw new MyException("Недопустимое значение переменной"); // Явная генерация пользовательского исключения
                 }
-                catch (MyException)
-                {
-                    Console.WriteLine("Перехвачено исключение MyException"); // Этот текст будет выведен
-                }
-                finally
-                {
-                    Console.WriteLine("finally блок выполняется всегда"); // Этот текст будет выведен
-                }
-            });
+            }
+            catch (MyException)
+            {
+                Console.WriteLine("Перехвачено исключение MyException"); // Этот текст будет выведен
+            }
+            finally
+            {
+                Console.WriteLine("finally блок будет выполнен"); // Этот текст будет выведен
+            }
         }
 
         /// <summary>
