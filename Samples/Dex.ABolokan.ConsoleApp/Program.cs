@@ -7,7 +7,12 @@ namespace Dex.ABolokan.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			Examples.OopTest();
+			// Examples.OopTest();
+			// Examples.EnumerableTest();
+			// Examples.QueryableTest();
+			//Examples.ComparableTest();
+			Examples.PersonEqualTest();
+
 			Console.ReadLine();
 		}
 	}
