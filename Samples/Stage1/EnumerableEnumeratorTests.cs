@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Stage1
@@ -8,7 +9,7 @@ namespace Stage1
     public class EnumerableEnumeratorTests
     {
         [Test]
-        public void Test1()
+        public void EnumerableTest()
         {
             Person[] peopleArray = new Person[3]
             {
@@ -30,6 +31,19 @@ namespace Stage1
              * Sue Rabon
              *
              */
+        }
+
+        [Test]
+        public void ModifyEnumerableListTest()
+        {
+            var list = new List<string>() {"hello", "world"};
+            Assert.Catch<InvalidOperationException>(() =>
+            {
+                foreach (var el in list)
+                {
+                    list.Add("test");
+                }
+            });
         }
     }
 

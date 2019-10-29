@@ -88,7 +88,6 @@ namespace Stage1
                 catch (MyException)
                 {
                     Console.WriteLine("Перехвачено исключение MyException"); // Этот текст будет выведен
-                    throw; // повторная генерация перехваченного исключения
                 }
                 finally
                 {
