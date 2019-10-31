@@ -11,7 +11,8 @@ namespace Dex.ABolokan.ConsoleApp
 			// Examples.EnumerableTest();
 			// Examples.QueryableTest();
 			//Examples.ComparableTest();
-			Examples.PersonEqualTest();
+			//Examples.PersonEqualTest();
+			Examples.ListTest();
 
 			Console.ReadLine();
 		}

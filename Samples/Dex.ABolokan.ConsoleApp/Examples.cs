@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading;
 using Dex.ABolokan.Services.IComparableTest;
 using Dex.ABolokan.Services.IEnumerableTask;
 using Dex.ABolokan.Services.Interfaces;
@@ -148,7 +151,7 @@ namespace Dex.ABolokan.ConsoleApp
 		}
 
 		/// <summary>
-		/// 
+		/// Сравнение ссылочных объектов
 		/// </summary>
 		public static void PersonEqualTest()
 		{
@@ -157,7 +160,7 @@ namespace Dex.ABolokan.ConsoleApp
 				FirstName = "Ivan",
 				LastName = "Ivanov",
 				MidleName = "Ivanko",
-				Dob = new DateTime(1989,01,11),
+				Dob = new DateTime(1989, 01, 11),
 				PassportId = "Z123456789",
 				Place = "Типасполь"
 			};
@@ -189,6 +192,56 @@ namespace Dex.ABolokan.ConsoleApp
 			Console.WriteLine($"Person 1 : {person1.GetHashCode()}");
 			Console.WriteLine($"Person 2 : {person2.GetHashCode()}");
 			Console.WriteLine($"Person 3 : {person3.GetHashCode()}");
+		}
+
+		/// <summary>
+		/// Dictionary test
+		/// </summary>
+		public static void ListTest()
+		{
+			const string dateFormat = "dd MM yyyy";
+			var dob = new DateTime(1989, 01, 11);
+			var personDictionary = new Dictionary<(string, string, string, DateTime, string, string), string>
+			{
+				{ ("Ivanov", "Ivan", "Ivanko", dob, "Tiraspol", "123456"), "Tiraspol" },
+				{ ("Ivanova", "Anna", "Anya", dob, "Tiraspol", "678900"), "Moskow" },
+			};
+
+			Console.Write("Введите Фамилию Имя Отчество:");
+
+			string firstName = string.Empty;
+			string lastName = string.Empty;
+			string midleName = string.Empty;
+
+			var fio = Console.ReadLine();
+			if (!string.IsNullOrWhiteSpace(fio))
+			{
+				var mas = fio.Split(' ');
+				firstName = mas[0];
+				lastName = mas.Length > 1 ? mas[1] : string.Empty;
+				midleName = mas.Length > 2 ? mas[2] : string.Empty;
+			}
+
+			Console.Write($"Введите дату рождения({dateFormat}): ");
+			DateTime.TryParseExact(Console.ReadLine(), dateFormat, null, DateTimeStyles.None, out DateTime dateDob);
+
+			Console.Write("Введите место рождения:");
+			var place = Console.ReadLine();
+
+			Console.Write("Введите номер пасорта:");
+			var passportId = Console.ReadLine();
+
+			var key = (firstName, lastName, midleName, dateDob, place, passportId);
+
+			if (personDictionary.ContainsKey(key))
+			{
+				var result = personDictionary[key];
+				Console.WriteLine($"Проживает в {result}");
+			}
+			else
+			{
+				Console.WriteLine("Адрес проживания не найден");
+			}
 		}
 
 	}
