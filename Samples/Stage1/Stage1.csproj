@@ -49,29 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComparableTest.cs" />
-    <Compile Include="DictionaryTests.cs" />
-    <Compile Include="DisposableTests.cs" />
-    <Compile Include="EnumerableEnumeratorTests.cs" />
-    <Compile Include="EqualsAndHashCodeReferenceTests.cs" />
-    <Compile Include="EqualsAndHashCodeStructTests.cs" />
-    <Compile Include="EventTest.cs" />
-    <Compile Include="ExceptionHandlingTests.cs" />
-    <Compile Include="ExpressionTests.cs" />
-    <Compile Include="FactoryTests.cs" />
-    <Compile Include="GenericTest.cs" />
-    <Compile Include="ListTests.cs" />
-    <Compile Include="OOPTest.cs" />
+    <Compile Include="Tests\ComparableTest.cs" />
+    <Compile Include="Tests\DictionaryTests.cs" />
+    <Compile Include="Tests\DisposableTests.cs" />
+    <Compile Include="Tests\EnumerableEnumeratorTests.cs" />
+    <Compile Include="Tests\EqualsAndHashCodeReferenceTests.cs" />
+    <Compile Include="Tests\EqualsAndHashCodeStructTests.cs" />
+    <Compile Include="Tests\EventTest.cs" />
+    <Compile Include="Tests\ExceptionHandlingTests.cs" />
+    <Compile Include="Tests\ExpressionTests.cs" />
+    <Compile Include="Tests\FactoryTests.cs" />
+    <Compile Include="Tests\GenericTest.cs" />
+    <Compile Include="Tests\ListTests.cs" />
+    <Compile Include="Tests\OOPTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryableLinqTest.cs" />
-    <Compile Include="ReflectionTest.cs" />
-    <Compile Include="SerializationTest.cs" />
-    <Compile Include="ThreadsTest.cs" />
+    <Compile Include="Tests\QueryableLinqTest.cs" />
+    <Compile Include="Tests\ReflectionTest.cs" />
+    <Compile Include="Tests\SerializationTest.cs" />
+    <Compile Include="Tests\ThreadsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Tests\packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Training practice\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
