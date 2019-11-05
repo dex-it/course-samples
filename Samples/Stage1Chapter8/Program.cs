@@ -8,22 +8,68 @@ namespace Stage1Chapter8
 {
     class Program
     {
+
+        private static readonly Random Rnd = new Random();
+
+        private static string MakeName()
+        {
+            
+            char c = new char();
+            string name = "";
+            while (name.Length < 10)
+            {
+                //while (name.Contains(c.ToString()))
+                //{
+                    //97, 122 - англ. алфавит
+                    //1040, 1104 - русс. алфавит
+
+                    c = (char)(Rnd.Next(97,122));
+                //}
+                name += c;
+            }
+
+            return name;
+        }
+
+        private static long MakeWeight()
+        {
+            long weight;
+            weight = Rnd.Next(0, 10000000);
+
+            return weight;
+        }
+
+        private static bool MakeLightEmission()
+        {
+            bool lightEmission;
+            lightEmission = Convert.ToBoolean(Rnd.Next(0, 2));
+
+            return lightEmission;
+        }
+
+
         static void Main(string[] args)
         {
+            AstronomicalObject[] astro = new AstronomicalObject[99];
 
-            string[] teams = { "Бавария", "Боруссия", "Реал Мадрид", "Манчестер Сити", "ПСЖ", "Барселона" };
-
-            var selectedTeams = new List<string>();
-            foreach (string s in teams)
+            for (int i = 0; i < astro.Length; i++)
             {
-                if (s.ToUpper().StartsWith("Б"))
-                    selectedTeams.Add(s);
+                astro[i] = new AstronomicalObject(MakeName(), MakeWeight(), MakeLightEmission());
             }
-            selectedTeams.Sort();
+          
+            var astroSelected = astro.Where(a => a.Name.StartsWith("m") && !a.LightEmission).OrderBy(a => a.Weight);
+            var sum = astro.Where(a => a.Name.StartsWith("m") && !a.LightEmission).Sum(a => a.Weight);
 
-            foreach (string s in selectedTeams)
-                Console.WriteLine(s);
+            long j = 0;
+            foreach (AstronomicalObject a in astroSelected)
+            {
+                Console.WriteLine(j.ToString() + " - " + a.Name + " - " + Convert.ToString(a.LightEmission) + " - " + a.Weight.ToString());
+                j++;
+            }
 
+            Console.WriteLine("Сумма масс планет = " + sum.ToString());
+
+            Console.ReadLine();
         }
     }
 }
