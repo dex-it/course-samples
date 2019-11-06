@@ -29,7 +29,7 @@ namespace PetsOOP
         public abstract void MakeSound();
 
         public string Color
-        {            
+        {
             get { return _color; }
             set
             {//проверка, существует ли указанный окрас в перечислении ColorType
@@ -56,10 +56,14 @@ namespace PetsOOP
 
     public class Cat : Pet
     {
-        public Cat() { }
+        public Cat()
+        {
+            Console.WriteLine("Cat was succesfully added!");
+        }
 
         public Cat(string name)
         {
+            Console.WriteLine("Cat \""+name+"\" was succesfully added!");
             Name = name;
         }
 
@@ -73,11 +77,15 @@ namespace PetsOOP
 
     public class Dog : Pet
     {
-        public Dog() { }
-
+        public Dog()
+        {
+            Console.WriteLine("Dog was succesfully added!");
+        }
         public Dog(string name)
         {
             Name = name;
+            Console.WriteLine("Dog \""+name+"\" was succesfully added!");
+            
         }
 
         public override void MakeSound()
@@ -87,8 +95,7 @@ namespace PetsOOP
 
     }
 
-
-
+    
     class Program
     {
         public static void AddPet(List<Pet> pets, int code, string name)
@@ -97,12 +104,12 @@ namespace PetsOOP
             {
                 case 1:
                     {
-                        pets.Add(new Cat(name));
+                        pets.Add(new Cat(name));                        
                         break;
                     }
                 case 2:
                     {
-                        pets.Add(new Dog(name));
+                        pets.Add(new Dog(name));                        
                         break;
                     }
                 default:
@@ -115,7 +122,7 @@ namespace PetsOOP
         static void Main(string[] args)
         {
             List<Pet> pets = new List<Pet>();
-            Console.WriteLine("Hello!\nWhich pet would you like to add?\n1 - Cat, 2 - Dog");
+            Console.WriteLine("Hello!\nWhich pet would you like to add?\n1 - Cat, 2 - Dog ");
             int pet_code = Int32.Parse(Console.ReadLine());
             Console.WriteLine("What is your pet's name?");
             string pet_name = Console.ReadLine();
@@ -128,7 +135,7 @@ namespace PetsOOP
             Console.WriteLine("\nCurrent list of pets:");
             for (int i = 0; i < pets.Count; i++)
             {
-                Console.WriteLine(pets[i].GetType()+ ", name=" + pets[i].Name + " ");
+                Console.WriteLine("Class:"+pets[i].GetType()+ ", name:" + pets[i].Name + " ");
                 pets[i].MakeSound();
             }
 
