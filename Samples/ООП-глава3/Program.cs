@@ -12,15 +12,14 @@ namespace ООП_глава3
             {
                 Console.WriteLine("Выберете фигуру:1-квадрат,2-прямоугольник,3-круг,4-треугольник....при выходе введите 0");
                 int vibor = Convert.ToInt32(Console.ReadLine());
-
                 if (vibor == 0) break;
                 switch (vibor)
                 {
                     case 1:
-                        Kvadrat kvadrat = new Kvadrat();
-                        Console.WriteLine("Введите длину первой стороны:"); kvadrat.Storona1 = Convert.ToDouble(Console.ReadLine());
+                        Kvadrat kvadrat = new Kvadrat(); // подключение к классу "квадрат"
+                        Console.WriteLine("Введите длину первой стороны:"); kvadrat.Storona1 = Convert.ToDouble(Console.ReadLine()); //ввод данных связанные с ним
                         Console.WriteLine("Введите длину второй стороны:"); kvadrat.Storona2 = Convert.ToDouble(Console.ReadLine());
-                        kvadrat.S_kv(kvadrat.Storona1, kvadrat.Storona2);
+                        kvadrat.S_kv(kvadrat.Storona1, kvadrat.Storona2); //обращение к методу в квадрате для нахождения площади
                         break;
                     case 2:
                         Pryamougolnik pryamougolnik = new Pryamougolnik();
@@ -44,7 +43,7 @@ namespace ООП_глава3
             }
         }
     }
-    public abstract class Figure 
+    public abstract class Figure // класс с хранением возможных данных о фигуре, стороны, высота, радиус, углы и тд....
     {
         private double a, b, r, h;
 
@@ -54,7 +53,7 @@ namespace ООП_глава3
         public double Visota { get { return h; } set { h = value; } }     
 
     }
-   interface I_ploshad_kvadrata
+   interface I_ploshad_kvadrata  //интерфейс с сигнатурой для нахлждения площади
     {
         void S_kv(double a, double b);
     }
@@ -70,7 +69,7 @@ namespace ООП_глава3
     {
         void S_tr(double a, double h);
     }
-    public class Kvadrat : Figure, I_ploshad_kvadrata
+    public class Kvadrat : Figure, I_ploshad_kvadrata  // класс для реальзации вычислении связанные с квадратом
     {
         public void S_kv(double a, double b)
         {
@@ -84,9 +83,7 @@ namespace ООП_глава3
         public void S_kr(double r)
         {
             Console.WriteLine("Площадь круга =" + (Math.PI * Math.Pow(r, 2)).ToString());
-        }
-
-    
+        }    
     }
     public class Pryamougolnik : Figure, I_ploshad_pryamougolnika
     {
@@ -94,14 +91,12 @@ namespace ООП_глава3
         {
             if (a == b)
                 Console.WriteLine("Площадь прямоугольника =" + (a * b).ToString());
-        }
-       
+        }       
     }
     public class Treugolnik : Figure, I_ploshad_treugolnika
     {
         public void S_tr(double a, double h)
-        {
-         
+        {      
                 Console.WriteLine("Площадь треугольника =" + ((a * h)/2.0).ToString());
         }
     }
