@@ -13,14 +13,14 @@ namespace Stage1Chapter9
         public int CompareTo(object o)
         {
             GeometricShape g = o as GeometricShape;
-            if (g != null)
-            {
-                return this.Area.CompareTo(g.Area);
-            }
+
+            if (this.Area < g.Area)
+                 return 1;
+            if (this.Area > g.Area)
+                 return -1;
             else
-            {
-                throw new Exception("Невозможно сравнить два объекта");
-            }
+                 return 0;
+
         }
         public abstract void Info();
     }
