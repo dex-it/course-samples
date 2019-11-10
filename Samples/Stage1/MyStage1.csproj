@@ -15,6 +15,7 @@
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,7 +62,7 @@
     <Compile Include="MyDictionaryTests.cs" />
     <Compile Include="MyOOPTest.cs" />
     <Compile Include="MyThreadsTest\IJobExecutor.cs" />
-    <Compile Include="MyThreadsTest\MyThreadTest.cs" />
+    <Compile Include="MyThreadsTest\MyJobExecutor.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyQueryableLinqTest.cs" />
