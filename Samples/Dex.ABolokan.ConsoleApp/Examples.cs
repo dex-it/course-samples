@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Threading;
+using Dex.ABolokan.Services.Events;
+using Dex.ABolokan.Services.ExceptionTests;
 using Dex.ABolokan.Services.IComparableTest;
 using Dex.ABolokan.Services.IEnumerableTask;
 using Dex.ABolokan.Services.Interfaces;
 using Dex.ABolokan.Services.Linq;
-using Dex.ABolokan.Services.ObjectEquals;
 using Dex.ABolokan.Services.Services;
 using PersonSimple = Dex.ABolokan.Services.IEnumerableTask.Person;
 
@@ -16,6 +15,8 @@ namespace Dex.ABolokan.ConsoleApp
 {
 	public class Examples : ExampleBase
 	{
+		delegate void Message(int x, int y);
+
 		/// <summary>
 		/// 3. ООП - объектно ориентированный подход
 		/// </summary>
@@ -99,7 +100,6 @@ namespace Dex.ABolokan.ConsoleApp
 				{
 					Console.WriteLine(product.ToString());
 				}
-
 			}
 
 			Console.WriteLine($"\nThe list has new product: {products.Any(p => p.IsNew)}");
@@ -112,9 +112,9 @@ namespace Dex.ABolokan.ConsoleApp
 		}
 
 		/// <summary>
-		/// 9 IComparable
+		/// 9 Comparer
 		/// </summary>
-		public static void ComparableTest()
+		public static void ComparerTest()
 		{
 			var circlesList = new List<Circle>();
 			Random random = new Random();
@@ -243,6 +243,101 @@ namespace Dex.ABolokan.ConsoleApp
 				Console.WriteLine("Адрес проживания не найден");
 			}
 		}
+
+		#region Delegate Test
+		public static void DelegateTest()
+		{
+			Message delMessage = (x, y) =>
+			{
+				Console.WriteLine(x);
+				Console.WriteLine(y);
+			};
+
+			delMessage(3, 4);
+
+			Console.WriteLine("-----Func---------");
+
+			Func<int, int> factorialFunc = Factorial;
+			GetInt(5, factorialFunc);
+
+
+		}
+
+		static int GetInt(int x1, Func<int, int> retF)
+		{
+			int result = 0;
+			if (x1 > 0)
+				result = retF(x1);
+			return result;
+		}
+
+		static int Factorial(int x)
+		{
+			int result = 1;
+			for (int i = 1; i <= x; i++)
+			{
+				result *= i;
+			}
+			return result;
+		}
+		#endregion
+
+		#region  Event Test
+
+		public static void EventTest()
+		{
+			var sumator = new Sumator();
+			sumator.Notify += ConsoleMessage;
+			sumator.Push(new List<double> { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		}
+
+		private static void ConsoleMessage(double sum)
+		{
+			Console.WriteLine($"В поле установлено: {sum}");
+		}
+
+
+		#endregion
+
+		public static void ExceptionTest()
+		{
+			var random = new Random();
+
+			for (int i = 0; i < 15; i++)
+			{
+				var client = new ClientInfo
+				{
+					Id = random.Next(1, 100),
+					Balance = random.Next(100, 600) + random.NextDouble(),
+					Name = Guid.NewGuid().ToString("N")
+				};
+
+				try
+				{
+					if (client.Balance < 500)
+					{
+						throw new ClientException($"Balance is minimal for client {client.Name}");
+					}
+					else
+					{
+						Console.WriteLine("Success!");
+					}
+					
+				}
+				catch (ClientException e)
+				{
+					Console.ForegroundColor = ConsoleColor.Yellow;
+					Console.WriteLine(e.Message);
+					Console.ResetColor();
+				}
+				finally
+				{
+					Console.WriteLine("Finish \n");
+				}
+			}
+		}
+
+
 
 	}
 

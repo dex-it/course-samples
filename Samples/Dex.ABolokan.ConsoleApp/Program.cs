@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+using Dex.ABolokan.Services.ObjectEquals;
 
 namespace Dex.ABolokan.ConsoleApp
 {
@@ -10,9 +13,14 @@ namespace Dex.ABolokan.ConsoleApp
 			// Examples.OopTest();
 			// Examples.EnumerableTest();
 			// Examples.QueryableTest();
-			//Examples.ComparableTest();
-			//Examples.PersonEqualTest();
-			Examples.ListTest();
+			// Examples.ComparerTest();
+			// Examples.PersonEqualTest();
+			// Examples.ListTest();
+			// Examples.DelegateTest();
+			// Examples.EventTest();
+			// Examples.ExceptionTest();
+
+
 
 			Console.ReadLine();
 		}
