@@ -17,7 +17,7 @@ namespace Dex.ABolokan.ConsoleApp
 			// Examples.PersonEqualTest();
 			// Examples.ListTest();
 			// Examples.DelegateTest();
-			// Examples.EventTest();
+			 Examples.EventTest();
 			// Examples.ExceptionTest();
 
 

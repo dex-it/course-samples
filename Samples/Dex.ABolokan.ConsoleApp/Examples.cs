@@ -289,6 +289,7 @@ namespace Dex.ABolokan.ConsoleApp
 			var sumator = new Sumator();
 			sumator.Notify += ConsoleMessage;
 			sumator.Push(new List<double> { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+			sumator.Notify -= ConsoleMessage;
 		}
 
 		private static void ConsoleMessage(double sum)
