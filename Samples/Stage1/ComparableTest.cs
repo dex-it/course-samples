@@ -17,6 +17,8 @@ namespace Stage1
             {
                 // операция сортировки бросит ошибку
                 var sorted = collection.OrderBy(obj => obj).ToArray();
+      
+            
             });
         }
 
