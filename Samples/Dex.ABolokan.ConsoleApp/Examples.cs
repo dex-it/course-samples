@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Dex.ABolokan.Services;
 using Dex.ABolokan.Services.Events;
 using Dex.ABolokan.Services.ExceptionTests;
 using Dex.ABolokan.Services.IComparableTest;
@@ -323,7 +324,7 @@ namespace Dex.ABolokan.ConsoleApp
 					{
 						Console.WriteLine("Success!");
 					}
-					
+
 				}
 				catch (ClientException e)
 				{
@@ -336,6 +337,16 @@ namespace Dex.ABolokan.ConsoleApp
 					Console.WriteLine("Finish \n");
 				}
 			}
+		}
+
+		public static void ExtensionTest()
+		{
+			double seconds = 1.01;
+			Console.WriteLine($"seconds : {seconds}");
+			var timeSpan = seconds.GetTimeSpan();
+			Console.WriteLine($"timeSpan : {timeSpan}");
+			double secondsNew = timeSpan.Seconds();
+			Console.WriteLine($"secondsNew : {secondsNew}");
 		}
 
 
