@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\DigitStream.cs" />
-    <Compile Include="Events\MyNotifyPropertyTest.cs" />
     <Compile Include="Events\MyQuene.cs" />
     <Compile Include="Events\NotiFyPropertyChanged.cs" />
     <Compile Include="MyBoxingTest.cs" />
