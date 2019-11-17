@@ -29,9 +29,9 @@ namespace Stage1.MyThreadsTest
                
             _jobIsStarted = true;
 
-            
-            using var semaphoreSlim = new SemaphoreSlim(maxConcurrent);
             var tasks = new List<Task>();
+            using var semaphoreSlim = new SemaphoreSlim(maxConcurrent);
+            
 
             while (!_shouldStop)
             {
@@ -143,6 +143,7 @@ namespace Stage1.MyThreadsTest
                     Console.WriteLine(Task.CurrentId);
                 }));
             }
+            
             Assert.AreEqual(jobExecutor.Amount,10);
             jobExecutor.Start(10);
             Assert.AreEqual(jobExecutor.Amount,0);

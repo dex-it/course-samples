@@ -1,41 +1,17 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using NUnit.Framework;
-using Stage1.Annotations;
 
-namespace Stage1
+namespace Stage1.Events
 {
-    [TestFixture]
-    public class MyNotifyPropertyTest
+    public class NotiFyPropertyChanged
     {
         // реализовать интерфейс INotifyPropertyChanged на произвольном классе,
         //   продемонстрировать его работу
 
-
-        [Test]
-        public void PropertyChangedTest()
+        private class Person : INotifyPropertyChanged
         {
-            var person = new Person();
-            
-            PropertyChangedEventHandler handler = (s, e) =>
-            {
-                Assert.AreEqual("FirstName",e.PropertyName);
-            };
-            
-            person.PropertyChanged += handler;
-
-            person.FirstName = "NewFirstname";
-            
-            
-            person.PropertyChanged -= handler;
-            person.LastName = "NewLastName";
-
-        }
-
-        public class Person : INotifyPropertyChanged
-        {
-            
             private string _firstName;
             private string _lastName;
             private DateTime _birthDay;
@@ -79,6 +55,26 @@ namespace Stage1
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        [Test]
+        public void PropertyChangedTest()
+        {
+            var person = new Person();
+
+            PropertyChangedEventHandler handler = (s, e) =>
+            {
+                Assert.IsTrue(string.Equals("FirstName", e.PropertyName));
+            };
+
+            person.PropertyChanged += handler;
+
+            person.FirstName = "NewFirstname";
+
+
+            person.PropertyChanged -= handler;
+            person.LastName = "NewLastName";
+
         }
     }
 }

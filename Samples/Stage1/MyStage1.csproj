@@ -50,16 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\DigitStream.cs" />
+    <Compile Include="Events\MyNotifyPropertyTest.cs" />
+    <Compile Include="Events\MyQuene.cs" />
+    <Compile Include="Events\NotiFyPropertyChanged.cs" />
+    <Compile Include="MyBoxingTest.cs" />
+    <Compile Include="MyCastingTest.cs" />
+    <Compile Include="MyClonableTest.cs" />
     <Compile Include="MyComparableTest.cs" />
     <Compile Include="DisposableTests.cs" />
     <Compile Include="MyEnumerableEnumeratorTests.cs" />
     <Compile Include="MyEqualsAndHashCodeTests.cs" />
-    <Compile Include="MyNotifyPropertyTest.cs" />
+    <Compile Include="MyGenericTest.cs" />
     <Compile Include="ExceptionHandlingTests.cs" />
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="FactoryTests.cs" />
     <Compile Include="GenericTest.cs" />
     <Compile Include="MyDictionaryTests.cs" />
+    <Compile Include="MyIntExtentions.cs" />
     <Compile Include="MyOOPTest.cs" />
     <Compile Include="MyThreadsTest\IJobExecutor.cs" />
     <Compile Include="MyThreadsTest\MyJobExecutor.cs" />
@@ -68,12 +76,10 @@
     <Compile Include="MyQueryableLinqTest.cs" />
     <Compile Include="MyReflectionTest.cs" />
     <Compile Include="MySerializationTest.cs" />
-    <Compile Include="ThreadsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

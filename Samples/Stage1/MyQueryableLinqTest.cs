@@ -46,7 +46,8 @@ namespace Stage1
         {
             var cars = GetGeneratedCars(100);
 
-            var sortedCars = cars.Where(c => c.Name == "VW").OrderBy(car => car.ProductionDate);
+            var sortedCars = cars.Where(c => c.Name == "VW")
+                                 .OrderBy(car => car.ProductionDate);
 
             var isNewCarExist = cars.Any(car => car.IsNew);
 
@@ -58,7 +59,6 @@ namespace Stage1
             {
                 Console.WriteLine(group.Key + " " + group.Sum(c => c.Price));
             }
-
         }
 
 

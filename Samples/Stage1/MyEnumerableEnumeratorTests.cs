@@ -12,11 +12,11 @@ namespace Stage1
         public void EnumerableTest()
         {
             var cars = new Car[3]
-           {
-                 new Car{Name = "Audi", Number = "A345EK"},
-                 new Car{Name = "Kia", Number = "A346EK"},
-                 new Car{Name = "Fiat", Number = "A347EK"}
-           };
+            {
+                new Car {Name = "Audi", Number = "A345EK"},
+                new Car {Name = "Kia", Number = "A346EK"},
+                new Car {Name = "Fiat", Number = "A347EK"}
+            };
 
             var parking = new Parking(cars);
 
@@ -29,81 +29,76 @@ namespace Stage1
 
             while (parkingEnumerator.MoveNext())
             {
-                var car = (Car)parkingEnumerator.Current;
+                var car = (Car) parkingEnumerator.Current;
                 Console.WriteLine(car?.Number);
             }
-            
+
             parkingEnumerator.Reset();
         }
 
 
         private class Car
         {
-        public string Name { get; set; }
-        public string Number { get; set; }
-        
+            public string Name { get; set; }
+            public string Number { get; set; }
         }
 
         private class Parking
-    {
-        private Car[] _cars;
-
-        public Parking(Car[] carArray)
         {
-            if (carArray != null)
+            private Car[] _cars;
+
+            public Parking(Car[] carArray)
             {
-                _cars = carArray;
+                _cars = carArray ??
+                        throw new ArgumentNullException("carArray is Null");
+            }
+
+            public IEnumerator GetEnumerator()
+            {
+                return new ParkingEnum(_cars);
+
+                //return _cars.GetEnumerator();  ??
             }
         }
-        public IEnumerator GetEnumerator()
-        {
-            return new ParkingEnum(_cars);
-            
-            //return _cars.GetEnumerator();  ??
-         }
-
-    }
 
         private class ParkingEnum : IEnumerator
-    {
-        private Car[] _car;
-
-        private int _position = -1;
-
-        public ParkingEnum(Car[] list)
         {
-            _car = list;
-        }
+            private Car[] _car;
 
-        public bool MoveNext()
-        {
-            _position++;
-            return (_position < _car.Length);
-        }
+            private int _position = -1;
 
-        public void Reset()
-        {
-            _position = -1;
-        }
-
-        object IEnumerator.Current => Current;
-
-        private Car Current
-        {
-            get
+            public ParkingEnum(Car[] list)
             {
-                try
+                _car = list;
+            }
+
+            public bool MoveNext()
+            {
+                _position++;
+                return (_position < _car.Length);
+            }
+
+            public void Reset()
+            {
+                _position = -1;
+            }
+
+            object IEnumerator.Current => Current;
+
+            private Car Current
+            {
+                get
                 {
-                    return _car[_position];
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
+                    try
+                    {
+                        return _car[_position];
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        throw new InvalidOperationException();
+                    }
                 }
             }
         }
-
-
-    }
     }
 }
