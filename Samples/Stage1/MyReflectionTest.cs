@@ -30,8 +30,13 @@ namespace Stage1
         {
          var test = CreateInstance("Stage1.MyReflectionTest");
          Assert.IsTrue(test is MyReflectionTest);
-        }
+
+         var car = CreateInstance("Stage1.Car") as Car ;
+
+         car?.Start();
         
+        }
+
 
         [Test]
         public void GetPrivatePropertyTest()
