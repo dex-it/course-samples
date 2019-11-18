@@ -1,31 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Chapter3
 {
-    class AstronomicalObject
+    public class AstronomicalObject
     {
         public string Name { get; }
         public decimal Radius { get; }
-        public decimal Weight { get; }
-        public virtual bool LightEmission { get; }
-        public AstronomicalObject(string name = "No name", decimal radius = 0, decimal weight = 0)
+        public bool LightEmission { get; }
+
+
+        public AstronomicalObject(string name = "No name", decimal radius = 0, bool lightEmission = false)
         {
             Name = name;
             Radius = radius;
-            Weight = weight;
-            
+            LightEmission = lightEmission;
         }
 
-        public double SurfaceArea()
+        public double GetSurfaceArea()
         {
-            return 4 * Math.PI * (Double)Radius * (Double)Radius ;
+            return 4 * Math.PI * (double)Radius * (double)Radius ;
         }
-
-
-
+        
     }
 }

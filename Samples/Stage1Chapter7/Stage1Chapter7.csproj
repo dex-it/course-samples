@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AstroEnumerator.cs" />
     <Compile Include="AstronomicalObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolarSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

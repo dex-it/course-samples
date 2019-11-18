@@ -8,13 +8,8 @@ namespace Stage1Chapter3
 {
     class Planet: AstronomicalObject
     {
-        public override bool LightEmission
-        {
-            get
-            {
-                return false;
-            }
-        }
+        protected virtual bool LightEmission => false;
+
         public Planet(string planetName, decimal radius) : base(planetName, radius)
         {
             

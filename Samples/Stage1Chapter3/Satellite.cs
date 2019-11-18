@@ -8,13 +8,8 @@ namespace Stage1Chapter3
 {
     class Satellite: AstronomicalObject
     {
-        public override bool LightEmission
-        {
-            get
-            {
-                return false;
-            }
-        }
+        protected bool LightEmission => false;
+
         public Satellite(string satelliteName):base(satelliteName)
         {
             

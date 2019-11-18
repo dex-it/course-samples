@@ -10,13 +10,8 @@ namespace Stage1Chapter9
     {
         public decimal Radius { get; set; }
         private const string name = "Круг";
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
+        public string Name => name;
+
         public Circle(decimal radius = 0)
         {
             Radius = radius;

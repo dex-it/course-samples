@@ -8,13 +8,8 @@ namespace Stage1Chapter3
 {
     class Star: AstronomicalObject
     {
-        public override bool LightEmission
-        {
-            get
-            {
-                return true;
-            }
-        }
+        protected bool LightEmission => true;
+
         public Star(string starName, decimal radius):base(starName, radius)
         {
             

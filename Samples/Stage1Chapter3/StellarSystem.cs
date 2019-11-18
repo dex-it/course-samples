@@ -8,70 +8,56 @@ namespace Stage1Chapter3
 {
     class StellarSystem
     {
-        public int AmountStars {
-            get
-            {
-                return stars.Count;
-            }
-                
-        }
-        public int AmountPlanets {
-            get
-            {
-                return planets.Count;
-            }
-        }
-        public int AmountDwarfPlanets {
-            get
-            {
-                return dwarfPlanets.Count;
-            }
-        }
-        public int AmountSatellites {
-            get
-            {
-                return satellites.Count;
-            } 
-        }
-        private readonly List<Star> stars = new List<Star>();
-        private readonly List<Planet> planets = new List<Planet>();
-        private readonly List<DwarfPlanet> dwarfPlanets = new List<DwarfPlanet>();
-        private readonly List<Satellite> satellites = new List<Satellite>();
-        public StellarSystem()
+        public int AmountStars => _stars.Count;
+
+        public int AmountPlanets => _planets.Count;
+
+        public int AmountDwarfPlanets => _dwarfPlanets.Count;
+
+        public int AmountSatellites => _satellites.Count;
+        private readonly List<Star> _stars = new List<Star>();
+        private readonly List<Planet> _planets = new List<Planet>();
+        private readonly List<DwarfPlanet> _dwarfPlanets = new List<DwarfPlanet>();
+        private readonly List<Satellite> _satellites = new List<Satellite>();
+
+        protected StellarSystem()
         {
 
         }
-        public void AddPlanet(Planet planet)
+
+        protected void AddPlanet(Planet planet)
         {
-            planets.Add(planet);
+            _planets.Add(planet);
         }
         public List<Planet> GetListPlanets()
         {
-            return planets;
+            return _planets;
         }
-        public void AddDwarfPlanet(DwarfPlanet dwarfPlanet)
+
+        protected void AddDwarfPlanet(DwarfPlanet dwarfPlanet)
         {
-            dwarfPlanets.Add(dwarfPlanet);
+            _dwarfPlanets.Add(dwarfPlanet);
         }
         public List<DwarfPlanet> GetListDwarfPlanets()
         {
-            return dwarfPlanets;
+            return _dwarfPlanets;
         }
-        public void AddStar(Star star)
+
+        protected void AddStar(Star star)
         {
-            stars.Add(star);
+            _stars.Add(star);
         }
         public List<Star> GetListStars()
         {
-            return stars;
+            return _stars;
         }
         public void AddSatellite(Satellite satellite)
         {
-            satellites.Add(satellite);
+            _satellites.Add(satellite);
         }
         public List<Satellite> GetListSatellites()
         {
-            return satellites;
+            return _satellites;
         }
 
     }
