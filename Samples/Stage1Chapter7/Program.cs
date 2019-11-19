@@ -2,7 +2,7 @@
 
 namespace Stage1Chapter7
 {
-    class StellarSystem
+    public class Program
     {
         
         private static void Main(string[] args)
