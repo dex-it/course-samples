@@ -1,10 +1,12 @@
 ﻿namespace Stage1Chapter3
 {
-    class Satellite: AstronomicalObject
+    public class Satellite: AstronomicalObject
     {
-        protected bool LightEmission => false;
+        protected new bool LightEmission => false;
 
-        public Satellite(string satelliteName):base(satelliteName)
+        public Planet ParentPlanet { get; set; }
+
+        public Satellite(string satelliteName, decimal radius) :base(satelliteName, radius)
         {
             
         }

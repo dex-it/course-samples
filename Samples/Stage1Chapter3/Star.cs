@@ -2,7 +2,7 @@
 {
     class Star: AstronomicalObject
     {
-        protected bool LightEmission => true;
+        protected new bool LightEmission => true;
 
         public Star(string starName, decimal radius):base(starName, radius)
         {
