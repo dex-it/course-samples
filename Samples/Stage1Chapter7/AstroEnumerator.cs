@@ -1,11 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using Stage1Chapter3;
+
 namespace Stage1Chapter7
 {
     class AstroEnumerator : IEnumerator
     {
-        readonly AstronomicalObject[] _astro;
+        readonly List<AstronomicalObject> _astro;
         private int _position = -1;
-        public AstroEnumerator(AstronomicalObject[] astro)
+        public AstroEnumerator(List<AstronomicalObject> astro)
         {
             _astro = astro;
         }
@@ -13,7 +16,7 @@ namespace Stage1Chapter7
 
         public bool MoveNext()
         {
-            if (_position < _astro.Length - 1)
+            if (_position < _astro.Count - 1)
             {
                 _position++;
                 return true;

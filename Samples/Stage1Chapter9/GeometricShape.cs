@@ -2,7 +2,7 @@
 
 namespace Stage1Chapter9
 {
-    abstract class GeometricShape: IComparable
+    public abstract class GeometricShape: IComparable
     {
         public abstract decimal Area { get; }
         public int CompareTo(object o)
@@ -15,6 +15,5 @@ namespace Stage1Chapter9
                  return -1;
             return 0;
         }
-        public abstract void Info();
     }
 }

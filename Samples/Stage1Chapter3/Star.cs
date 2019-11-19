@@ -1,10 +1,8 @@
 ﻿namespace Stage1Chapter3
 {
-    class Star: AstronomicalObject
+    public class Star: AstronomicalObject
     {
-        protected new bool LightEmission => true;
-
-        public Star(string starName, decimal radius):base(starName, radius)
+        public Star(string starName, decimal radius):base(starName, radius, true)
         {
             
         }

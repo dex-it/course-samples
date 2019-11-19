@@ -12,14 +12,14 @@ namespace Stage1Chapter3
             var solarSystem = new SolarSystem();
 
 
-            Console.WriteLine("Количество планет Солнечной системы: " + solarSystem.AmountPlanets.ToString());
+            Console.WriteLine("Количество планет Солнечной системы: " + solarSystem.AmountPlanets);
             Console.WriteLine("Планеты Солнечной системы: ");
             foreach (var p in solarSystem.GetListPlanets())
             {
                 Console.WriteLine(p.Name);
             }
 
-            Console.WriteLine("Количество карликовых планет Солнечной системы: " + solarSystem.AmountDwarfPlanets.ToString());
+            Console.WriteLine("Количество карликовых планет Солнечной системы: " + solarSystem.AmountDwarfPlanets);
             Console.WriteLine("Карликовые планеты Солнечной системы: ");
             foreach (var dp in solarSystem.GetListDwarfPlanets())
             {
@@ -35,6 +35,14 @@ namespace Stage1Chapter3
 
             }
 
+            Console.WriteLine("Количество звезд Солнечной системы: " + solarSystem.AmountStars);
+            Console.WriteLine("Звезды Солнечной системы: ");
+            foreach (var st in solarSystem.GetListStars())
+            {
+                Console.WriteLine(st.Name);
+            }
+
+            
             Console.WriteLine("Площадь поверхности Солнца (км2):");
             foreach (var s in solarSystem.GetListStars())
             {

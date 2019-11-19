@@ -1,39 +1,27 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Stage1Chapter9
 {
-    class Rectangle:GeometricShape
+    public class Rectangle:GeometricShape
     {
-        decimal Height { get; set; }
-        decimal Width { get; set; }
-        private const string name = "Прямоугольник";
+        decimal Height { get; }
+        decimal Width { get; }
 
-        protected virtual string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
+        protected virtual string Name => "Прямоугольник";
 
         public Rectangle(decimal height = 0, decimal width = 0)
         {
             Height = height;
             Width = width;
         }
-        public override decimal Area
-        {
-            get
-            {
-                return Height * Width;
-            }
-        }
+        public override decimal Area => Height * Width;
 
-        public override void Info()
+        public void Info()
         {
             Console.WriteLine("Геометрическая фигура: " + Name);
-            Console.WriteLine("Высота: " + Height.ToString() + ", ширина: " + Width.ToString());
-            Console.WriteLine("Площадь: " + Area.ToString());
+            Console.WriteLine("Высота: " + Height.ToString(CultureInfo.InvariantCulture) + ", ширина: " + Width.ToString(CultureInfo.InvariantCulture));
+            Console.WriteLine("Площадь: " + Area.ToString(CultureInfo.InvariantCulture));
             Console.ReadLine();
         }
     }

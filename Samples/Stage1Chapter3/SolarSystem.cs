@@ -1,6 +1,6 @@
 ﻿namespace Stage1Chapter3
 {
-    internal class SolarSystem: StellarSystem
+    public class SolarSystem: StellarSystem
     {
         public SolarSystem()
         {
@@ -28,5 +28,6 @@
             AddPlanet(uranus);
             AddPlanet(neptune);
         }
+        
     }
 }

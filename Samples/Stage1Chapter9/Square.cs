@@ -1,16 +1,10 @@
 ﻿namespace Stage1Chapter9
 {
-    class Square : Rectangle
+    public class Square : Rectangle
     {
-        private const string name = "Квадрат";
+        //private const string name = "Квадрат";
         
-        protected override string Name
-        {
-            get
-            {
-                return name;
-            }
-        }   
+        protected override string Name => "Квадрат";
 
         public Square(decimal height = 0):base(height, height)
         {

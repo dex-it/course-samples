@@ -1,6 +1,6 @@
 ﻿namespace Stage1Chapter3
 {
-    class DwarfPlanet : Planet
+    public class DwarfPlanet : Planet
     {
         protected override bool LightEmission => false;
 

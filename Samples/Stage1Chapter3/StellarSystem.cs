@@ -2,7 +2,7 @@
 
 namespace Stage1Chapter3
 {
-    class StellarSystem
+    public class StellarSystem
     {
         public int AmountStars => _stars.Count;
 
@@ -15,6 +15,7 @@ namespace Stage1Chapter3
         private readonly List<Planet> _planets = new List<Planet>();
         private readonly List<DwarfPlanet> _dwarfPlanets = new List<DwarfPlanet>();
         private readonly List<Satellite> _satellites = new List<Satellite>();
+        private readonly List<AstronomicalObject> _astroObjects = new List<AstronomicalObject>();
 
         protected StellarSystem()
         {
@@ -24,6 +25,7 @@ namespace Stage1Chapter3
         protected void AddPlanet(Planet planet)
         {
             _planets.Add(planet);
+            _astroObjects.Add(planet);
         }
         public List<Planet> GetListPlanets()
         {
@@ -33,6 +35,7 @@ namespace Stage1Chapter3
         protected void AddDwarfPlanet(DwarfPlanet dwarfPlanet)
         {
             _dwarfPlanets.Add(dwarfPlanet);
+            _astroObjects.Add(dwarfPlanet);
         }
         public List<DwarfPlanet> GetListDwarfPlanets()
         {
@@ -42,6 +45,7 @@ namespace Stage1Chapter3
         protected void AddStar(Star star)
         {
             _stars.Add(star);
+            _astroObjects.Add(star);
         }
         public List<Star> GetListStars()
         {
@@ -50,11 +54,16 @@ namespace Stage1Chapter3
         public void AddSatellite(Satellite satellite)
         {
             _satellites.Add(satellite);
+            _astroObjects.Add(satellite);
         }
         public List<Satellite> GetListSatellites()
         {
             return _satellites;
         }
 
+        public List<AstronomicalObject> GetListAstroObjects()
+        {
+            return _astroObjects;
+        }
     }
 }
