@@ -1,13 +1,10 @@
 ﻿using System;
 
-
 namespace Stage1Chapter8
 {
     public class InitializationRandomAstronomicalObject
     {
-        
         private readonly Random _rnd = new Random();
-
         public string MakeName()
         {
             var name = "";
@@ -18,7 +15,6 @@ namespace Stage1Chapter8
                 var ch = (char)(_rnd.Next(97,122));
                 name += ch;
             }
-
             return name;
         }
 

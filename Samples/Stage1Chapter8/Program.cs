@@ -7,7 +7,6 @@ namespace Stage1Chapter8
 {
     public class Program
     {
-
         static void Main(string[] args)
         {
             var initRandom = new InitializationRandomAstronomicalObject();

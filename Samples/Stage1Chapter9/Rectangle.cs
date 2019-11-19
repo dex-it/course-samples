@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Chapter9
 {
@@ -31,7 +27,6 @@ namespace Stage1Chapter9
             {
                 return Height * Width;
             }
-            
         }
 
         public override void Info()

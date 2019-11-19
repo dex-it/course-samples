@@ -2,7 +2,6 @@
 {
     internal class SolarSystem: StellarSystem
     {
-
         public SolarSystem()
         {
             var star = new Star("Sun", 695510);
