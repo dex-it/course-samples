@@ -11,26 +11,44 @@ namespace Stage1Paragraph6
     {
         static void Main(string[] args)
         {
-            WaterTemperature celsiusТemperature = new WaterTemperature();
-            celsiusТemperature.Value = 10;
+            int testArrayLength = 10_000_000;
+            var sourceIntNumbers = new int[testArrayLength];
+            var receiverIntNumbers = new int[testArrayLength];
+            var boxedNumbers = new object[testArrayLength];
+            var unboxedIntNumbers = new int[testArrayLength];
 
-            // Тест упаковки
+            Console.WriteLine($"Тесты простого копирования, упаковки и распаковки в миллисекундах " +
+                $"для массивов целых чисел длиной {testArrayLength}");
+
+            // Тест простого копирования
             var watch = new Stopwatch();
             watch.Start();
 
-            object boxedTemperature = celsiusТemperature;
+            for (int i = 0; i < testArrayLength; i++)
+            { receiverIntNumbers[i] = sourceIntNumbers[i]; }
 
             watch.Stop();
-            Console.WriteLine($"Время упаковки: {watch.ElapsedMilliseconds}");
+            Console.WriteLine($"Простое копирование: {watch.ElapsedMilliseconds}");
+
+            // Тест упаковки
+            watch = new Stopwatch();
+            watch.Start();
+
+            for (int i = 0; i < testArrayLength; i++)
+            { boxedNumbers[i] = sourceIntNumbers[i]; }
+
+            watch.Stop();
+            Console.WriteLine($"Упаковка: {watch.ElapsedMilliseconds}");
 
             // Тест распаковки
             watch = new Stopwatch();
             watch.Start();
 
-            WaterTemperature unboxedTemperature = (WaterTemperature)boxedTemperature;
+            for (int i = 0; i < testArrayLength; i++)
+            { unboxedIntNumbers[i] = (int)boxedNumbers[i]; }
 
             watch.Stop();
-            Console.WriteLine($"Время распаковки: {watch.ElapsedMilliseconds}");
+            Console.WriteLine($"Распаковка: {watch.ElapsedMilliseconds}");
 
             Console.ReadLine();
         }

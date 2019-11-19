@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{30D13C05-3DEB-43C5-9725-3F786C89AC2C}</ProjectGuid>
+    <ProjectGuid>{B7D63B7F-CCA9-467C-BA97-7F3AFFEEA044}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StageParagraph6</RootNamespace>
-    <AssemblyName>StageParagraph6</AssemblyName>
+    <RootNamespace>Stage1Paragraph9</RootNamespace>
+    <AssemblyName>Stage1Paragraph9</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
