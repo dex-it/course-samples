@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Stage1Chapter9
 {
-    public static class Program
+    public class Program
     {
-        private static readonly Random Rnd = new Random();
-        private static decimal MakeValue() => Rnd.Next(1, 100);
-        private static void Main(string[] args)
+        private readonly Random Rnd = new Random();
+        private decimal MakeValue() => Rnd.Next(1, 100);
+        private void Main(string[] args)
         {
             var listRectangles = new List<Rectangle>();
             
