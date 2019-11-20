@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Topic_12_Dictionary_</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Topic_10%28Equals-GetHashCode%29" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="Topic_10%28Equals-GetHashCode%29">
+      <HintPath>..\..\Topic_10(Equals-GetHashCode)\Topic_10(Equals-GetHashCode)\obj\Debug\netcoreapp2.2\Topic_10(Equals-GetHashCode).dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

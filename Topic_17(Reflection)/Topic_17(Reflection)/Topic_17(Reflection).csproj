@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Topic_17_Reflection_</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Topic_17RTest">
+      <HintPath>..\..\Topic_17RTest\Topic_17RTest\bin\Debug\netcoreapp2.2\Topic_17RTest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="Topic_17%28RTestAsm%29">
+      <HintPath>..\..\Topic_17(RTestAsm)\Topic_17(RTestAsm)\bin\Debug\netcoreapp2.2\Topic_17(RTestAsm).dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

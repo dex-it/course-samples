@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Topic_18_Serialization_BinaryFormatter_</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Update="Topic_10%28Equals-GetHashCode%29">
+      <HintPath>..\..\Topic_10(Equals-GetHashCode)\Topic_10(Equals-GetHashCode)\obj\Debug\netcoreapp2.2\Topic_10(Equals-GetHashCode).dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
