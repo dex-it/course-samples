@@ -28,16 +28,14 @@ namespace Topic_19_Regular_expression_
 			//Исследуем данные клиента
 			Dictionary<string, string> Client = new Dictionary<string, string>();
 			Regex regexSurname = new Regex(@"\w*ов");
-			Regex regexName = new Regex(@"ов\s\w*");
-			Regex regexName2 = new Regex(@"\s\w*");
+			Regex regexName = new Regex(@"(?<=ов)\s\w*");			
 			Regex regexPatronymic = new Regex(@"(\w*вич)|(\w*вна)");
 			Regex regexFonNumber = new Regex(@"[7]{2}[0-9]{6}");
 			Regex regexMaritalStatus = new Regex(@"Женат|Холост", RegexOptions.IgnoreCase);
 			Regex regexAccount = new Regex(@"\d{3}\.\d{2}\.\d{3}");
-			Regex regexSum = new Regex(@"([0-9]\d*\s[0-9]{3}\s[0-9]{3})");
-			string name = regexName.Match(clientInformation).ToString();
+			Regex regexSum = new Regex(@"([0-9]\d*\s[0-9]{3}\s[0-9]{3})");			
 			Client.Add("Surname", regexSurname.Match(clientInformation).ToString());
-			Client.Add("Name", regexName2.Match(name).ToString());
+			Client.Add("Name", regexName.Match(clientInformation).ToString());
 			Client.Add("Patronymic", regexPatronymic.Match(clientInformation).ToString());
 			Client.Add("FonNumber", regexFonNumber.Match(clientInformation).ToString());
 			Client.Add("MaritalStatus", regexMaritalStatus.Match(clientInformation).ToString());
