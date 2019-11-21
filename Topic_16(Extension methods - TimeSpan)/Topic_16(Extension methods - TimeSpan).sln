@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topic_16(Extension methods - TimeSpan)", "Topic_16(Extension methods - TimeSpan)\Topic_16(Extension methods - TimeSpan).csproj", "{12034BF0-4F16-4249-80D5-84C6BF819BFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12034BF0-4F16-4249-80D5-84C6BF819BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12034BF0-4F16-4249-80D5-84C6BF819BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12034BF0-4F16-4249-80D5-84C6BF819BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12034BF0-4F16-4249-80D5-84C6BF819BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0EF2A4D-6793-43F8-B890-BD7BA489D9AB}
+	EndGlobalSection
+EndGlobal
