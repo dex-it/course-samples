@@ -22,10 +22,10 @@ namespace Topic_8_IQueryable_
 		public static void ExampleWith_Where(ChemicalElement[] ElementsCollection)
 		{
 			var selectedElementsArray = ElementsCollection.Where(e => e.IsMetal==true).ToArray();
-			Console.WriteLine($"Name            |OrderNumber|OpeningYear            |IsMetal ");
+			Console.WriteLine($"Name            |OrderNumber|OpeningYear  |IsMetal ");
 			foreach (var item in selectedElementsArray)
 			{
-				Console.WriteLine($"{item.Name}   |{item.OrderNumber}         |{item.OpeningYear}   |{item.IsMetal}");
+				Console.WriteLine($"{item.Name}   |{item.OrderNumber}         |{item.OpeningYear.ToString("d")}     |{item.IsMetal}");
 			}
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
@@ -83,9 +83,9 @@ namespace Topic_8_IQueryable_
 		{			
 			var selectedElementsArray = ElementsCollection.Single(e => e.OpeningYear.Year == 1940);
 			Console.WriteLine("Collection.Single()");
-			Console.WriteLine($"Name            |OrderNumber|OpeningYear            |IsMetal ");
+			Console.WriteLine($"Name            |OrderNumber|OpeningYear         |IsMetal ");
 			Console.WriteLine($"{selectedElementsArray.Name}    |{selectedElementsArray.OrderNumber}  " +
-				$"	    |{selectedElementsArray.OpeningYear}   |{selectedElementsArray.IsMetal}");
+				$"      |{selectedElementsArray.OpeningYear.ToString("d")}		 |{selectedElementsArray.IsMetal}");
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
 		public static void ExampleWith_Any(ChemicalElement[] ElementsCollection)
