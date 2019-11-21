@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Paragraph8
 {
@@ -27,43 +24,58 @@ namespace Stage1Paragraph8
             };
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
+            // Создаем библиотеку
             var myLibrary = CreateLibrary();
 
-            // оператор where и метод Count() 
-            var newBooksCount = (from b in myLibrary
-                                 where b.PublishDate.Year == 2019
-                                 select b).Count();
+            // Используем оператор Where
+            var newBooks = from b in myLibrary
+                where b.PublishDate.Year == DateTime.Now.Year
+                select b;
 
-            Console.WriteLine($"Количество новых книг {newBooksCount}");
-
-            // оператор order by
-            var orderedByAuthor = from b in myLibrary
-                                  orderby b.Title
-                                  select b.Title;
-
-            Console.WriteLine("\nНазвания книг в алфавитном порядке");
-            foreach (var e in orderedByAuthor)
+            Console.WriteLine("Использование оператора Where");
+            foreach (var book in newBooks)
             {
-                Console.WriteLine(e);
+                if (book.Title != null)
+                {
+                    Console.WriteLine(book.Title);
+                }
+            }
+            
+            // Используем оператор OrderBy
+            var sortedBooks = from b in myLibrary
+                orderby b.Title
+                select b;
+
+            Console.WriteLine("\nИспользование оператора OrderBy");
+            foreach (var book in sortedBooks)
+            {
+                Console.WriteLine(book.Title);
             }
 
+            // Используем оператор GroupBy
+            var groupsByAuthor = from b in myLibrary
+                group b by b.Author;
 
-
-            // Метод group by
-            Console.WriteLine("\nКоличество книг по авторам");
-            var groupsByYears = from b in myLibrary
-                                group b by b.Author into g
-                                select new { Year = g.Key, Count = g.Count() };
-            foreach (var group in groupsByYears)
+            Console.WriteLine("\nИспользование оператора group by");
+            foreach (var group in groupsByAuthor)
             {
-                Console.WriteLine($"{group.Year} : {group.Count}");
+                Console.WriteLine(group.Key);
+
+                foreach (var book in group)
+                {
+                    Console.WriteLine($"\t{book.Title}");
+                }
             }
 
+            // Используем Min и Max
+            var smallestBook = myLibrary.Min(b => b.PageCount);
+            var largestBook = myLibrary.Max(b => b.PageCount);
+
+            Console.WriteLine($"\nСамая маленькая книга:{smallestBook}, самая большая книга:{largestBook}");
+            
             Console.ReadLine();
         }
-
-
     }
 }

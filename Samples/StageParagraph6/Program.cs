@@ -1,15 +1,11 @@
 ﻿using System.Diagnostics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Paragraph6
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int testArrayLength = 10_000_000;
             var sourceIntNumbers = new int[testArrayLength];

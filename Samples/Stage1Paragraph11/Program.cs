@@ -10,12 +10,12 @@ namespace Stage1Paragraph11
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> dictionary = new Dictionary<string, int>();
-            dictionary["AB"] = 20;
+            //Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            //dictionary["AB"] = 20;
 
-            Console.WriteLine(dictionary["AB "]);
+            //Console.WriteLine(dictionary["AB "]);
 
-            dictionary.
+            //dictionary.
         }
     }
 }
