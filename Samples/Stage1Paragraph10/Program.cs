@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Paragraph10
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Person person1 = new Person("Елена Петрова", new DateTime(1990, 04, 05),
                 "ПМР, г. Каменка", 45786125);
-            Person person2 = new Person("Николай Соколов", new DateTime(1990, 04, 05),
+            Person person2 = new Person("Елена Петрова", new DateTime(1990, 04, 05),
                 "ПМР, г. Каменка", 45786125);
 
             Console.WriteLine($"Тест метода Equals():{person1.Equals(person2)}");
