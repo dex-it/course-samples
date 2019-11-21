@@ -12,7 +12,10 @@ namespace Stage1
 
         public int CompareTo(Circle circle)
         {
-            if (circle == null) throw new ArgumentNullException(nameof(circle));
+            if (circle == null)
+            {
+                throw new ArgumentNullException(nameof(circle));
+            }
             return this.Square.CompareTo(circle.Square);
         }
     }

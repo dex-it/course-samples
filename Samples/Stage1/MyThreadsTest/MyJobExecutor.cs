@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Stage1.MyThreadsTest
 {
-    public class MyJobExecutor :  IJobExecutor
+    public class MyJobExecutor : IJobExecutor
     {
+        public MyJobExecutor()
+        {
+            _actions = new BlockingCollection<Action>();
+        }
 
-        private  BlockingCollection<Action> _actions=new BlockingCollection<Action>();
+        private BlockingCollection<Action> _actions;
 
         private volatile bool _shouldStop;
         private volatile bool _jobIsStarted;
@@ -29,8 +32,9 @@ namespace Stage1.MyThreadsTest
                
             _jobIsStarted = true;
 
+            
             var tasks = new List<Task>();
-            using var semaphoreSlim = new SemaphoreSlim(maxConcurrent);
+            using var semaphoreSlim = new SemaphoreSlim(Environment.ProcessorCount,maxConcurrent);
             
 
             while (!_shouldStop)
@@ -129,27 +133,4 @@ namespace Stage1.MyThreadsTest
     */
     }
 
-    public class Test
-    {
-        [Test]
-        public void ThreadsTest()
-        {
-            var jobExecutor = new MyJobExecutor();
-
-            for (int i = 0; i < 10; i++)
-            {
-                jobExecutor.Add(new Action(() =>
-                {
-                    Console.WriteLine(Task.CurrentId);
-                }));
-            }
-            
-            Assert.AreEqual(jobExecutor.Amount,10);
-            jobExecutor.Start(10);
-            Assert.AreEqual(jobExecutor.Amount,0);
-
-
-
-        }
-    }
 }

@@ -49,7 +49,6 @@ namespace Stage1.MyThreadsTest
             Parallel.For(0, mas.Length, i => { _sum += i; });
             
             
-            
             _average = (double)_sum / mas.Length;
             
             _sw.Stop();
@@ -78,7 +77,6 @@ namespace Stage1.MyThreadsTest
             _sw.Stop();
 
             Console.WriteLine("Non Parallel " + _sw.ElapsedTicks );
-            Console.WriteLine(_sum);
              
         }
     }

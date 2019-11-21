@@ -63,7 +63,7 @@ namespace Stage1
 
             car2 = car1.Clone() as Car;
 
-            Assert.AreEqual(car1.Owner, car2.Owner);
+            Assert.AreEqual(car1.Owner, car2?.Owner);
 
 
             car2 = car1.DeepClone();
