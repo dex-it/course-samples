@@ -11,16 +11,14 @@ namespace Topic_5_boxing_and_unboxing_Time_
 			int b;
 			object Sempl1;
 			long t1;
-			long t2;
-			//long dt;
+			long t2;			
 			TimeSpan processDuration;
 
 
 			Console.WriteLine("_ _ _ boxing _ _ _");
 			t1 = DateTime.Now.Ticks;
 			Sempl1 = a;
-			t2 = DateTime.Now.Ticks;
-			//dt = t2 - t1;
+			t2 = DateTime.Now.Ticks;			
 			processDuration = new TimeSpan(t2 - t1);
 			Console.WriteLine($"processDuration = {processDuration.Ticks} ticks    t1 = {t1} t2 = {t2}");
 
