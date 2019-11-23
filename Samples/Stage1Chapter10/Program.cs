@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
+
 namespace Stage1Chapter10
 {
     class Program
