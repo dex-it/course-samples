@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Stage1Chapter5
 {
@@ -10,9 +11,9 @@ namespace Stage1Chapter5
 
             string str = "Michael Brown";
 
-            Console.WriteLine("Проверка на эквивалентность c помощью оператора == : " + (str == discovererOfPluto).ToString());
+            Console.WriteLine("Проверка на эквивалентность c помощью оператора == : " + (str == discovererOfPluto).ToString(CultureInfo.InvariantCulture));
 
-            Console.WriteLine("Проверка на эквивалентность c помощью метода Equals() : " + discovererOfPluto.Equals(str).ToString());
+            Console.WriteLine("Проверка на эквивалентность c помощью метода Equals() : " + discovererOfPluto.Equals(str).ToString(CultureInfo.InvariantCulture));
 
             Console.ReadLine();
 

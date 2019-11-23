@@ -7,7 +7,7 @@ namespace Stage1Chapter8
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var initRandom = new InitializationRandomAstronomicalObject();
             
@@ -24,7 +24,7 @@ namespace Stage1Chapter8
             long j = 0;
             foreach (var a in astroSelected)
             {
-                Console.WriteLine(Convert.ToString(j) + " - " + a.Name + " - " + Convert.ToString(a.LightEmission) + " - " + a.Radius.ToString(CultureInfo.InvariantCulture));
+                Console.WriteLine(Convert.ToString(j, CultureInfo.InvariantCulture) + " - " + a.Name + " - " + Convert.ToString(a.LightEmission, CultureInfo.InvariantCulture) + " - " + a.Radius.ToString(CultureInfo.InvariantCulture));
                 j++;
             }
 

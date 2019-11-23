@@ -5,9 +5,9 @@ namespace Stage1Chapter9
 {
     public class Program
     {
-        private readonly Random Rnd = new Random();
-        private decimal MakeValue() => Rnd.Next(1, 100);
-        private void Main(string[] args)
+        private static readonly Random Rnd = new Random();
+        private static decimal MakeValue() => Rnd.Next(1, 100);
+        public static void Main(string[] args)
         {
             var listRectangles = new List<Rectangle>();
             
