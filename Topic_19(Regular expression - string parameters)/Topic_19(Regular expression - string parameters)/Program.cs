@@ -21,7 +21,7 @@ namespace Topic_19_Regular_expression___string_parameters_
 		}
 		public static Dictionary<string, string> ExtractSettings(string s)
 		{
-			//ИЗВЛЕКАЕМ АЕРПЕМЕТРЫ ИЗ CТРОКИ
+			//ИЗВЛЕКАЕМ ПАРАМЕТРЫ ИЗ CТРОКИ
 			Dictionary<string, string> parameters = new Dictionary<string, string>();
 			Regex regexKey = new Regex(@"\w(?==)");
 			Regex regexValue = new Regex(@"(?<==)\w*");
