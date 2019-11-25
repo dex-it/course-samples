@@ -64,9 +64,9 @@ namespace Topic_12_Dictionary_
 			fullName3.Patronymic = "Иванович";
 			DateTime dateOfBirth3 = new DateTime(1996, 05, 08);
 
-			Person p1 = new Person(fullName1, dateOfBirth1, "Кишинев", 00000001);
-			Person p2 = new Person(fullName2, dateOfBirth2, "Тирасполь", 00000002);
-			Person p3 = new Person(fullName3, dateOfBirth3, "Рыбница", 00000003);
+			Person p1 = new Person(fullName1, dateOfBirth1, "Кишинев", 123);
+			Person p2 = new Person(fullName2, dateOfBirth2, "Тирасполь", 456);
+			Person p3 = new Person(fullName3, dateOfBirth3, "Рыбница", 789);
 
 			Dictionary<Person, string> HandbookPlaceOfWork = new Dictionary<Person, string>
 			{
