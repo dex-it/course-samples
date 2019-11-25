@@ -8,13 +8,13 @@ namespace Topic_13_Events_dX_
 		{
 			Analyst analyst = new Analyst(50);
 			analyst.dXEvent += Handler;
-			int[] n = new int[] { 10, 8, 9, 8, 11, 20, 5, 13, 12, 1, 7, 9};
-			int number;
+			int[] number = new int[] { 10, 8, 9, 8, 11, 20, 5, 13, 12, 1, 7, 9};
+			
 			for (int i = 0; i < 12; i++)
 			{
-				number = n[i];
-				Console.WriteLine($"number = {number}");
-				analyst.Analysis(number);
+
+				Console.WriteLine($"number = {number[i]}");
+				analyst.Analysis(number[i]);
 
 			}
 			
