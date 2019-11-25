@@ -29,11 +29,18 @@ namespace Topic_10_Equals_GetHashCode_
 			Person person1 = new Person(fullName1, dateTime1, "Тирасполь", 01102);
 			Person person2 = new Person(fullName2, dateTime2, "Рыбница", 12101);
 			Person person3 = new Person(fullName3, dateTime2, "Рыбница", 12101);
+			
 
 			Console.WriteLine($" person3.Equals(person1) = {person3.Equals(person1)} \n person3.Equals(person2) = {person3.Equals(person2)} \n");
 			Console.WriteLine("_ _ _");
-			Console.WriteLine($" person1.GetHashCode() = {person1.GetHashCode()} \n person2.GetHashCode() = {person2.GetHashCode()} \n person3.GetHashCode() = {person3.GetHashCode()} ");
-			Console.Read(); 
+			Console.WriteLine($" person1.GetHashCode() = {person1.GetHashCode()} " +
+							  $"\n person2.GetHashCode() = {person2.GetHashCode()} " +
+							  $"\n person3.GetHashCode() = {person3.GetHashCode()} ");
+
+			bool t = (person2 == person3);
+			Console.WriteLine($"t = {t}");
+
+
 		}
 		
 	}
