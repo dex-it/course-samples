@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Stage1Chapter3;
 using Stage1Chapter10;
 
 namespace Stage1Chapter11
@@ -12,7 +11,15 @@ namespace Stage1Chapter11
 
         public void AddAstronomicalObject(AstronomicalObjectEqual planet, int numberFromSun)
         {
-            _planetDictionary.Add(planet, numberFromSun);
+            if (!_planetDictionary.ContainsKey(planet))
+            {
+                _planetDictionary.Add(planet, numberFromSun);
+            }
+            else
+            {
+                //return;
+                throw new InvalidOperationException("This key is already in the collection.");
+            }
         }
 
         public int GetNumberFromSun(AstronomicalObjectEqual planet)
@@ -21,12 +28,11 @@ namespace Stage1Chapter11
 
             foreach (var p in _planetDictionary)
             {
-
                 if (p.Key.GetHashCode() == planet.GetHashCode())
                 {
                     res = p.Value;
+                    break;
                 }
-                
             }
 
             return res;

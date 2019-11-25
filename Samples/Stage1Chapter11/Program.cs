@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Stage1Chapter3;
 using Stage1Chapter10;
 
 namespace Stage1Chapter11
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             PlanetBook book = new PlanetBook();
 
@@ -31,6 +26,7 @@ namespace Stage1Chapter11
             book.AddAstronomicalObject(saturn, 6);
             book.AddAstronomicalObject(uranus, 7);
             book.AddAstronomicalObject(neptune, 8);
+            //book.AddAstronomicalObject(earth, 9);
 
             Console.WriteLine("Number from Sun (Earth): " + book.GetNumberFromSun(earth));
             Console.ReadLine();
