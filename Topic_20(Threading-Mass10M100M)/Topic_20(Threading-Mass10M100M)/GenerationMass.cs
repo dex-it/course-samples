@@ -9,6 +9,9 @@ namespace Topic_20_Threading_Mass10M100M_
 {
 	public class GenerationMass
 	{
+		public delegate void CalcDelegate(int i, int[] mass);
+		public event CalcDelegate CalcEvent;
+
 		public  void SerialCalc(int[] mass)
 		{
 			double medium = 0;
@@ -72,11 +75,28 @@ namespace Topic_20_Threading_Mass10M100M_
 			}			
 			
 			time.Stop();
-			Console.WriteLine("Паралельное исследование завершено.");
+			Console.WriteLine("Паралельное исследование №1 завершено.");
 			Console.WriteLine($"max = {mass[mass.Length - 1]}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
 		}
-		
+
+		public void ParalelCalc2(int[] mass)
+		{
+			
+			var time = new Stopwatch();
+			time.Start();
+
+			for (int i = 0; i < mass.Length; i++)
+			{
+				mass[i] = i;
+				CalcEvent?.Invoke(i,mass);
+			}
+
+			time.Stop();
+			Console.WriteLine("Паралельное исследование №2 завершено.");
+			Console.WriteLine($"max = {mass[mass.Length - 1]}");
+			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
+		}
 		
 		
 	}
