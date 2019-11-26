@@ -7,10 +7,11 @@ namespace Topic_13_Events_Queue_
 {
 	public class MyQueue : Queue
 	{
-		Queue<int> myQueue = new Queue<int>();
-		private int MaxCount;
 		public delegate void MyQueueHandler(string message);
 		public event MyQueueHandler QueueEvent;
+		Queue<int> myQueue = new Queue<int>();
+		private int MaxCount;
+		
 		public MyQueue(int MaxCount)
 		{
 			this.MaxCount = MaxCount;
