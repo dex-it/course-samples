@@ -9,17 +9,17 @@ namespace Topic_8_IQueryable_
 		{
 			ChemicalElement[] chemicalElements = GenerateACollection();
 
-			ExampleWith_Where(chemicalElements);
-			ExampleWith_OrderNumber_Where(chemicalElements);
-			ExampleWith_OrderNumber_OrderByDescending(chemicalElements);
-			ExampleWith_GroupBy(chemicalElements);
-			ExampleWith_Single(chemicalElements);
-			ExampleWith_Any(chemicalElements);
-			ExampleWith_Max(chemicalElements);					
+			ExampleWithWhere(chemicalElements);
+			ExampleWithOrderNumber(chemicalElements);
+			ExampleWithOrderByDescending(chemicalElements);
+			ExampleWithGroupBy(chemicalElements);
+			ExampleWithSingle(chemicalElements);
+			ExampleWithAny(chemicalElements);
+			ExampleWithMax(chemicalElements);					
 		}
 
 		
-		public static void ExampleWith_Where(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithWhere(ChemicalElement[] ElementsCollection)
 		{
 			var selectedElementsArray = ElementsCollection.Where(e => e.IsMetal==true).ToArray();
 			Console.WriteLine($"Name            |OrderNumber|OpeningYear  |IsMetal ");
@@ -30,7 +30,7 @@ namespace Topic_8_IQueryable_
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
 
-		public static void ExampleWith_OrderNumber_Where(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithOrderNumber(ChemicalElement[] ElementsCollection)
 		{
 			var selectedElementsArray = ElementsCollection.Where(e => e.OrderNumber > 50).Where(e => e.IsMetal == true).ToArray();
 			foreach (var item in selectedElementsArray)
@@ -40,7 +40,7 @@ namespace Topic_8_IQueryable_
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
 
-		public static void ExampleWith_OrderNumber_OrderByDescending(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithOrderByDescending(ChemicalElement[] ElementsCollection)
 		{
 			var selectedElementsArray = ElementsCollection.Where(e => e.OrderNumber > 90).OrderByDescending(e => e.OrderNumber);
 			foreach (var item in selectedElementsArray)
@@ -49,7 +49,7 @@ namespace Topic_8_IQueryable_
 			}
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
-		public static void ExampleWith_GroupBy(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithGroupBy(ChemicalElement[] ElementsCollection)
 		{
 			Console.WriteLine("New Collection:");
 			Console.WriteLine("MaxOrderNumbr |IsMetal");
@@ -58,28 +58,17 @@ namespace Topic_8_IQueryable_
 										 select new
 										 {
 											 MaxOrderNubber = nCollectoin.Max(e => e.OrderNumber),
-											 IsMetal = nCollectoin.Key
-											 //IsMetal = nCollectoin(e=>e.Is)
+											 IsMetal = nCollectoin.Key											
 										 }).ToList();
 			foreach (var item in selectedElementsArray)
 			{
 
 				Console.WriteLine($"{item.MaxOrderNubber}           |{item.IsMetal}");
 			}
-			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
-			//var res = (from a in chemicalElements
-			//		   group a by a.IsMetal into tmp
-			//		   select new
-			//		   {
-			//			   Name = tmp.Key,
-			//			   MaxNum = tmp.Max(x => x.IsMetal),
-			//			   MinNum = tmp.Min(x => x.Name),
-			//			   SumNum = tmp.Sum(x => x.OrderNumber),
-			//			   Other = tmp.Max(x => x.OpeningYear)
-			//		   }).ToList();
+			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");			
 		}
 
-		public static void ExampleWith_Single(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithSingle(ChemicalElement[] ElementsCollection)
 		{			
 			var selectedElementsArray = ElementsCollection.Single(e => e.OpeningYear.Year == 1940);
 			Console.WriteLine("Collection.Single()");
@@ -88,35 +77,36 @@ namespace Topic_8_IQueryable_
 				$"      |{selectedElementsArray.OpeningYear.ToString("d")}		 |{selectedElementsArray.IsMetal}");
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
-		public static void ExampleWith_Any(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithAny(ChemicalElement[] ElementsCollection)
 		{
 			var selectedElementsArray = ElementsCollection.Any(e => e.OrderNumber == 55);
 			Console.WriteLine("Collection.Any()");
 			Console.WriteLine($"Искомый элемент найден? = {selectedElementsArray} ");
-
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
 
-		public static void ExampleWith_Max(ChemicalElement[] ElementsCollection)
+		public static void ExampleWithMax(ChemicalElement[] ElementsCollection)
 		{
-			var MaxOrderNumber = ElementsCollection.Max(e => e.OrderNumber);
-			var MinOrderNumber = ElementsCollection.Min(e => e.OrderNumber);
-			var SumOrderNumber = ElementsCollection.Sum(e => e.OrderNumber);
+			var maxOrderNumber = ElementsCollection.Max(e => e.OrderNumber);
+			var minOrderNumber = ElementsCollection.Min(e => e.OrderNumber);
+			var sumOrderNumber = ElementsCollection.Sum(e => e.OrderNumber);
 			Console.WriteLine("Collection.Max_Min_Sum");
-			Console.WriteLine($"MaxOrderNumber = {MaxOrderNumber} \nMinOrderNumber = {MinOrderNumber} \nSumOrderNumber = {SumOrderNumber}");
+			Console.WriteLine($"MaxOrderNumber = {maxOrderNumber} \nMinOrderNumber = {minOrderNumber} \nSumOrderNumber = {sumOrderNumber}");
 			Console.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
 		}
 		///
 		public static ChemicalElement[] GenerateACollection()
 		{
 			ChemicalElement[] ElementCollection = new ChemicalElement[100];
+
 			for (int i = 0; i < 100; i++)
 			{
 				DateTime dateTime = new DateTime(); 
 				ChemicalElement chemicalElement = new ChemicalElement();
 				chemicalElement.Name = "Element_№_" + i+1;
 				chemicalElement.OrderNumber = i+1;
-				chemicalElement.OpeningYear = dateTime.AddYears(1900 + i);// new DateTime(1990 + (i+1));
+				chemicalElement.OpeningYear = dateTime.AddYears(1900 + i);
+
 				if ((i+1)%10 == 0)
 				{
 					chemicalElement.IsMetal = true;
@@ -127,7 +117,7 @@ namespace Topic_8_IQueryable_
 				}
 
 				ElementCollection[i] = chemicalElement;
-				//Console.WriteLine(ElementCollection[i].OrderNumber + ElementCollection[i].Name + ElementCollection[i].IsMetal);
+				
 			}
 			
 			return ElementCollection;

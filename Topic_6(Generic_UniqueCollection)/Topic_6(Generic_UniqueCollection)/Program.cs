@@ -7,14 +7,15 @@ namespace Topic_6_Generic_UniqueCollection_
 		static void Main(string[] args)
 		{
 			UniqueCollection<string> uniqueCollection = new UniqueCollection<string>();			
-			
-			while (true)
+			string userElement =" ";
+
+			while (userElement!="`")
 			{
 				Console.WriteLine("Введите новый элепент коллекции:");
-				string UserElement = Console.ReadLine();
+				userElement = Console.ReadLine();
 				try
 				{
-					uniqueCollection.AddElement(UserElement);
+					uniqueCollection.AddElement(userElement);
 				}
 				catch (Exception ex)
 				{
