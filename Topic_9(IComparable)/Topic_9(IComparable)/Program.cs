@@ -15,6 +15,7 @@ namespace Topic_9_IComparable_
 			Color[] Spectrum = new Color[] { color1, color2, color3, color4, color5 };
 			Console.WriteLine("_ _ Пример использования IComparable _");
 			Array.Sort(Spectrum);
+
 			foreach (Color c in Spectrum)
 			{
 				Console.WriteLine($"{c.ColorName} - {c.WavelengthOfLight}");
@@ -23,6 +24,7 @@ namespace Topic_9_IComparable_
 			Console.WriteLine("_ _ _");
 			Console.WriteLine("_ _ Пример использования IComparer<T> _");
 			Array.Sort(Spectrum, new ColorComparer());
+
 			foreach (Color c in Spectrum)
 			{
 				Console.WriteLine($"{c.ColorName} - {c.WavelengthOfLight}");

@@ -11,6 +11,7 @@ namespace Topic_9_IComparable_
 		public int CompareTo(object obj)
 		{
 			Color color = obj as Color;
+
 			if (color !=null)
 			{
 				return this.ColorName.CompareTo(color.ColorName);
