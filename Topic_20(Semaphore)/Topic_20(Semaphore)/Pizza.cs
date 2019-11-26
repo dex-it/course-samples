@@ -7,10 +7,10 @@ namespace Topic_20_Semaphore_
 {
 	public class Pizza
 	{
-		//public int OrderingNumber { get; set; }
-		public static int MaxOrderingCount=1;// максимальное колечество пицы, помещяющейся в печку
+		
+		public static int maxOrderingCount=1;// максимальное колечество пицы, помещяющейся в печку
 		Thread thread;
-		static Semaphore semaphore = new Semaphore(MaxOrderingCount, MaxOrderingCount);
+		static Semaphore semaphore = new Semaphore(maxOrderingCount, maxOrderingCount);
 		static int countOfOrder = 0;
 		public Pizza(int OrderingNumber)
 		{
