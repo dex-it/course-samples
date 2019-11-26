@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Topic_11_Delegate_
 {
-	public class Fruits
+	public class Fruit
 	{
 		public void Apple()
 		{

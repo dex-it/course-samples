@@ -8,7 +8,8 @@ namespace Topic_11_Delegate_
 	public class Operation
 	{
 		public int Add(int a, int b)
-		{	int c = a + b;
+		{
+			int c = a + b;
 			Console.WriteLine("a + b = " + c);
 			return c;
 		}

@@ -8,11 +8,11 @@ namespace Topic_11_Delegate_
 		delegate int CalcDel(int x, int y);
 		static void Main(string[] args)
 		{
-			Fruits fruits = new Fruits();
-			MessageDel message = fruits.Apple;
-			message += fruits.Lemon;
-			message += fruits.Pear;
-			message += fruits.Lemon;
+			Fruit fruit = new Fruit();
+			MessageDel message = fruit.Apple;
+			message += fruit.Lemon;
+			message += fruit.Pear;
+			message += fruit.Lemon;
 			message();
 
 			Console.WriteLine("_ _Вызов делегата с помощю метода Invoke()_ _");
@@ -32,7 +32,6 @@ namespace Topic_11_Delegate_
 				Welcome(time.GoodEvening);
 			}
 
-			//Console.Read();
 		}
 
 		static void Welcome(MessageDel message2)
