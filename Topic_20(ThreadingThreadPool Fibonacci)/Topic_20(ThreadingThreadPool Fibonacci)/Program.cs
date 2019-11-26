@@ -13,6 +13,7 @@ namespace Topic_20_ThreadingThreadPool_Fibonacci_
 			var rand = new Random();
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.WriteLine($"Launching {FibonacciCalculations} task....");
+
 			for (int i = 0; i < FibonacciCalculations; i++)
 			{
 				doneEvents[i] = new ManualResetEvent(false);
