@@ -3,8 +3,7 @@
 namespace Topic_5_boxing_and_unboxing_
 {
 	class Program
-	{
-		static void Main(string[] args)
+	{		static void Main(string[] args)
 		{
 			Console.WriteLine("_ _ _ boxing _ _ _");
 			int a = 123;
@@ -25,7 +24,7 @@ namespace Topic_5_boxing_and_unboxing_
 			{
 				int b = (int)Sempl1;
 				bool State2 = (bool)Sempl2;
-				//b = (int)Sempl2;// пример попытки некоректной распаковки, с несообветствием типов
+				//b = (int)Sempl2;// пример попытки некоректной распаковки, с несоответствием типов
 				Console.WriteLine($"b = {b}");
 				Console.WriteLine($"State2 = {State2}");
 			}
@@ -33,8 +32,6 @@ namespace Topic_5_boxing_and_unboxing_
 			{
 				Console.WriteLine(e.Message);				
 			}
-
-			Console.Read();
 		}
 	}
 }
