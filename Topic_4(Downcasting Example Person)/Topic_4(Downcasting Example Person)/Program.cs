@@ -9,7 +9,7 @@ namespace Topic_4_Downcasting_Example_Person_
 			Person person = new Person { FirstName = "Антон", LastName = "Перов" };
 			Console.WriteLine("До присвоения");
 			Console.WriteLine($"{person.FirstName} {person.LastName}");
-			person = (Person)"Семен";
+			person = (Person)"Семен Гинадиевич";
 			Console.WriteLine("После присвоения");
 			Console.WriteLine($"{person.FirstName} {person.LastName}");
 		}
