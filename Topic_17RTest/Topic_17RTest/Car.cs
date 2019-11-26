@@ -8,11 +8,11 @@ namespace Topic_17RTest
 	{
 		public int CountOfWeel = 4;
 		public string Brand;
-		private string Color = " _ ";
+		private string color = " _ ";
 		public string ColorPropertis
 		{
-			get { return Color; }
-			set { Color = value; }
+			get { return color; }
+			set { color = value; }
 		}
 		public int NumberOfPasagers { get; set; }
 		
@@ -32,7 +32,7 @@ namespace Topic_17RTest
 		}
 		public void PresentCar()
 		{
-			Console.WriteLine($"Hi! I am a {Color} car. I can teket {NumberOfPasagers} passagers");
+			Console.WriteLine($"Hi! I am a {color} car. I can teket {NumberOfPasagers} passagers");
 		}
 
 		public string Speed(int distance, int time)
