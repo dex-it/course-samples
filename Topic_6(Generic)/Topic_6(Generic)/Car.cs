@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Topic_6_Generic_
 {
-	class Cars <T>
+	class Car <T>
 	{
 		public T Brand;
 		public T NumberOfWheel { get; set; }
@@ -16,10 +16,6 @@ namespace Topic_6_Generic_
 			Console.WriteLine($"the number of the car is : {CarNumber},");
 			Console.WriteLine($"the car cost = {CarPrice},");
 			Console.WriteLine($"the car can accommodate {NumberOfPasagers} passengers.");
-		}
-		public T HelloMet<T>(T i)
-		{		
-			return i;
-		}
+		}		
 	}
 }
