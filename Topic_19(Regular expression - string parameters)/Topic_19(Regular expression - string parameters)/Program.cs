@@ -13,6 +13,7 @@ namespace Topic_19_Regular_expression___string_parameters_
 			parameters = ExtractSettings(s);
 			Console.WriteLine($"Образец = {s}");
 			Console.WriteLine($"Результат:");
+
 			foreach (var item in parameters)
 			{
 				Console.WriteLine($"{item.Key} = {item.Value}");				
@@ -27,10 +28,12 @@ namespace Topic_19_Regular_expression___string_parameters_
 			Regex regexValue = new Regex(@"(?<==)\w*");
 			var keyCollection = regexKey.Matches(s);
 			var valueCollection = regexValue.Matches(s);
+
 			for (int i = 0; i < keyCollection.Count; i++)
 			{
 				parameters.Add(keyCollection[i].ToString(), valueCollection[i].ToString());
 			}
+
 			return parameters;
 		}
 	}
