@@ -12,13 +12,15 @@ namespace Topic_20_ThreadingThreadPool_
 			int nCompletionThreads;
 			ThreadPool.GetMaxThreads(out nWorkerThreads, out nCompletionThreads);
 			Console.WriteLine("Максимальное количество потоков: " + nWorkerThreads +"\n Потоков ввода -вывода  доступно: " + nCompletionThreads);
+
 			for (int i = 0; i < 5; i++)
 			{
+
 				inc++;
 				ThreadPool.QueueUserWorkItem(JobForAThread);
 				Thread.Sleep(500);
 				Console.WriteLine($"_ _ inc = {inc} _ _");
-				//Console.ReadKey();
+				
 			}
 		}
 
