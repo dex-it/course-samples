@@ -6,8 +6,8 @@ namespace Topic_2_ReferenceType_
 {
 	class Fruit
 	{
-		public string Color;
-		public string Name;
+		public string Color { get; set; }
+		public string Name { get; set; }
 
 	}
 }

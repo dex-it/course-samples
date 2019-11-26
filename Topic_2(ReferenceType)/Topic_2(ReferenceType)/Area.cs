@@ -6,7 +6,7 @@ namespace Topic_2_ReferenceType_
 {
 	class Area
 	{
-		public int x;
-		public int y;
+		public int x { get; set; }
+		public int y { get; set; }
 	}
 }

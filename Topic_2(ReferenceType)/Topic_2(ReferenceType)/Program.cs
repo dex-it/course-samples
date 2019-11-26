@@ -6,7 +6,6 @@ namespace Topic_2_ReferenceType_
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
 			Area area1 = new Area { x = 3, y = 3 };
 			Area area2 = new Area { };
 			area2 = area1;
@@ -23,7 +22,7 @@ namespace Topic_2_ReferenceType_
 			Console.WriteLine("After changing the fruit color");
 			Console.WriteLine("fruit = " + fruit.Color + " " + fruit.Name);
 
-			//Console.Read();
+			
 
 		}
 		static void ChangColor(Fruit fruit1)
