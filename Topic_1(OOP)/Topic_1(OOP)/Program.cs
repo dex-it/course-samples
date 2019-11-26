@@ -6,16 +6,17 @@ namespace Topic_1_OOP_
 	{
 		static void Main(string[] args)
 		{			
-			MyCat Tom = new MyCat("Tom");
-			Tom.Family = "Felidae";
-			Tom.It_is_hungry(4, 2);
-			Tom.FeedTheCat();
-			Tom.It_is_hungry(1, 2);
+			MyCat tom = new MyCat("Tom");
+			tom.Family = "Felidae";
+			tom.ItIsHungry(4, 2);
+			tom.FeedTheCat();
+			tom.ItIsHungry(1, 2);
+			tom.ChangeCountOfLegs(5);
 
-			MyDog Lucky = new MyDog("Lucky");
-			Lucky.Family = "Canidae";
+			MyDog lucky = new MyDog("Lucky");
+			lucky.Family = "Canidae";
 
-			ICreatures[] myPets = { Tom, Lucky };
+			ICreature[] myPets = { tom, lucky };
 			foreach (var item in myPets)
 			{
 				Console.WriteLine($"my pets {item.ToString()} = {item.Family}");

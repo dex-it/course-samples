@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Topic_1_OOP_
 {
-	class MyCat : Cats
+	class MyCat : Cat
 	{
 		//public string CatName;
 		public MyCat(string name)
