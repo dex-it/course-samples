@@ -8,8 +8,7 @@ namespace Topic_4_Downcasting_
 		{
 			Transport transport = new Transport();
 			transport.NumberOfWheels = 3;
-			transport.Present();
-			//Transport.Fuel = "H2";
+			transport.Present();			
 
 			Bike bike = new Bike("Suzuki");
 			bike.PrezentTheBike();
@@ -20,7 +19,6 @@ namespace Topic_4_Downcasting_
 
 
 			Console.WriteLine("_ _ _ as _ _ _");
-
 			car = transport as Car;
 			if (car == null)
 			{
@@ -33,7 +31,6 @@ namespace Topic_4_Downcasting_
 
 
 			Console.WriteLine("_ _ _  InvalidCastException _ _ _");
-
 			try
 			{
 				bike = (Bike)transport;
@@ -45,7 +42,6 @@ namespace Topic_4_Downcasting_
 
 
 			Console.WriteLine("_ _ _ is _ _ _");
-
 			if (transport is Car)
 			{
 				car = (Car)transport;

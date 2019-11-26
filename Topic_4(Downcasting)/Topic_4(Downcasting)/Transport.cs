@@ -7,7 +7,7 @@ namespace Topic_4_Downcasting_
 	class Transport
 	{
 		public int NumberOfWheels{get;set;}
-		public static string Fuel = "gasoline";
+		public string Fuel = "gasoline";
 
 		public void Present()
 		{
