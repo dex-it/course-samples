@@ -11,16 +11,17 @@ namespace Topic_3_in_out_ref_
 			int z;
 			int e;
 
-			Console.WriteLine("example with _ ref _");
+			Console.WriteLine("Example with ref ");
 			Console.WriteLine($"Before the chenging a = {a}, b = {b}");
 			IncrimentXY(a,ref b);
 			Console.WriteLine($"After the chenging a = {a}, b = {b}");
 
-			Console.WriteLine("example with _ out _");
+			Console.WriteLine("Example with  out ");
 			Operation(a,b, out z, out e);
-			Console.WriteLine($"z = {z}, e= {e}");
+			Console.WriteLine($"z = {z}, e = {e}");
 
-			Console.Read();
+			Console.WriteLine("Example with  in ");
+			Console.WriteLine($"Data = {GetData(5,4)}");
 		}
 
 		static void IncrimentXY(int x, ref int y)
@@ -35,10 +36,10 @@ namespace Topic_3_in_out_ref_
 			z = x + y;
 			e = x * y;
 		}
-		static void GetData(in int x, int y)
+		static int GetData(in int x, int y)
 		{
-			y = y + x;
-			//x = x + 10;// in не разрашаеи изменить значение X
+			return y = y + x;
+			//return x = x + 10;// in не разрашает изменить значение X!
 		}
 	}
 
