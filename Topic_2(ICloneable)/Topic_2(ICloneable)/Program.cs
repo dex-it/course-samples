@@ -10,20 +10,23 @@ namespace Topic_2_ICloneable_
 
 			Person anna = new Person
 			{
-				fullName = new FullName{ Name = "Анна", Patronymic = "Семеновна", Surname = "Крапачёва" },
-				dateOfBirth = new DateTime(1989,5,22),
-				birthPlace = "Кишинев"
+				FullName = new FullName{ Name = "Анна", Patronymic = "Семеновна", Surname = "Крапачёва" },
+				DateOfBirth = new DateTime(1989,5,22),
+				BirthPlace = "Кишинев"
 			};
 			Person elen = (Person)anna.Clone();
-			Console.WriteLine($"FullName for (elen) after clone - {elen.fullName.Surname} {elen.fullName.Name} {elen.fullName.Patronymic}");
-			Console.WriteLine($"dateOfBirth = {elen.dateOfBirth}");
+			
+			Console.WriteLine($"FullName for (elen) after clone - {elen.FullName.Surname} {elen.FullName.Name} {elen.FullName.Patronymic}");
+			Console.WriteLine($"dateOfBirth = {elen.DateOfBirth}");
 			Console.WriteLine("_ _ _");
 			Console.WriteLine("We change the object (elen)");
-			elen.fullName.Name = "Семен";
-			elen.dateOfBirth = new DateTime(1800, 1, 1);
-			Console.WriteLine($"Name = {elen.fullName.Name} dateOfBirth = {elen.dateOfBirth} ");
+			
+			elen.FullName.Name = "Семен";
+			elen.DateOfBirth = new DateTime(1800, 1, 1);
+			
+			Console.WriteLine($"Name = {elen.FullName.Name} dateOfBirth = {elen.DateOfBirth} ");
 			Console.WriteLine("_ _ _");			
-			Console.WriteLine($"object (anna): \nName = {anna.fullName.Name} \ndateOfBirth={anna.dateOfBirth}");
+			Console.WriteLine($"object (anna): \nName = {anna.FullName.Name} \ndateOfBirth={anna.DateOfBirth}");
 		}
 	}
 }

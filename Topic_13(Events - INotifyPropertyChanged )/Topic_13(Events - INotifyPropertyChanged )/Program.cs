@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading;
 
 namespace Topic_13_Events___INotifyPropertyChanged__
@@ -8,7 +9,7 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 		static void Main(string[] args)
 		{
 			Figure figure = new Figure();
-			figure.PropertyChanged += eventHandler;
+			figure.PropertyChanged += PrintChangedPropertyInfo;
 						
 			figure.Name = "Triangle";
 			Thread.Sleep(3000);
@@ -18,9 +19,11 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 			Thread.Sleep(3000);
 			Console.WriteLine($"figure.Name = {figure.Name} \nfigure.Color = {figure.Color}  \nfigure.NumberOfFaces = {figure.NumberOfFaces}");
 		}
-		public static void eventHandler(object sender, EventArgs e)
+		
+		public static void PrintChangedPropertyInfo(object sender, EventArgs e)
 		{
-			Console.WriteLine($"Handler Was used ");
+			Console.WriteLine($"Handler Was used, {e}");
+//			Console.WriteLine($"Handler Was used, {e.PropertyName}");
 		}
 	}
 }

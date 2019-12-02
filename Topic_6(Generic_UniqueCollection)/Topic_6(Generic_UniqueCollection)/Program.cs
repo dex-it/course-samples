@@ -23,7 +23,7 @@ namespace Topic_6_Generic_UniqueCollection_
 				}
 				finally
 				{
-					foreach (var item in uniqueCollection.GetCollection)
+					foreach (var item in uniqueCollection)
 					{
 						Console.WriteLine(item);
 					}

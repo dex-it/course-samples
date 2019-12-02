@@ -17,7 +17,7 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 			set
 			{
 				name = value;
-				OnPropertyChanged("Name");
+				OnPropertyChanged();
 			}
 		}
 		public string Color
@@ -26,7 +26,7 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 			set
 			{
 				color = value;
-				OnPropertyChanged("Color");
+				OnPropertyChanged();
 			}
 		}
 		public int NumberOfFaces
@@ -35,18 +35,17 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 			set
 			{
 				numberOfFaces = value;
-				OnPropertyChanged("NumberOfFaces");
+				OnPropertyChanged();
 			}
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
-		public void OnPropertyChanged([CallerMemberName] String propertyName = "")
+
+		private void OnPropertyChanged([CallerMemberName] string propertyName = "")
 		{
 			Console.WriteLine($"Было изменено свойство {propertyName} ");
-			if (PropertyChanged != null)
-			{				
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

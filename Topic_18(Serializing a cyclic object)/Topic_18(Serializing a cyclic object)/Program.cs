@@ -12,6 +12,13 @@ namespace Topic_18_Serializing_a_cyclic_object_
 			person.Name = "Ivan";
 			person.PassportNumber = 123323;
 
+			Person person2 = new Person();
+			person2.Name = "Petr";
+			person2.PassportNumber = 123323;
+			person2.Parent = person;
+			
+			person.Parent = person2;
+
 			string json = JsonConvert.SerializeObject(person);
 			Console.WriteLine("Объект серриализован.");
 			Console.WriteLine(json);

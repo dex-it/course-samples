@@ -5,8 +5,9 @@ namespace Topic_20_AutoResetEvent_
 {
 	class Program
 	{
-		static AutoResetEvent waitHandler = new AutoResetEvent(true);
+		private static readonly AutoResetEvent WaitHandler = new AutoResetEvent(true);
 		static int x = 0;
+		
 		static void Main(string[] args)
 		{
 			for (int i = 0; i < 5; i++)
@@ -20,7 +21,7 @@ namespace Topic_20_AutoResetEvent_
 
 		public static void Count()
 		{
-			waitHandler.WaitOne();
+			WaitHandler.WaitOne();
 			x = 1;
 			for (int i = 0; i < 9; i++)
 			{
@@ -28,7 +29,7 @@ namespace Topic_20_AutoResetEvent_
 				x++;
 				Thread.Sleep(101);
 			}
-			waitHandler.Set();
+			WaitHandler.Set();
 		}
 	}
 }

@@ -15,6 +15,7 @@ namespace Topic_20_Semaphore_
 				Thread.Sleep(50);
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine($"_ _ _ Принят заказ №{i}_ _");
+				
 				Pizza pizza = new Pizza(i);
 				
 				
