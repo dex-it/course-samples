@@ -2,7 +2,7 @@
 
 namespace Topic_3_in_out_ref_
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
@@ -24,14 +24,14 @@ namespace Topic_3_in_out_ref_
 			Console.WriteLine($"Data = {GetData(5,4)}");
 		}
 
-		static void IncrimentXY(int x, ref int y)
+		public static void IncrimentXY(int x, ref int y)
 		{
 			x++;
 			y++;
 			Console.WriteLine($"x = {x} y = {y}");
 		}
 
-		static void Operation(int x, int y, out int z, out int e)
+		public static void Operation(int x, int y, out int z, out int e)
 		{
 			z = x + y;
 			e = x * y;
