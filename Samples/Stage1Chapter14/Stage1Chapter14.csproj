@@ -50,5 +50,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stage1Chapter10\Stage1Chapter10.csproj">
+      <Project>{020f49cb-bb7b-4232-8c1a-bed75b307985}</Project>
+      <Name>Stage1Chapter10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stage1Chapter11\Stage1Chapter11.csproj">
+      <Project>{c5ebf3b5-ee81-4926-9ea3-d57b185f355e}</Project>
+      <Name>Stage1Chapter11</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
