@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stage1Paragraph9
 {
-    class Rectangle : IComparable
+    public class Rectangle : IComparable
     {
         public int Length { get; set; }
         public int Width { get; set; }
@@ -18,10 +18,28 @@ namespace Stage1Paragraph9
             }
         }
 
+        // для демонстрации рефлексии модификатор private
+        private int privateProperty { get; set; }
+
         public Rectangle(int length, int width)
         {
             Length = length;
             Width = width;
+        }
+
+        public void IncreaseLength(int value)
+        {
+            Length += value;
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Длина:{Length}, Ширина: {Width}");
+        }
+
+        public void PrintPrivateProperty()
+        {
+            Console.WriteLine($"privateProperty = {privateProperty}");
         }
 
         public int CompareTo(object obj)
