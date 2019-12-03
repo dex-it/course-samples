@@ -17,8 +17,19 @@ namespace Stage1Chapter11
             }
             else
             {
-                //return;
                 throw new InvalidOperationException("This key is already in the collection.");
+            }
+        }
+
+        public void RemoveAstronomicalObject(AstronomicalObjectEqual planet)
+        {
+            if (_planetDictionary.ContainsKey(planet))
+            {
+                _planetDictionary.Remove(planet);
+            }
+            else
+            {
+                throw new InvalidOperationException("This key is not in the collection.");
             }
         }
 
