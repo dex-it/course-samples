@@ -10,12 +10,7 @@ namespace Stage1Chapter14
         private decimal _radius = 0;
         private bool _lightEmission = false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private string PrivateProperty { get { return "This is a value PrivateProperty for test of reflection!"; } set { } }
 
         public string Name
         {
@@ -67,10 +62,15 @@ namespace Stage1Chapter14
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public AstronomicalObject(string name = "No name", decimal radius = 0, bool lightEmission = false)
         {
-
             _name = name;
             _radius = radius;
             _lightEmission = lightEmission;
