@@ -30,15 +30,27 @@ namespace Stage1Chapter18
 
 
             // 2
+            try
+            {
+                Assembly asm = Assembly.LoadFrom("Stage1Chapter14.exe");
+                Type t = asm.GetType(typeof(AstronomicalObject).FullName);
+                
+                object[] obj = new object[] { "Earth", (decimal)6371, false };
 
-            Console.WriteLine(typeof(AstronomicalObject).FullName);
-            ObjectHandle oh = Activator.CreateInstanceFrom(Assembly.GetEntryAssembly().CodeBase, typeof(AstronomicalObject).FullName);
-            AstronomicalObject st = (AstronomicalObject)oh.Unwrap();
+                ConstructorInfo constructor = t.GetConstructor(new[] { typeof(string), typeof(decimal), typeof(bool) });
+                object astroObject = constructor.Invoke(obj);
 
-            Console.WriteLine(st.GetSurfaceArea());
+                MethodInfo method = t.GetMethod("GetSurfaceArea");
+
+                object result = method.Invoke(astroObject, new object[] {});
+                Console.WriteLine(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             Console.ReadLine();
-
-
+            
 
 
         }
