@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Stage1Chapter14;
@@ -11,25 +7,24 @@ namespace Stage1Chapter19
 {
     public class Serializer
     {
-        public void SaveInBinaryFormat()
+        public void SaveAstroInBinaryFormat(AstronomicalObject astro, string fileName)
         {
-            // объект для сериализации
-            AstronomicalObject astro = new AstronomicalObject("Earth", 6371, false);
-
-            Console.WriteLine("Объект создан");
-
             // создаем объект BinaryFormatter
             BinaryFormatter formatter = new BinaryFormatter();
             // получаем поток, куда будем записывать сериализованный объект
-            using (FileStream fs = new FileStream("astro.dat", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, astro);
 
                 Console.WriteLine("Объект сериализован");
             }
+        }
 
-            // десериализация из файла people.dat
-            using (FileStream fs = new FileStream("astro.dat", FileMode.OpenOrCreate))
+        public void ReadAstroInBinaryFormat(string fileName)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            // десериализация из файла
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 AstronomicalObject newAstro = (AstronomicalObject)formatter.Deserialize(fs);
 
@@ -39,5 +34,6 @@ namespace Stage1Chapter19
 
             Console.ReadLine();
         }
+
     }
 }

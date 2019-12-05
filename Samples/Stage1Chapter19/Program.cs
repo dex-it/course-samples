@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using Stage1Chapter14;
 
 namespace Stage1Chapter19
@@ -14,8 +11,15 @@ namespace Stage1Chapter19
     {
         static void Main(string[] args)
         {
+            // объект для сериализации
+            AstronomicalObject astro = new AstronomicalObject("Earth", 6371, false);
+            Console.WriteLine("Объект создан");
+
             Serializer serial = new Serializer();
-            serial.SaveInBinaryFormat();
+            serial.SaveAstroInBinaryFormat(astro, "astro.dat");
+
+            serial.ReadAstroInBinaryFormat("astro.dat");
+
         }
     }
 }
