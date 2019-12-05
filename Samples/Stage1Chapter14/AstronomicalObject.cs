@@ -3,7 +3,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Stage1Chapter14
+
 {
+    [Serializable]
     public class AstronomicalObject : INotifyPropertyChanged
     {
         private string _name = "";
