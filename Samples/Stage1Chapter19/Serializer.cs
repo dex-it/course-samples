@@ -1,10 +1,7 @@
-﻿using System;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Xml.Serialization;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Stage1Chapter14;
 
 namespace Stage1Chapter19
