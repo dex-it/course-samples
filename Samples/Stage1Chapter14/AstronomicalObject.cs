@@ -78,6 +78,14 @@ namespace Stage1Chapter14
             _lightEmission = lightEmission;
         }
 
+        // Для сериализации в xml
+        public AstronomicalObject()
+        {
+            _name = "No name";
+            _radius = 0;
+            _lightEmission = false;
+        }
+
         public double GetSurfaceArea()
         {
             return 4 * Math.PI * (double)_radius * (double)_radius;
