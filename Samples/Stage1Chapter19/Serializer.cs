@@ -2,6 +2,9 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Xml.Serialization;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Stage1Chapter14;
 
 namespace Stage1Chapter19
@@ -10,28 +13,22 @@ namespace Stage1Chapter19
     {
         public void SaveAstroInBinaryFormat(AstronomicalObject astro, string fileName)
         {
-            // создаем объект BinaryFormatter
             BinaryFormatter formatter = new BinaryFormatter();
-            // получаем поток, куда будем записывать сериализованный объект
             using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fStream, astro);
-
-                Console.WriteLine("Объект сериализован");
             }
         }
 
-        public void ReadAstroInBinaryFormat(string fileName)
+        public AstronomicalObject ReadAstroInBinaryFormat(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            // десериализация из файла
             using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 AstronomicalObject newAstro = (AstronomicalObject)formatter.Deserialize(fStream);
-
-                Console.WriteLine("Объект десериализован");
-                Console.WriteLine($"Название: {newAstro.Name} --- Радиус: {newAstro.Radius} --- Свечение: {newAstro.LightEmission}");
+                return newAstro;
             }
+            
         }
 
         public void SaveAstroInXmlFormat(AstronomicalObject astro, string fileName)
@@ -41,8 +38,17 @@ namespace Stage1Chapter19
             {
                 xmlFormat.Serialize(fStream, astro);
             }
-            Console.WriteLine("--> Сохранение объекта в XML-формат");
         }
 
+        public void SaveAstroInJsonFormat(AstronomicalObject astro, string fileName)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            string jsonString = JsonSerializer.Serialize(astro, options);
+            File.WriteAllText(fileName, jsonString);
+        }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Stage1Chapter14;
 
 namespace Stage1Chapter19
@@ -17,8 +13,20 @@ namespace Stage1Chapter19
 
             Serializer serial = new Serializer();
             serial.SaveAstroInBinaryFormat(astro, "astro.dat");
-            serial.ReadAstroInBinaryFormat("astro.dat");
+            Console.WriteLine("Сериализация объекта в Binary-формат");
+            Console.ReadLine();
+
+            AstronomicalObject newAstro = serial.ReadAstroInBinaryFormat("astro.dat");
+            Console.WriteLine("Объект десериализован");
+            Console.WriteLine($"Название: {newAstro.Name} --- Радиус: {newAstro.Radius} --- Свечение: {newAstro.LightEmission}");
+            Console.ReadLine();
+
             serial.SaveAstroInXmlFormat(astro, "astro.xml");
+            Console.WriteLine("Сериализация объекта в XML-формат");
+            Console.ReadLine();
+
+            serial.SaveAstroInJsonFormat(astro, "astro.json");
+            Console.WriteLine("Сериализация объекта в JSON-формат");
             Console.ReadLine();
         }
     }
