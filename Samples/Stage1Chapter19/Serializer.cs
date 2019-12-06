@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Xml.Serialization;
 using Stage1Chapter14;
 
 namespace Stage1Chapter19
@@ -12,9 +13,9 @@ namespace Stage1Chapter19
             // создаем объект BinaryFormatter
             BinaryFormatter formatter = new BinaryFormatter();
             // получаем поток, куда будем записывать сериализованный объект
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, astro);
+                formatter.Serialize(fStream, astro);
 
                 Console.WriteLine("Объект сериализован");
             }
@@ -24,15 +25,23 @@ namespace Stage1Chapter19
         {
             BinaryFormatter formatter = new BinaryFormatter();
             // десериализация из файла
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                AstronomicalObject newAstro = (AstronomicalObject)formatter.Deserialize(fs);
+                AstronomicalObject newAstro = (AstronomicalObject)formatter.Deserialize(fStream);
 
                 Console.WriteLine("Объект десериализован");
                 Console.WriteLine($"Название: {newAstro.Name} --- Радиус: {newAstro.Radius} --- Свечение: {newAstro.LightEmission}");
             }
+        }
 
-            Console.ReadLine();
+        public void SaveAstroInXmlFormat(AstronomicalObject astro, string fileName)
+        {
+            XmlSerializer xmlFormat = new XmlSerializer(typeof(AstronomicalObject));
+            using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                xmlFormat.Serialize(fStream, astro);
+            }
+            Console.WriteLine("--> Сохранение объекта в XML-формат");
         }
 
     }

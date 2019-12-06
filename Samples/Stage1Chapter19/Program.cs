@@ -17,9 +17,9 @@ namespace Stage1Chapter19
 
             Serializer serial = new Serializer();
             serial.SaveAstroInBinaryFormat(astro, "astro.dat");
-
             serial.ReadAstroInBinaryFormat("astro.dat");
-
+            serial.SaveAstroInXmlFormat(astro, "astro.xml");
+            Console.ReadLine();
         }
     }
 }
