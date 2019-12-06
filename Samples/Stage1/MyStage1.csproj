@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumeratorTest\DoubleLinkedList.cs" />
+    <Compile Include="EnumeratorTest\Node.cs" />
     <Compile Include="Events\DigitStream.cs" />
     <Compile Include="Events\MyQuene.cs" />
     <Compile Include="Events\NotiFyPropertyChanged.cs" />
