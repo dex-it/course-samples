@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stage1Chapter20
 {
@@ -26,6 +23,12 @@ namespace Stage1Chapter20
                 Console.WriteLine($"Число: {s}");
             }
             Console.ReadLine();
+
+            // 3
+            Console.WriteLine("Введите номер телефона");
+            string tel = Console.ReadLine();
+
+            regExp.IsTelephoneInfo(regExp.IsTelephone(tel));
         }
     }
 }

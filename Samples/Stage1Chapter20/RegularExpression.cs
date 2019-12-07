@@ -31,7 +31,7 @@ namespace Stage1Chapter20
         {
             List<string> listNumExp = new List<string>();
             
-            string pattern = @"([0-9.](\w*))";
+            string pattern = @"([0-9 ?.]+(\w*))";            
 
             foreach (Match match in Regex.Matches(strExp, pattern)) 
             {
@@ -41,6 +41,26 @@ namespace Stage1Chapter20
                 }
             }
             return listNumExp;
+        }
+
+        public bool IsTelephone(string tel)
+        {
+            string pattern = @"^\+?(\d[\d - ]+)?(\([\d - ]+\))?[\d- ]+\d$";
+
+            return Regex.IsMatch(tel, pattern);
+        }
+
+        public void IsTelephoneInfo(bool val)
+        {
+            if (val)
+            {
+                Console.WriteLine("Номер телефона корректен");
+            }
+            else
+            {
+                Console.WriteLine("Номер телефона некорректен");
+            }
+            Console.ReadLine();
         }
 
     }
