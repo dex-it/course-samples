@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumeratorTest\DoubleLinkedList.cs" />
+    <Compile Include="EnumeratorTest\DoubleLinkedListTest.cs" />
     <Compile Include="EnumeratorTest\Node.cs" />
     <Compile Include="Events\DigitStream.cs" />
     <Compile Include="Events\MyQuene.cs" />
@@ -75,8 +76,8 @@
     <Compile Include="MyQueryableLinqTest.cs" />
     <Compile Include="MySerializationTest.cs" />
     <Compile Include="ReflectionTest\Car.cs" />
-    <Compile Include="ReflectionTest\Copier.cs" />
-    <Compile Include="ReflectionTest\DeepCopyTest.cs" />
+    <Compile Include="ReflectionTest\DeepCloneObjectExstentions.cs" />
+    <Compile Include="ReflectionTest\DeepCloneObjectExstentionsTest.cs" />
     <Compile Include="ReflectionTest\MyReflectionTest.cs" />
     <Compile Include="ReflectionTest\Person.cs" />
   </ItemGroup>

@@ -2,12 +2,12 @@
 {
     public class Node<T>
     {
-        public Node(T data)
+        public Node(T value)
         {
-            Data = data;
+            Value = value;
         }
 
-        public T Data { get; set; }
+        public T Value { get; set; }
         public Node<T> Next { get; set; }
         public Node<T> Previous { get; set; }
     }

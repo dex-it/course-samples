@@ -1,14 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Stage1.EnumeratorTest
 {
     public class DoubleLinkedList<T> : IEnumerator<Node<T>>, IEnumerable<T>
     {
-        private Node<T> first;
-        private Node<T> last;
-        private Node<T> current;
-        private int count { get; set; }
+        private Node<T> _first;
+        private Node<T> _last;
+        private Node<T> _current;
+        private int _count { get; set; }
 
         public bool Add(T data)
         {
@@ -17,66 +18,66 @@ namespace Stage1.EnumeratorTest
                 return false;
             }
 
-            Node<T> node = new Node<T>(data);
+            var node = new Node<T>(data);
 
-            if (count == 0)
+            if (_count == 0)
             {
-                first = node;
-                last = node;
+                _first = node;
+                _last = node;
             }
             else
             {
-                last.Next = node;
-                node.Previous = last;
+                _last.Next = node;
+                node.Previous = _last;
             }
 
-            last = node;
+            _last = node;
 
-            count++;
+            _count++;
 
             return true;
         }
 
         public bool Remove(T data)
         {
-            current = Find(data);
+            _current = Find(data);
 
-            if (current == null) return false;
+            if (_current == null) return false;
 
-            if (current.Previous != null && current.Next != null)
+            if (_current.Previous != null && _current.Next != null)
             {
-                current.Previous.Next = current.Next;
-                current.Next.Previous = current.Previous;
+                _current.Previous.Next = _current.Next;
+                _current.Next.Previous = _current.Previous;
                 return true;
             }
 
-            if (current.Previous == null)
+            if (_current.Previous == null)
             {
-                first = current.Next;
-                current.Previous = null;
+                _first = _current.Next;
+                _current.Previous = null;
                 return true;
             }
 
 
-            if (current.Next == null)
+            if (_current.Next == null)
             {
-                last = current.Previous;
+                _last = _current.Previous;
                 return true;
             }
 
-            count--;
+            _count--;
             return true;
         }
 
         public Node<T> Find(T data)
         {
-            if (count == 0) return null;
+            if (_count == 0) return null;
 
-            var current = first;
+            var current = _first;
 
             while (current != null)
             {
-                if (current.Data.Equals(data))
+                if (current.Value.Equals(data))
                 {
                     return current;
                 }
@@ -90,55 +91,65 @@ namespace Stage1.EnumeratorTest
 
         public bool MoveNext()
         {
-            if (count == 0) return false;
+            if (_count == 0) return false;
 
-            if (current == null)
+            if (_current == null)
             {
-                current = first;
+                _current = _first;
                 return true;
             }
 
-            if (current.Next == null)
+            if (_current.Next == null)
             {
                 return false;
             }
 
-            current = current.Next;
+            _current = _current.Next;
             return true;
         }
 
         public bool MovePrevious()
         {
-            if (count == 0) return false;
+            if (_count == 0) return false;
 
-            if (current == null)
+            if (_current == null)
             {
-                current = last;
+                _current = _last;
                 return true;
             }
 
 
-            if (current.Previous == null)
+            if (_current.Previous == null)
             {
                 return false;
             }
 
-            current = current.Previous;
+            _current = _current.Previous;
             return true;
         }
 
         public void Reset()
         {
-            current = first;
+            _current = _first;
         }
 
-        public Node<T> Current => current;
+        public Node<T> Current => _current;
 
         object IEnumerator.Current => Current;
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            if (_first==null)
+            {
+                return;
+            }
+
+            while (MoveNext())
+            {
+                _current = null;
+            }
+
+            ;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -146,14 +157,15 @@ namespace Stage1.EnumeratorTest
             return ((IEnumerable) this).GetEnumerator();
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+       IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            Node<T> current = first;
+            var current = _first;
             while (current != null)
             {
-                yield return current.Data;
+                yield return current.Value;
                 current = current.Next;
             }
         }
+       
     }
 }
