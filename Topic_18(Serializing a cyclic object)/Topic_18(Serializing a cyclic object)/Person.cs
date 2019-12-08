@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Topic_18_Serializing_a_cyclic_object_
 {
+	[Serializable]
 	public class Person
 	{	
 	    public string Name { get; set; }
