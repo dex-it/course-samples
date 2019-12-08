@@ -5,24 +5,25 @@ using System.Threading;
 
 namespace Topic_20_Semaphore_
 {
-    public class Pizza
-    {
-        public static int maxOrderingCount = 1; // максимальное колечество пицы, помещяющейся в печку
+    public class Restaurant
+	{
+        public static int maxOrderingCount = 1; /// максимальное колечество пицы, помещяющейся в печку
         Thread thread;
-        static Semaphore semaphore = new Semaphore(maxOrderingCount, maxOrderingCount);
-        static int countOfOrder = 0;
+        public Semaphore semaphore = new Semaphore(maxOrderingCount, maxOrderingCount);//
+        int countOfOrder = 0;//
 
-        public Pizza(int OrderingNumber)
-        {
-            thread = new Thread(Cooking); // принимаем новый заказ
-            thread.Name = OrderingNumber.ToString();
-            thread.Start();
-            countOfOrder++;
-        }
 
-        public void Cooking()
-        {
-            semaphore.WaitOne();
+		public void MakeAnOrder(int OrderingNumber)
+		{
+			countOfOrder++;
+			thread = new Thread(Cooking); // принимаем новый заказ
+			thread.Name = OrderingNumber.ToString();
+			thread.Start();
+		}
+
+		public void Cooking()
+        {			
+			semaphore.WaitOne();
             try
             {
                 Console.ForegroundColor = ConsoleColor.Green;
