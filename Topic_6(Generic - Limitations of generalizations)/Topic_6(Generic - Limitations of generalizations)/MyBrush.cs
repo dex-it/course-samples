@@ -6,17 +6,17 @@ namespace Topic_6_Generic___Limitations_of_generalizations_
 {
 	public class MyBrush <T> where T: Color
 	{
-		public int Size { get; set; }
+		
 		public T Color { get; set; }
 
-		public void Drow()
+		public void Draw(int Size) 
 		{
-			Console.WriteLine($"I'm draw a line 5 wide, with {Color.Name} color");
+			Console.WriteLine($"I'm draw a line {Size} width, with {Color.Name} color");
 		}
 
 		public void DrawARectangle<V>(T RecColor, V parameters) where V:Rectangle 
 		{
-			Console.WriteLine($"I'm draw a Rectangle {parameters.width} wide, {parameters.height} height, with {RecColor.Name} color");
+			Console.WriteLine($"I'm draw a Rectangle {parameters.Width} wide, {parameters.Height} height, with {RecColor.Name} color");
 		}
 	}
 }

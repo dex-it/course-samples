@@ -6,14 +6,14 @@ namespace Topic_6_Generic___Limitations_of_generalizations_
 	{
 		static void Main(string[] args)
 		{
-			Color color1 = new Color { Name = "Blue", Wavelength = 405 };
-			Color color2 = new Color { Name = "Green", Wavelength = 555 };
-			Rectangle rectangle1 = new Rectangle { height = 10, width = 4 };//
-			MyBrush<Color> myBrush = new MyBrush<Color> { Color = color1, Size = 5 };
+			var color1 = new Color { Name = "Blue", Wavelength = 405 };
+			var color2 = new Color { Name = "Green", Wavelength = 555 };
+			var rectangle1 = new Rectangle { Height = 10, Width = 4 };
+			var myBrush = new MyBrush<Color> { Color = color1 };
 
-			myBrush.Drow();
+			myBrush.Draw(5);
 			myBrush.DrawARectangle(color2, rectangle1);
-			
 		}
 	}
 }
+
