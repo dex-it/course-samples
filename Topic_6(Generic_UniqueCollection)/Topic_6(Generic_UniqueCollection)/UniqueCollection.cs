@@ -8,25 +8,28 @@ namespace Topic_6_Generic_UniqueCollection_
 {
 	public class UniqueCollection <T>:IEnumerable
 	{
-		private readonly SortedSet<T> _collection = new SortedSet<T>();
+		private List<T> Collection = new List<T> { };
 		
 		public void AddElement(T element)
 		{
-			if (_collection.Contains(element))
+			if (Collection.Contains(element))
 			{
 				throw new Exception("Такой элемент уже содержиться в коллекции!");
 			}
 			else
 			{
-				_collection.Add(element);
+				Collection.Add(element);
 				Console.WriteLine("Элемент добавлен.");
 			}
 
 		}
-
+		public List<T> GetCollection
+		{
+			get { return Collection; }
+		}
 		public IEnumerator GetEnumerator()
 		{
-			return ((IEnumerable)_collection).GetEnumerator();
+			return ((IEnumerable)Collection).GetEnumerator();
 		}
 	}
 }

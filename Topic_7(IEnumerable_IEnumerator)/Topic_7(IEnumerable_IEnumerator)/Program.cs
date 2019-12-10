@@ -16,6 +16,7 @@ namespace Topic_7_IEnumerable_IEnumerator_
 		{
 			Rainbow rainbow = new Rainbow();
 			Console.WriteLine(" _ _ _ExamplelWisIEnumerable by foreach");
+
 			foreach (var collor in rainbow)
 			{
 				Console.WriteLine(collor);
@@ -23,6 +24,7 @@ namespace Topic_7_IEnumerable_IEnumerator_
 
 			Console.WriteLine(" _ _ _ExamplelWisIEnumerable by while");
 			int i = 0;
+
 			while (i < rainbow.RainbowColors.Length)
 			{
 				Console.WriteLine(rainbow.RainbowColors[i]);
@@ -33,6 +35,7 @@ namespace Topic_7_IEnumerable_IEnumerator_
 		{
 			Week weekdays = new Week();
 			Object item;
+
 			Console.WriteLine(" _ _ _ ExamplelWisIEnumerator by while");
 			while (weekdays.MoveNext())
 			{

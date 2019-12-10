@@ -6,13 +6,14 @@ namespace Topic_6_Generic_UniqueCollection_
 	{
 		static void Main(string[] args)
 		{
-			UniqueCollection<string> uniqueCollection = new UniqueCollection<string>();			
-			string userElement =" ";
+			var uniqueCollection = new UniqueCollection<string>();
+			string userElement = " ";
 
-			while (userElement!="`")
+			while (userElement != "`")
 			{
 				Console.WriteLine("Введите новый элепент коллекции:");
 				userElement = Console.ReadLine();
+
 				try
 				{
 					uniqueCollection.AddElement(userElement);
@@ -23,17 +24,14 @@ namespace Topic_6_Generic_UniqueCollection_
 				}
 				finally
 				{
-					foreach (var item in uniqueCollection)
+					foreach (var item in uniqueCollection.GetCollection)
 					{
 						Console.WriteLine(item);
 					}
 
 					Console.WriteLine("___________________ -");
 				}
-
-
 			}
-
 		}
 	}
 }

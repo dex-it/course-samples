@@ -9,18 +9,7 @@ namespace Topic_9_IComparable_
 	{
 		public int Compare(Color color1, Color color2)
 		{
-			//if (color1.ColorName.Length > color2.ColorName.Length)
-			//{
-			//	return 1;
-			//}
-			//else if (color1.ColorName.Length < color2.ColorName.Length)
-			//{
-			//	return -1;
-			//}
-			//else
-			//{
-			//	return 0;
-			//}
+			
 			if (color1.WavelengthOfLight> color2.WavelengthOfLight)
 			{
 				return 1;

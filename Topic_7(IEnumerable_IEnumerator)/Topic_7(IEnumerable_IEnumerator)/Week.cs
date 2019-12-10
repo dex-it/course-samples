@@ -39,7 +39,7 @@ namespace Topic_7_IEnumerable_IEnumerator_
 		{
 			position = -1;
 		}
-		//для работы с циклом foreach раскоментировать 
+		//для работы с циклом foreach
 		public IEnumerator GetEnumerator()
 		{
 			return weekdays.GetEnumerator();
