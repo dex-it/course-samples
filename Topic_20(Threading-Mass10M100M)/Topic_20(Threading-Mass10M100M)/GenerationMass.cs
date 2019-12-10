@@ -12,9 +12,9 @@ namespace Topic_20_Threading_Mass10M100M_
 		public delegate void CalcDelegate(int i, int[] mass);
 		public event CalcDelegate CalcEvent;
 
-		private int[] mass = new int[100000];
+		private int[] mass1 = new int[1000];// для работы с Parallel.For
 
-		public  void SerialCalc(int[] mass)
+		public void SerialCalc(int[] mass)
 		{
 			double medium = 0;
 			long sum = 0;
@@ -36,7 +36,7 @@ namespace Topic_20_Threading_Mass10M100M_
 
 				//Console.WriteLine($"mass10M[i] = {mass[i]} medium = {medium}");
 			}
-			time.Stop();			
+			time.Stop();
 			Console.WriteLine("Последовательное исследование завершено.");
 			Console.WriteLine($"max = {mass[mass.Length - 1]}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
@@ -48,12 +48,12 @@ namespace Topic_20_Threading_Mass10M100M_
 			long sum = 0;
 			double medium = 0;
 			var time = new Stopwatch();
-			time.Start();				
+			time.Start();
 
 			for (int i = 0; i < mass.Length; i++)
 			{
 				mass[i] = i;
-				
+
 				Task task = Task.Factory.StartNew(() =>
 				{
 
@@ -63,18 +63,18 @@ namespace Topic_20_Threading_Mass10M100M_
 						medium = ((double)sum / mass.Length);
 						a++;
 					}
-					
+
 					//Console.WriteLine($"i = {i} medium = {medium}");
-					
+
 				});
 
 				if (i == mass.Length)
 				{
 					task.Wait();
 				}
-				
-			}			
-			
+
+			}
+
 			time.Stop();
 			Console.WriteLine("Паралельное исследование №1 завершено.");
 			Console.WriteLine($"max = {mass[mass.Length - 1]}");
@@ -83,15 +83,21 @@ namespace Topic_20_Threading_Mass10M100M_
 
 		public void ParallelCalc2(int[] mass)
 		{
-			
+
 			var time = new Stopwatch();
 			time.Start();
 
-			for (int i = 0; i < mass.Length; i++)
+			Task task = Task.Factory.StartNew(() =>
 			{
-				mass[i] = i;
-				CalcEvent?.Invoke(i,mass);
-			}
+				for (int i = 0; i < mass.Length; i++)
+				{
+					mass[i] = i;
+					CalcEvent?.Invoke(i, mass);
+					//Console.WriteLine($"i = {i}");
+				}
+			});
+
+			task.Wait();
 
 			time.Stop();
 			Console.WriteLine("Паралельное исследование №2 завершено.");
@@ -104,11 +110,11 @@ namespace Topic_20_Threading_Mass10M100M_
 			var time = new Stopwatch();
 			time.Start();
 
-			Parallel.For(1, mass.Length, CalcMedium);
+			Parallel.For(1, mass1.Length, CalcMedium);
 
 			time.Stop();
 			Console.WriteLine("Паралельное исследование №3 завершено.");
-			Console.WriteLine($"max = {mass[mass.Length - 1]}");
+			Console.WriteLine($"max = {mass1[mass1.Length - 1]}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
 
 		}
@@ -118,18 +124,19 @@ namespace Topic_20_Threading_Mass10M100M_
 			int a = 0;
 			long sum = 0;
 			double medium = 0;
-			
-			mass[i] = i;
 
-			while (a < mass.Length)
+			mass1[i] = i;
+
+			while (a < mass1.Length)
 			{
-				sum = sum + mass[a];
-				medium = ((double)sum / mass.Length);
+				sum = sum + mass1[a];
+				medium = ((double)sum / mass1.Length);
 				a++;
 			}
+
 			a = 0;
 			//Console.WriteLine($"medium = {medium}");
 		}
-		
+
 	}
 }
