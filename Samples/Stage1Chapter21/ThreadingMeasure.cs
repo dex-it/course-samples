@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,38 +6,22 @@ namespace Stage1Chapter21
 {
     public class ThreadingMeasure
     {
-        public long sumFirstHalf = 0;
-        public long sumSecondHalf = 0;
+        private double sumFirstHalf = 0;
+        private double sumSecondHalf = 0;
 
-        public long AvgWithThreads(long startValue, long quantityNumbers)
+
+        public double GetSumFirstHalf()
         {
-            long middleRange = quantityNumbers / 2;
-
-            Storage storage1 = new Storage
-            {
-                startValue = startValue,
-                quantityNumbers = middleRange,
-                indexSum = 1
-            };
-
-            Thread m = new Thread(new ParameterizedThreadStart(Sum));
-            m.Start(storage1);
-
-            Storage storage2 = new Storage
-            {
-                startValue = startValue + middleRange,
-                quantityNumbers = quantityNumbers - middleRange,
-                indexSum = 2
-            };
-
-            Sum(storage2);
-
-            return (sumFirstHalf + sumSecondHalf) / quantityNumbers;
+            return sumFirstHalf;
         }
 
-        public long AvgWithotThreads(long startValue, long quantityNumbers)
+        public double GetSumSecondHalf()
         {
+            return sumSecondHalf;
+        }
 
+        public double AvgWithoutThreads(long startValue, long quantityNumbers)
+        {
             long middleRange = quantityNumbers / 2;
 
             Storage storage1 = new Storage
@@ -61,13 +42,74 @@ namespace Stage1Chapter21
 
             Sum(storage2);
 
+            return (GetSumFirstHalf() + GetSumSecondHalf()) / quantityNumbers;
+
+        }
+
+
+        public double AvgWithThreads(long startValue, long quantityNumbers)
+        {
+
+            long middleRange = quantityNumbers / 2;
+
+            Storage storage1 = new Storage
+            {
+                startValue = startValue,
+                quantityNumbers = middleRange,
+                indexSum = 1
+            };
+
+            Thread m = new Thread(new ParameterizedThreadStart(Sum));
+            m.Start(storage1);
+
+            Storage storage2 = new Storage
+            {
+                startValue = startValue + middleRange,
+                quantityNumbers = quantityNumbers - middleRange,
+                indexSum = 2
+            };
+
+            Sum(storage2);
+            
+            while (m.IsAlive)
+            {
+                Thread.Sleep(1);
+            }
+            
+            return (sumFirstHalf + sumSecondHalf) / quantityNumbers;
+        }
+
+        public double AvgParallelInvoke(long startValue, long quantityNumbers)
+        {
+            sumFirstHalf = 0;
+            sumSecondHalf = 0;
+
+            Storage storage1 = new Storage
+            {
+                startValue = startValue,
+                quantityNumbers = quantityNumbers,
+                indexSum = 1
+            };
+
+            Parallel.Invoke(() => Sum(storage1));
+            
             return (sumFirstHalf + sumSecondHalf) / quantityNumbers;
 
         }
 
         public void Sum(object obj)
         {
+
             Storage storage = (Storage)obj;
+
+            if (storage.indexSum == 1)
+            {
+                sumFirstHalf = 0;
+            }
+            else
+            {
+                sumSecondHalf = 0;
+            }
 
             long summ = 0;
             for (long i = storage.startValue; i <= (storage.startValue + storage.quantityNumbers - 1); i++)

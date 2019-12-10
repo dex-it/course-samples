@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
@@ -10,30 +9,45 @@ namespace Stage1Chapter21
         static void Main(string[] args)
         {
 
-            ThreadingMeasure threadMeasure1 = new ThreadingMeasure();
-            ThreadingMeasure threadMeasure2 = new ThreadingMeasure();
+            ThreadingMeasure threadMeasure = new ThreadingMeasure();
+
 
             long startValue = 1;
-            long quantityNumbers = 1000000;
+            long quantityNumbers = 10000000;
 
             Stopwatch stopWatch = new Stopwatch();
 
+            Thread.Sleep(100);
+            stopWatch.Reset();
             stopWatch.Start();
-            long avg1 = threadMeasure1.AvgWithotThreads(startValue, quantityNumbers);
+            double avg1 = threadMeasure.AvgWithoutThreads(startValue, quantityNumbers);
             stopWatch.Stop();
             Console.WriteLine($"Среднее от {startValue} до {quantityNumbers + startValue - 1} = {avg1}");
             Console.WriteLine($"Время выполнения: {stopWatch.ElapsedMilliseconds}");
-            Console.WriteLine($"sumFirstHalf: {threadMeasure1.sumFirstHalf}, sumSecondHalf: {threadMeasure1.sumFirstHalf}");
+            Console.WriteLine($"sumFirstHalf: {threadMeasure.GetSumFirstHalf()}, sumSecondHalf: {threadMeasure.GetSumSecondHalf()}");
             Console.WriteLine("");
 
-
-
+            Thread.Sleep(100);
+            stopWatch.Reset();
             stopWatch.Start();
-            long avg2 = threadMeasure2.AvgWithThreads(startValue, quantityNumbers);
+            double avg2 = threadMeasure.AvgWithThreads(startValue, quantityNumbers);
             stopWatch.Stop();
             Console.WriteLine($"Среднее от {startValue} до {quantityNumbers + startValue - 1} = {avg2}");
             Console.WriteLine($"Время выполнения: {stopWatch.ElapsedMilliseconds}");
-            Console.WriteLine($"sumFirstHalf: {threadMeasure2.sumFirstHalf}, sumSecondHalf: {threadMeasure2.sumFirstHalf}");
+            Console.WriteLine($"sumFirstHalf: {threadMeasure.GetSumFirstHalf()}, sumSecondHalf: {threadMeasure.GetSumSecondHalf()}");
+            Console.WriteLine("");
+
+            Thread.Sleep(100);
+            stopWatch.Reset();
+            stopWatch.Start();
+            double avg3 = threadMeasure.AvgParallelInvoke(startValue, quantityNumbers);
+            stopWatch.Stop();
+            Console.WriteLine($"Среднее от {startValue} до {quantityNumbers + startValue - 1} = {avg3}");
+            Console.WriteLine($"Время выполнения: {stopWatch.ElapsedMilliseconds}");
+            Console.WriteLine($"sumFirstHalf: {threadMeasure.GetSumFirstHalf()}, sumSecondHalf: {threadMeasure.GetSumSecondHalf()}");
+            Console.WriteLine("");
+
+            
             Console.ReadLine();
 
         }
