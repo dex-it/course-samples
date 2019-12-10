@@ -16,6 +16,10 @@ namespace Stage1Chapter3
             LightEmission = lightEmission;
         }
 
+        public AstronomicalObject()
+        {
+        }
+
         public double GetSurfaceArea()
         {
             return 4 * Math.PI * (double)Radius * (double)Radius ;
