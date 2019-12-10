@@ -14,14 +14,12 @@ namespace Topic_18_MySerializer_
 			};
 
 			MySerializer mySerializer = new MySerializer();
-		
-			foreach (var item in mySerializer.Serialize(person))
-			{
-				Console.WriteLine($"Listt - {item}");
-			}
 
-			// Person p =(Person)mySerializer.Deserializer<Person>(mySerializer.Serialize2(person));
-			mySerializer.Deserializer<Person>(mySerializer.Serialize2(person));
+			string serData = mySerializer.Serialize(person);
+			Console.WriteLine($"serData = {serData} ");
+
+			Person person2 = mySerializer.Deserializer<Person>(serData);
+			Console.WriteLine($"\nDeserialise data: \nName = {person2.Name} \nSurname = {person2.Surname} \nPatronymic = {person2.Patronymic} ");
 		}
 	}
 }
