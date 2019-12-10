@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Stage1Chapter3;
 
@@ -12,13 +13,33 @@ namespace Stage1Chapter7
         {
             _astro = astro;
         }
-        public object Current => _astro[_position];
-
+        public object Current
+        {
+            get
+            {
+                if (_position == -1 || _position >= _astro.Count)
+                    throw new InvalidOperationException();
+                return _astro[_position];
+            }
+        }
         public bool MoveNext()
         {
             if (_position < _astro.Count - 1)
             {
                 _position++;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MovePrev()
+        {
+            if (_position > 0)
+            {
+                _position--;
                 return true;
             }
             else
