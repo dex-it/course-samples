@@ -15,7 +15,7 @@ namespace Stage1DeepClone
             };
             
             Cloneable cloneObject = new Cloneable();
-            var moonNew = (Satellite)cloneObject.DeepCopyMine(moon);
+            var moonNew = (Satellite)cloneObject.DeepCopy(moon);
 
             Console.WriteLine($"ParentPlanet.Name: {moonNew.ParentPlanet.Name}");
 

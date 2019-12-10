@@ -5,7 +5,7 @@ namespace Stage1DeepClone
 {
     public class Cloneable
     {
-        public object DeepCopyMine(object obj)
+        public object DeepCopy(object obj)
         {
             if (obj == null) return null;
 
@@ -18,7 +18,7 @@ namespace Stage1DeepClone
                 if (!property.PropertyType.IsValueType && property.PropertyType != typeof(string))
                 {
                     //Console.WriteLine($"{property.Name} - {property.GetValue(obj)}");
-                    var propertyCopy = DeepCopyMine(property.GetValue(obj));
+                    var propertyCopy = DeepCopy(property.GetValue(obj));
                     property.SetValue(newCopy, propertyCopy);
                 }
                 else
