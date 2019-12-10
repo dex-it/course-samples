@@ -9,9 +9,10 @@ namespace Topic_13_Events_Queue_
 		static void Main(string[] args)
 		{
 
-			MyQueue myQueue = new MyQueue(5);
+			var myQueue = new MyQueue(9);
 			myQueue.QueueEvent += Handler;
 			int number;
+
 			for (int i = 0; i < 10; i++)
 			{
 				Console.WriteLine($"i = {i}");				

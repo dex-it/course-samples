@@ -7,13 +7,13 @@ namespace Topic_14_Exception_
 		static void Main(string[] args)
 		{
 			Counter();
-			Console.WriteLine("Countr is finish");
-			Console.Read();
+			Console.WriteLine("Countr is finish");			
 		}
 
 		public static void Counter()
 		{
 			int i = 0;
+
 			while (i<100)
 			{
 				try
@@ -31,7 +31,7 @@ namespace Topic_14_Exception_
 				}
 				finally
 				{
-					Console.WriteLine("Выполняеться блок finally");
+					Console.WriteLine($"Выполняеться блок finally i = {i}");
 				}
 				
 			}

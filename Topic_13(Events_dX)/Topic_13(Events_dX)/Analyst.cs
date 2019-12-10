@@ -14,19 +14,20 @@ namespace Topic_13_Events_dX_
 		private int x;
 		public Analyst(int x)
 		{
-			this.x = x;//передаем процент отклонения от общей выборки, выше которого сработает событие
-			
+			this.x = x;//получаем процент отклонения от среднего значения выборки, выше которого сработает событие			
 		}
 		public void Analysis(int number)
 		{
 			int medium;
 			int summ = 0;
+
 			Sampl.Add(number);
 			
 			for (int i = 0; i < Sampl.Count; i++)
 			{
 				summ = summ + Sampl[i];				
 			}
+
 			medium = summ / Sampl.Count;
 			CalculatedX(number,medium);			
 			Thread.Sleep(500);
@@ -34,10 +35,14 @@ namespace Topic_13_Events_dX_
 
 		private void CalculatedX(int number, int medium)
 		{
+			double dX = 0;
+
 			double onePercent = ((double)medium / 100);
+
 			if (number > medium)
 			{				
-				double dX = ((double)number/onePercent)-100;				
+				dX = ((double)number/onePercent)-100;		
+				
 				if (x < dX)
 				{
 					Console.ForegroundColor = ConsoleColor.Red;
@@ -47,7 +52,8 @@ namespace Topic_13_Events_dX_
 			else if (number < medium)
 			{				
 				double mediumInPercent = medium / onePercent;
-				double dX = 100 - ((double)number / onePercent);				
+				dX = 100 - ((double)number / onePercent);	
+				
 				if (x < dX)
 				{
 					Console.ForegroundColor = ConsoleColor.Cyan;

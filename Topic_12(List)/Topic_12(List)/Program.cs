@@ -7,21 +7,27 @@ namespace Topic_12_List_
 	{
 		static void Main(string[] args)
 		{
-			List<string> Colors = new List<string>() {"red", "orange", "yellow", "blue","purpure"};
+			var Colors = new List<string>() {"red", "orange", "yellow", "blue","purpure"};
+
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");
+
 			Colors.Add("black");
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");
+
 			Colors.AddRange(new string[] { "white", "brown", "gray" });
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");
+
 			Colors.Insert(3,"green");
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");
+
 			Colors.RemoveAt(6);
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");
+
 			Colors.Sort();
 			ShowList(Colors);
 			Console.WriteLine("_ _ _");

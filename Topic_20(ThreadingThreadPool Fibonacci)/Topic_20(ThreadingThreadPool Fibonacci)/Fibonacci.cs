@@ -23,10 +23,12 @@ namespace Topic_20_ThreadingThreadPool_Fibonacci_
 			int threadIndex = (int)threadContext;
 			Console.ForegroundColor = ConsoleColor.Green;
 			Console.WriteLine($"Thread {threadIndex} satarted...");
+
 			FibOfN = Calculate(N);
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			Console.WriteLine($"Thread {threadIndex} result calculated...");
 			Console.ForegroundColor = ConsoleColor.White;
+
 			_doneEvent.Set();
 		}
 
@@ -36,6 +38,7 @@ namespace Topic_20_ThreadingThreadPool_Fibonacci_
 			{
 				return n;
 			}
+
 			return Calculate(n - 1) + Calculate(n-2);
 		}
 	}

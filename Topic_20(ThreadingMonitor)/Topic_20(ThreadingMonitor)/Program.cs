@@ -25,6 +25,7 @@ namespace Topic_20_ThreadingMonitor_
 			{
 				Monitor.Enter(locker, ref acquiredLock);
 				x = 1;
+
 				for (int i = 0; i < 9; i++)
 				{
 					Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");

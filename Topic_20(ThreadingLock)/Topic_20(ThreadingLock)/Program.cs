@@ -11,11 +11,11 @@ namespace Topic_20_ThreadingLock_
 		{
 			for (int i = 0; i < 5; i++)
 			{
-				Thread myThread = new Thread(Count);
+				var myThread = new Thread(Count);
 				myThread.Name = "Поток" + i.ToString();
 				myThread.Start();
 			}
-			Console.ReadLine();
+			
 		}
 
 		public static void Count()
@@ -23,6 +23,7 @@ namespace Topic_20_ThreadingLock_
 			lock (locker)
 			{
 				x = 1;
+
 				for (int i = 1; i < 9; i++)
 				{
 					Console.WriteLine("{0}: {1}", Thread.CurrentThread.Name, x);

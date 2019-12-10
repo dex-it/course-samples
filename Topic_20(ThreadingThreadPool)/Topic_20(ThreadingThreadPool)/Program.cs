@@ -10,12 +10,12 @@ namespace Topic_20_ThreadingThreadPool_
 		{
 			int nWorkerThreads;
 			int nCompletionThreads;
+
 			ThreadPool.GetMaxThreads(out nWorkerThreads, out nCompletionThreads);
 			Console.WriteLine("Максимальное количество потоков: " + nWorkerThreads +"\n Потоков ввода -вывода  доступно: " + nCompletionThreads);
 
 			for (int i = 0; i < 5; i++)
 			{
-
 				inc++;
 				ThreadPool.QueueUserWorkItem(JobForAThread);
 				Thread.Sleep(500);

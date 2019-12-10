@@ -7,7 +7,6 @@ namespace Topic_15_IDisposable_
 		static void Main(string[] args)
 		{
 			Test();
-			Console.ReadLine();
 		}
 		private static void Test()
 		{

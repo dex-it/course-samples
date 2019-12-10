@@ -13,7 +13,7 @@ namespace Topic_18_MySerializer_
 		public string Serialize(object graph)
 		{
 			string s = "";
-			Type type = graph.GetType();
+			var type = graph.GetType();
 
 			foreach (var item in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
 			{
@@ -25,7 +25,7 @@ namespace Topic_18_MySerializer_
 			return s;
 		}
 
-		public T Deserializer<T>(string json) where T : new()
+		public T Deserializer<T>(string json)
 		{
 			var ser = new DataContractJsonSerializer(typeof(T));
 			var stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));

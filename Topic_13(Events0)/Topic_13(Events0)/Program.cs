@@ -6,17 +6,20 @@ namespace Topic_13_Events0_
 	{
 		static void Main(string[] args)
 		{
-			Account account = new Account(100);
+			var account = new Account(100);
 			account.Notify += DisplayRedMessage;
 			account.Notify += DisplayGreenMessage;
+
 			account.Put(20);
 			Console.WriteLine($"Сума на счете:{account.Sum}");
+
 			account.Take(70);
 			account.Notify -= DisplayGreenMessage;
 			Console.WriteLine($"Сума на счете:{account.Sum}");
+
 			account.Take(180);
 			Console.WriteLine($"Сума на счете:{account.Sum}");
-			//Console.Read();
+			
 		}
 
 		public static void DisplayRedMessage(string message)

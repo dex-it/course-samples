@@ -5,10 +5,9 @@ using System.Text;
 namespace Topic_10_Equals_GetHashCode_
 {
 	public class FullName
-	{
-		
+	{		
 		public string Surname { get; set; }
-		public string  Name{get; set;}
+		public string  Name { get; set;}
 		public string Patronymic { get; set; }
 
 		public override bool Equals(object obj)
@@ -23,13 +22,15 @@ namespace Topic_10_Equals_GetHashCode_
 			}
 
 			var fullName = (FullName)obj;
+
 			return (fullName.Surname == Surname && fullName.Name == Name && fullName.Patronymic == Patronymic) ;
 		}
 		public override int GetHashCode()
 		{
 			int SurnameHashCode = Surname.GetHashCode();
 			int NameHashCode = Name.GetHashCode();
-			int PatronymicHashCode = Patronymic.GetHashCode();			
+			int PatronymicHashCode = Patronymic.GetHashCode();	
+			
 			return (SurnameHashCode + NameHashCode + PatronymicHashCode);
 		}
 	}

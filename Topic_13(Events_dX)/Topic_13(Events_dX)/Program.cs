@@ -6,7 +6,7 @@ namespace Topic_13_Events_dX_
 	{
 		static void Main(string[] args)
 		{
-			Analyst analyst = new Analyst(50);
+			var analyst = new Analyst(50);
 			analyst.dXEvent += Handler;
 			int[] number = new int[] { 10, 8, 9, 8, 11, 20, 5, 13, 12, 1, 7, 9};
 			
@@ -17,6 +17,8 @@ namespace Topic_13_Events_dX_
 				analyst.Analysis(number[i]);
 
 			}
+
+			analyst.dXEvent -= Handler;
 			
 		}
 		public static void Handler(string message)

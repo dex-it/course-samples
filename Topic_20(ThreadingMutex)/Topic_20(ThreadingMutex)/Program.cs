@@ -11,7 +11,7 @@ namespace Topic_20_ThreadingMutex_
 		{
 			for (int i = 0; i < 5; i++)
 			{
-				Thread myThread = new Thread(Count);
+				var myThread = new Thread(Count);
 				myThread.Name = $"Поток : {i.ToString()}";
 				myThread.Start();
 			}
@@ -22,12 +22,14 @@ namespace Topic_20_ThreadingMutex_
 		{
 			mutexObj.WaitOne();
 			x = 1;
+
 			for (int i = 0; i < 9; i++)
 			{
 				Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
 				x++;
 				Thread.Sleep(101);
 			}
+
 			mutexObj.ReleaseMutex();
 		}
 	}

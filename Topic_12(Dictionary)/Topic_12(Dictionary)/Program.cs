@@ -32,8 +32,7 @@ namespace Topic_12_Dictionary_
 					{
 						Console.WriteLine($"Место работы - {item.Value}");
 						personIsFound = true;
-					}
-					
+					}					
 				}
 				if (!personIsFound)
 				{
@@ -46,29 +45,29 @@ namespace Topic_12_Dictionary_
 
 		public static Dictionary<Person, string> CreateColection()
 		{
-			FullName fullName1 = new FullName();
+			var fullName1 = new FullName();
 			fullName1.Surname = "Петров";
 			fullName1.Name = "Юрий";
 			fullName1.Patronymic = "Николаевич";
-			DateTime dateOfBirth1 = new DateTime(2015, 07, 05);
+			var dateOfBirth1 = new DateTime(2015, 07, 05);
 
-			FullName fullName2 = new FullName();
+			var fullName2 = new FullName();
 			fullName2.Surname = "Крапачова";
 			fullName2.Name = "Ирина";
 			fullName2.Patronymic = "Владимировна";
-			DateTime dateOfBirth2 = new DateTime(1987, 06, 02);
+			var dateOfBirth2 = new DateTime(1987, 06, 02);
 
-			FullName fullName3 = new FullName();
+			var fullName3 = new FullName();
 			fullName3.Surname = "Кирьяков";
 			fullName3.Name = "Алексей";
 			fullName3.Patronymic = "Иванович";
-			DateTime dateOfBirth3 = new DateTime(1996, 05, 08);
+			var dateOfBirth3 = new DateTime(1996, 05, 08);
 
-			Person p1 = new Person(fullName1, dateOfBirth1, "Кишинев", 123);
-			Person p2 = new Person(fullName2, dateOfBirth2, "Тирасполь", 456);
-			Person p3 = new Person(fullName3, dateOfBirth3, "Рыбница", 789);
+			var p1 = new Person(fullName1, dateOfBirth1, "Кишинев", 123);
+			var p2 = new Person(fullName2, dateOfBirth2, "Тирасполь", 456);
+			var p3 = new Person(fullName3, dateOfBirth3, "Рыбница", 789);
 
-			Dictionary<Person, string> HandbookPlaceOfWork = new Dictionary<Person, string>
+			var HandbookPlaceOfWork = new Dictionary<Person, string>
 			{
 				{ p1, "ПГУ им. Т.Г. Шевченко"},
 				{ p2,"ТрансГаз"},
@@ -79,6 +78,7 @@ namespace Topic_12_Dictionary_
 			{
 				Console.WriteLine("{0}-{1}", item.Key.fullName.Name, item.Value);
 			}
+
 			Console.WriteLine("_ _ _");
 			return HandbookPlaceOfWork;
 			

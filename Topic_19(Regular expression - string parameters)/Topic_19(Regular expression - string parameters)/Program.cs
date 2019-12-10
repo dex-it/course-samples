@@ -9,7 +9,8 @@ namespace Topic_19_Regular_expression___string_parameters_
 		static void Main(string[] args)
 		{
 			string s = "http://ya.ru/api?r=1&x=23";
-			Dictionary<string, string> parameters = new Dictionary<string, string>();
+			var parameters = new Dictionary<string, string>();
+
 			parameters = ExtractSettings(s);
 			Console.WriteLine($"Образец = {s}");
 			Console.WriteLine($"Результат:");
@@ -23,9 +24,9 @@ namespace Topic_19_Regular_expression___string_parameters_
 		public static Dictionary<string, string> ExtractSettings(string s)
 		{
 			//ИЗВЛЕКАЕМ ПАРАМЕТРЫ ИЗ CТРОКИ
-			Dictionary<string, string> parameters = new Dictionary<string, string>();
-			Regex regexKey = new Regex(@"\w(?==)");
-			Regex regexValue = new Regex(@"(?<==)\w*");
+			var parameters = new Dictionary<string, string>();
+			var regexKey = new Regex(@"\w(?==)");
+			var regexValue = new Regex(@"(?<==)\w*");
 			var keyCollection = regexKey.Matches(s);
 			var valueCollection = regexValue.Matches(s);
 

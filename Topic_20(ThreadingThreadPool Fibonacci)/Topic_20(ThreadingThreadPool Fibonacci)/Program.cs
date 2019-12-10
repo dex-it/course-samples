@@ -11,6 +11,7 @@ namespace Topic_20_ThreadingThreadPool_Fibonacci_
 			var doneEvents = new ManualResetEvent[FibonacciCalculations];
 			var fibArray = new Fibonacci[FibonacciCalculations];
 			var rand = new Random();
+
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.WriteLine($"Launching {FibonacciCalculations} task....");
 
@@ -24,6 +25,7 @@ namespace Topic_20_ThreadingThreadPool_Fibonacci_
 
 			WaitHandle.WaitAll(doneEvents);
 			Console.WriteLine("Все вычисления завершены");
+
 			for (int i = 0; i < FibonacciCalculations; i++)
 			{
 				Fibonacci f = fibArray[i];

@@ -9,7 +9,6 @@ namespace Topic_15_IDisposable_
 		public string Name { get; set; }
 		public void Dispose()
 		{
-			Console.Beep();
 			Console.WriteLine("Disposed");
 		}
 	}

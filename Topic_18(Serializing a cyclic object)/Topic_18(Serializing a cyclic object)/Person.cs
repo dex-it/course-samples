@@ -8,8 +8,7 @@ namespace Topic_18_Serializing_a_cyclic_object_
 	public class Person
 	{	
 	    public string Name { get; set; }
-		public int PassportNumber { get; set; }
-		
+		public int PassportNumber { get; set; }		
 		public Person Parent { get; set; }
 	}
 }

@@ -9,8 +9,8 @@ namespace Topic_17_Reflection_
 		{
 			try
 			{
-				Assembly asm = Assembly.LoadFrom("Topic_17RTest.dll");
-				Type type = asm.GetType("Topic_17RTest.Car", true, true);
+				var asm = Assembly.LoadFrom("Topic_17RTest.dll");
+				var type = asm.GetType("Topic_17RTest.Car", true, true);
 
 				ShowFilds(type);//вывести инвормацию о полях исследооуемого класса
 
@@ -34,6 +34,7 @@ namespace Topic_17_Reflection_
 		public static void ShowFilds(Type type)
 		{
 			Console.WriteLine("Поля:");
+
 			foreach (var field in type.GetFields())
 			{
 				Console.WriteLine($"{field.FieldType.Name} {field.Name}");
@@ -43,6 +44,7 @@ namespace Topic_17_Reflection_
 		public static void ShowProperties(Type type)
 		{
 			Console.WriteLine("Свойства:");
+
 			foreach (var properties in type.GetProperties())
 			{
 				Console.WriteLine($"{properties.PropertyType.Name} {properties.Name}");
@@ -52,11 +54,13 @@ namespace Topic_17_Reflection_
 		public static void ShowCtor(Type type)
 		{
 			Console.WriteLine("Конструкторы:");
+
 			foreach (var ctor in type.GetConstructors())
 			{
 				Console.WriteLine(type.Name + "(");
 				//получение параметров
 				var parameters = ctor.GetParameters();
+
 				for (int i = 0; i < parameters.Length; i++)
 				{
 					Console.WriteLine($"{parameters[i].ParameterType.Name}  {parameters[i].Name}");
@@ -69,9 +73,11 @@ namespace Topic_17_Reflection_
 		public static void ShowMethods(Type type)
 		{
 			Console.WriteLine("Методы: ");
+
 			foreach (var method in type.GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public))
 			{
 				string modifier = " ";
+
 				if (method.IsStatic)
 				{
 					modifier = "static";
@@ -84,6 +90,7 @@ namespace Topic_17_Reflection_
 				{
 					modifier = "public";
 				}
+
 				Console.WriteLine($"{modifier} {method.ReturnType.Name} {method.Name}");
 			}
 			Console.WriteLine("_ _ _ _ _");

@@ -16,6 +16,5 @@ namespace Topic_11_Delegate_
 			Console.WriteLine("GoodEvening");
 		}
 
-
 	}
 }

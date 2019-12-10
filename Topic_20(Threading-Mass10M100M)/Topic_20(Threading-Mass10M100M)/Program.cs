@@ -13,7 +13,7 @@ namespace Topic_20_Threading_Mass10M100M_
 			int[] mass100M = new int[100000000];
 			int[] testmss = new int[1000];
 
-			GenerationMass generationmass = new GenerationMass();
+			var generationmass = new GenerationMass();
 			generationmass.CalcEvent += CalcHandler;
 
 			generationmass.SerialCalc(testmss);

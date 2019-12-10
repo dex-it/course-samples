@@ -10,8 +10,7 @@ namespace Topic_18_Serialization_JsonSerializer
 			public string Surname { get; set; }
 			public string Name { get; set; }
 			public string Patronymic { get; set; }
-
-			
+					
 		}
 	
 }

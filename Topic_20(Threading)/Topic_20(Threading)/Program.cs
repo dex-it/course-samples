@@ -7,9 +7,9 @@ namespace Topic_20_Threading_
 	{
 		static void Main(string[] args)
 		{
-			Counter counter = new Counter(4,5);			
+			var counter = new Counter(4,5);			
 
-			Thread myThread = new Thread(new ThreadStart(counter.Count));
+			var myThread = new Thread(new ThreadStart(counter.Count));
 			myThread.Start();
 
 			for (int i = 1; i < 9; i++)

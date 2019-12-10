@@ -8,7 +8,7 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 	{
 		static void Main(string[] args)
 		{
-			Figure figure = new Figure();
+			var figure = new Figure();
 			figure.PropertyChanged += PrintChangedPropertyInfo;
 						
 			figure.Name = "Triangle";
@@ -20,10 +20,9 @@ namespace Topic_13_Events___INotifyPropertyChanged__
 			Console.WriteLine($"figure.Name = {figure.Name} \nfigure.Color = {figure.Color}  \nfigure.NumberOfFaces = {figure.NumberOfFaces}");
 		}
 		
-		public static void PrintChangedPropertyInfo(object sender, EventArgs e)
-		{
-			Console.WriteLine($"Handler Was used, {e}");
-//			Console.WriteLine($"Handler Was used, {e.PropertyName}");
+		public static void PrintChangedPropertyInfo(object sender, PropertyChangedEventArgs e)
+		{			
+			Console.WriteLine($"Handler Was used, {e.PropertyName}");
 		}
 	}
 }

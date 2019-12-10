@@ -16,13 +16,14 @@ namespace Topic_11_Delegate_
 			message();
 
 			Console.WriteLine("_ _Вызов делегата с помощю метода Invoke()_ _");
-			Operation operation = new Operation();
+			var operation = new Operation();
 			CalcDel calc = operation.Subtract;
 			calc += operation.Add;
 			calc.Invoke(5,3);
 
 			Console.WriteLine("_ _Делегат как параметр метода_ _");
-			Time time = new Time();
+			var time = new Time();
+
 			if (DateTime.Now.Hour < 12)
 			{
 				Welcome(time.GoodMorning);

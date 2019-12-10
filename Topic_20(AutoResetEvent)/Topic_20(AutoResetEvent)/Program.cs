@@ -5,14 +5,14 @@ namespace Topic_20_AutoResetEvent_
 {
 	class Program
 	{
-		private static readonly AutoResetEvent WaitHandler = new AutoResetEvent(true);
+		static AutoResetEvent waitHandler = new AutoResetEvent(true);
 		static int x = 0;
-		
 		static void Main(string[] args)
 		{
 			for (int i = 0; i < 5; i++)
 			{
 				Thread myThread = new Thread(Count);
+
 				myThread.Name = $"Поток : {i.ToString()}";
 				myThread.Start();
 			}
@@ -21,15 +21,17 @@ namespace Topic_20_AutoResetEvent_
 
 		public static void Count()
 		{
-			WaitHandler.WaitOne();
+			waitHandler.WaitOne();
 			x = 1;
+
 			for (int i = 0; i < 9; i++)
 			{
 				Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
 				x++;
 				Thread.Sleep(101);
 			}
-			WaitHandler.Set();
+
+			waitHandler.Set();
 		}
 	}
 }

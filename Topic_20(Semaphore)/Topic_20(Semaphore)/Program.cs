@@ -9,7 +9,7 @@ namespace Topic_20_Semaphore_
 		{
 			
 			int CountOfOrdering = 5; //задаем текущее количество заказов
-			Restaurant restaurant = new Restaurant();
+			var restaurant = new Restaurant();
 
 			for (int i = 1; i < CountOfOrdering+1; i++)
 			{				
