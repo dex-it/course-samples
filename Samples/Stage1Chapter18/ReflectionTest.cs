@@ -38,10 +38,9 @@ namespace Stage1Chapter18
                 throw new ArgumentNullException(nameof(target));
             }
             var type = target.GetType();
-            string st = "";
             foreach (ConstructorInfo constructorInfo in type.GetConstructors())
             {
-                st += type.Name + " (";
+                string st = type.Name + " (";
                 ParameterInfo[] parameters = constructorInfo.GetParameters();
                 for (int i = 0; i < parameters.Length; i++)
                 {
