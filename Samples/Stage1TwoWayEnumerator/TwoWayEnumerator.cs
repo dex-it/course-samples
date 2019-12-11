@@ -13,8 +13,9 @@ namespace Stage1TwoWayEnumerator
         public TwoWayEnumerator(IEnumerator<T> enumerator)
         {
             if (enumerator == null)
+            {
                 throw new ArgumentNullException("enumerator");
-
+            }
             _enumerator = enumerator;
             _buffer = new List<T>();
             _index = -1;
@@ -54,7 +55,9 @@ namespace Stage1TwoWayEnumerator
             get
             {
                 if (_index < 0 || _index >= _buffer.Count)
+                {
                     throw new InvalidOperationException();
+                }
 
                 return _buffer[_index];
             }
@@ -74,7 +77,10 @@ namespace Stage1TwoWayEnumerator
 
         object System.Collections.IEnumerator.Current
         {
-            get { return Current; }
+            get 
+            { 
+                return Current; 
+            }
         }
     }
 }
