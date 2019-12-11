@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -81,7 +83,6 @@ namespace Stage1Chapter21
 
         public double AvgParallelInvoke(long startValue, long quantityNumbers)
         {
-            sumFirstHalf = 0;
             sumSecondHalf = 0;
 
             Storage storage1 = new Storage
@@ -92,9 +93,17 @@ namespace Stage1Chapter21
             };
 
             Parallel.Invoke(() => Sum(storage1));
-            
             return (sumFirstHalf + sumSecondHalf) / quantityNumbers;
 
+        }
+
+        public double AvgPlinq(long startValue, long quantityNumbers)
+        {
+            double val = 0;
+            return val = ((ParallelQuery<int>)ParallelEnumerable.Range((int)startValue, (int)quantityNumbers))
+                                        .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
+                                        .Select(i => i)
+                                        .Average();
         }
 
         public void Sum(object obj)
