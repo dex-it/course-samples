@@ -35,19 +35,6 @@ namespace Stage1Chapter7
             }
         }
 
-        public bool MovePrev()
-        {
-            if (_position > 0)
-            {
-                _position--;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public void Reset()
         {
             _position = -1;
