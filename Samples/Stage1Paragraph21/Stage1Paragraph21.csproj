@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C263CED0-C1E5-471A-B470-6BA3D19AE320}</ProjectGuid>
+    <ProjectGuid>{AAA17D74-37C9-459F-B363-F27A95EFEFE9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Stag1Paragraph21</RootNamespace>
-    <AssemblyName>Stag1Paragraph21</AssemblyName>
+    <RootNamespace>Stage1Paragraph21</RootNamespace>
+    <AssemblyName>Stage1Paragraph21</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IJobExecutor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Stag1Paragraph21
+namespace Stage1Paragraph21
 {
     class Program
     {
@@ -37,9 +33,15 @@ namespace Stag1Paragraph21
             Console.WriteLine($"Вычисление среднего арифметического({parallelAvg}) в параллельном режиме: {watch.ElapsedMilliseconds} миллисекунд");
         }
 
+        private static void DemonstrateQueue()
+        {
+        }
+
         static void Main(string[] args)
         {
             CalcAvgInArray();
+            DemonstrateQueue();
+
             Console.ReadLine();
         }
     }
