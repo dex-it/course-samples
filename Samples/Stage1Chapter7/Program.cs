@@ -29,7 +29,7 @@ namespace Stage1Chapter7
 
             // 2
             AstroEnumerator enumerator = (AstroEnumerator)solarSystemEnum.GetEnumerator();
-            Console.WriteLine("Объекты Солнечной системы (от Солнца): ");
+            Console.WriteLine("Объекты Солнечной системы (к Солнцу): ");
             
             while (enumerator.MoveNext())
             {

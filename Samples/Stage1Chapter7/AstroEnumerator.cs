@@ -22,6 +22,7 @@ namespace Stage1Chapter7
                 return _astro[_position];
             }
         }
+
         public bool MoveNext()
         {
             if (_position < _astro.Count - 1)
