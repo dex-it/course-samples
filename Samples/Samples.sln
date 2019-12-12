@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoublyLinkedList", "DoublyL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1Paragraph21", "Stage1Paragraph21\Stage1Paragraph21.csproj", "{AAA17D74-37C9-459F-B363-F27A95EFEFE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1Paragraph19", "Stage1Paragraph19\Stage1Paragraph19.csproj", "{FAC8FB31-E4E6-472B-913E-DE05F2A15941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{AAA17D74-37C9-459F-B363-F27A95EFEFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA17D74-37C9-459F-B363-F27A95EFEFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA17D74-37C9-459F-B363-F27A95EFEFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC8FB31-E4E6-472B-913E-DE05F2A15941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC8FB31-E4E6-472B-913E-DE05F2A15941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC8FB31-E4E6-472B-913E-DE05F2A15941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC8FB31-E4E6-472B-913E-DE05F2A15941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
