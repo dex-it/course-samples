@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage1Paragraph21", "Stag1P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepCloning", "DeepCloning\DeepCloning.csproj", "{9B0FD4FF-0B59-43FC-B77C-F955CD0008F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.csproj", "{72289C18-3BB6-493D-A1A0-E9EA33BA7626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{9B0FD4FF-0B59-43FC-B77C-F955CD0008F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B0FD4FF-0B59-43FC-B77C-F955CD0008F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B0FD4FF-0B59-43FC-B77C-F955CD0008F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72289C18-3BB6-493D-A1A0-E9EA33BA7626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72289C18-3BB6-493D-A1A0-E9EA33BA7626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72289C18-3BB6-493D-A1A0-E9EA33BA7626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72289C18-3BB6-493D-A1A0-E9EA33BA7626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
