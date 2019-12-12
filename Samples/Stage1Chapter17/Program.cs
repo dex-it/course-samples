@@ -8,13 +8,14 @@ namespace Stage1Chapter17
     {
         static void Main(string[] args)
         {
-            /*
+            
             // 1
             AstronomicalObject astro = new AstronomicalObject("Earth", 6371, false);
             Console.WriteLine("Radius of {0} = {1} km", astro.Name, astro.Radius);
             Console.WriteLine("Volume of {0} = {1} km3", astro.Name, astro.GetVolume());
-            Console.ReadLine();
-            */
+            Console.WriteLine("");
+            //Console.ReadLine();
+            
 
             //2
             int inToSeconds = 1;

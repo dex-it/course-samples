@@ -42,7 +42,7 @@ namespace Stage1Chapter18
 
                 MethodInfo method = t.GetMethod("GetSurfaceArea");
 
-                object result = method.Invoke(astroObject, new object[] {});
+                object result = method.Invoke(astroObject, Array.Empty<object>());
                 Console.WriteLine(result);
             }
             catch (Exception ex)
