@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Stage1TwoWayEnumerator
@@ -7,24 +8,35 @@ namespace Stage1TwoWayEnumerator
     {
         private static void Main(string[] args)
         {
-            //IEnumerator<T> enu = new IEnumerator<T>;
-            //var enumerator = TwoWayEnumerator(enu);
+            List<int> list = new List<int> { 1, 2, 3, 4 ,5};
+
+            ITwoWayEnumerator<int> enumerator = TwoWayEnumeratorHelper.GetTwoWayEnumerator(list);
             /*
-            while (enumerator.MoveNext())
+            foreach (var el in list)
             {
-                var item = enumerator.Current;
-                // Do something
+                
+                var element = enumerator.Current;
+                Console.WriteLine($"--> {el}");
             }
             */
 
-            int[] arr = { 1, 2, 3, 4, 5 };
-
-            foreach (var a in arr)
+            while (enumerator.MovePrevious())
             {
-                Console.WriteLine($"{a}");
+                var element = enumerator.Current;
+                Console.WriteLine($"--> {element}");
             }
+           
+            Console.ReadLine();
+
+
+
+
+
+
 
         }
+
+     
 
     }
 }

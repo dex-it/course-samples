@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ITwoWayEnumerator.cs" />
-    <Compile Include="ListTwoWayEnumerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwoWayEnumerator.cs" />
+    <Compile Include="TwoWayEnumeratorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

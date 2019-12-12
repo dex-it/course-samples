@@ -10,16 +10,20 @@ namespace Stage1TwoWayEnumerator
         private List<T> _buffer;
         private int _index;
 
+        
         public TwoWayEnumerator(IEnumerator<T> enumerator)
         {
+            
             if (enumerator == null)
             {
                 throw new ArgumentNullException("enumerator");
             }
+            
             _enumerator = enumerator;
             _buffer = new List<T>();
             _index = -1;
         }
+        
 
         public bool MovePrevious()
         {
