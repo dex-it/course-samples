@@ -86,5 +86,6 @@ namespace Stage1TwoWayEnumerator
                 return Current; 
             }
         }
+
     }
 }
