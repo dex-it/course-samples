@@ -11,7 +11,7 @@ namespace Stage1TwoWayEnumerator
 
             ITwoWayEnumerator<int> enumerator = TwoWayEnumeratorHelper.GetTwoWayEnumerator(list);
 
-            while (enumerator.MovePrevious())
+            while (enumerator.MoveNext())
             {
                 var element = enumerator.Current;
                 Console.WriteLine($"--> {element}");
