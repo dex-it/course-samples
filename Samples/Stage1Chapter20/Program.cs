@@ -17,6 +17,7 @@ namespace Stage1Chapter20
 
             // 2
             string numberExp = "(1, 1000, 1 000 000, 100.23)";
+            Console.WriteLine($"Разбор строки {numberExp}:");
             List<string> listNumExp = regExp.NumberExpression(numberExp);
             foreach (var s in listNumExp)
             {
