@@ -38,107 +38,41 @@ namespace Topic_20_Threading_Mass10M100M_
 			}
 			time.Stop();
 			Console.WriteLine("Последовательное исследование завершено.");
-			Console.WriteLine($"max = {mass[mass.Length - 1]}");
+			Console.WriteLine($"max = {mass[mass.Length - 1]}, final medium = {medium}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
 		}
 
-		public void ParallelCalc1(int[] mass)
+
+		public void ParallelCalc(int[] mass)
 		{
-			int a = 0;
-			long sum = 0;
+			object locker = new object();
+			long grandTotal = 0;
 			double medium = 0;
+			int k = 1000000;
+
 			var time = new Stopwatch();
 
 			time.Start();
 
-			for (int i = 0; i < mass.Length; i++)
+			Parallel.For<long>(0, mass.Length/k, () => 0, (i, state, subtotal) =>
 			{
-				mass[i] = i;
-
-				Task task = Task.Factory.StartNew(() =>
+				for (int j = i*k; j < ((i*k)+k); j++)
 				{
-
-					while (a < i)
-					{
-						sum = sum + mass[a];
-						medium = ((double)sum / mass.Length);
-						a++;
-					}
-
-					//Console.WriteLine($"i = {i} medium = {medium}");
-
-				});
-
-				if (i == mass.Length)
-				{
-					task.Wait();
+					subtotal += mass[i];
+					medium = (double)subtotal / mass.Length;					
 				}
-
-			}
+				
+				return subtotal;
+			},
+				(x) => Interlocked.Add(ref grandTotal, x)
+			);
 
 			time.Stop();
-			Console.WriteLine("\nПаралельное исследование №1 завершено.");
+
+			Console.WriteLine("\nПаралельное исследование завершено.");
 			Console.WriteLine($"max = {mass[mass.Length - 1]}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
-		}
 
-		public void ParallelCalc2(int[] mass)
-		{
-
-			var time = new Stopwatch();
-			time.Start();
-
-			Task task = Task.Factory.StartNew(() =>
-			{
-				for (int i = 0; i < mass.Length; i++)
-				{
-					mass[i] = i;
-					CalcEvent?.Invoke(i, mass);
-					//Console.WriteLine($"i = {i}");
-				}
-			});
-
-			task.Wait();
-
-			time.Stop();
-			Console.WriteLine("\nПаралельное исследование №2 завершено.");
-			Console.WriteLine($"max = {mass[mass.Length - 1]}");
-			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
-		}
-
-		public void ParallelCalc3()
-		{
-			var time = new Stopwatch();
-
-			time.Start();
-
-			Parallel.For(1, mass1.Length, CalcMedium);
-
-			time.Stop();
-			Console.WriteLine("\nПаралельное исследование №3 завершено.");
-			Console.WriteLine($"max = {mass1[mass1.Length - 1]}");
-			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
-
-		}
-
-		private void CalcMedium(int i)
-		{
-			int a = 0;
-			long sum = 0;
-			double medium = 0;
-
-			mass1[i] = i;
-
-			while (a < mass1.Length)
-			{
-				sum = sum + mass1[a];
-				medium = ((double)sum / mass1.Length);
-				a++;
-			}
-
-			a = 0;
-			//Console.WriteLine($"medium = {medium}");
-		}
-
+		}	
 	}
 }
