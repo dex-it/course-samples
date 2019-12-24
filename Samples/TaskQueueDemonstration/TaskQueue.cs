@@ -19,11 +19,13 @@ namespace TaskQueueDemonstration
             _cancelTokenSource = new CancellationTokenSource();
             _token = _cancelTokenSource.Token;
             
-            Console.WriteLine($"Создана очередь, количество задач: {Amount}");
+            Console.WriteLine($"Создана очередь");
         }
         
         public void Start(int maxConcurrent)
         {
+            Console.WriteLine("Запуск обработки очереди");
+
             for (var i = 0; i < maxConcurrent; i++)
             {
                 Task.Factory.StartNew(Consume);
@@ -38,14 +40,14 @@ namespace TaskQueueDemonstration
                 {
                     return;
                 }
-                
                 action();
             }
         }
 
         public void Stop()
         {
-            _cancelTokenSource.Cancel(); 
+            _cancelTokenSource.Cancel();
+            Console.WriteLine("Остановка обработки очереди");
         }
 
         public void Add(Action action)
@@ -57,14 +59,9 @@ namespace TaskQueueDemonstration
 
         public void Clear()
         {
-            // первый вариант
             _queue = new BlockingCollection<Action>();
-            
-            // второй вариант
-            //while (queue.Count > 0)
-            //{
-            //    queue.Take();
-            //}
+
+            Console.WriteLine("Очистка очереди");            
         }
     }
 }
