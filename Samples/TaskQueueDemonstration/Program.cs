@@ -1,56 +1,49 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace TaskQueueDemonstration
 {
-    internal class Program
+    class Program
     {
-        private static void ProduceQueue(TaskQueue queue)
+        private static async void ProduceQueueAsync(TaskQueue queue)
         {
             for (int i = 0; i < 100; i++)
             {
-                queue.Add(() =>
-                {
-                    Console.WriteLine($"Выполнение задачи");
-                    Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                });
-
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                await Task.Run(() => { queue.Add(()=> { Console.WriteLine("Выполнение задачи"); }); });
+                Thread.Sleep(1000);
             }
         }
 
-        private static async void ProduceQueueAsync(TaskQueue queue)
+        static void Main()
         {
-            await Task.Run(() => ProduceQueue(queue));
-        }
-
-        public static void Main(string[] args)
-        {
-            // Создаем очередь задач
+            // Создаем очередь
             TaskQueue queue = new TaskQueue();
 
-            // Добавляем асинхронно задачи в очередь
+            // Заполняем очередь
             ProduceQueueAsync(queue);
-            
-            // Запускаем обработку очереди c заданным числом одновременно выполняемых задач
+
+            // Ожидаем некоторое время
+            Thread.Sleep(3000);
+
+            // Запускаем обработку очереди
             int maxConcurrent = 4;
             queue.Start(maxConcurrent);
 
             // Ожидаем некоторое время
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            Thread.Sleep(3000);
 
-            // Останавливаем обработку очереди
+            //Останавливаем обработку очереди
             queue.Stop();
 
             // Ожидаем некоторое время
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+            Thread.Sleep(10000);
 
-            // Очищаем очередь
+            // Чистим очередь
             queue.Clear();
 
             Console.ReadLine();
-
         }
     }
 }

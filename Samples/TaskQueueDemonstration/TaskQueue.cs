@@ -5,63 +5,54 @@ using System.Threading.Tasks;
 
 namespace TaskQueueDemonstration
 {
-    public class TaskQueue : IJobExecutor
+    internal class TaskQueue : IJobExecutor
     {
-        private BlockingCollection<Action> _queue;
-        private CancellationTokenSource _cancelTokenSource;
-        private CancellationToken _token;
-        
-        public int Amount => _queue.Count;
+        private BlockingCollection<Action> queue = new BlockingCollection<Action>();
+        private static CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+        private CancellationToken token = cancelTokenSource.Token;
 
-        public TaskQueue()
+        public int Amount => queue.Count;
+
+        private void Consume(int taskNumber)
         {
-            _queue = new BlockingCollection<Action>();
-            _cancelTokenSource = new CancellationTokenSource();
-            _token = _cancelTokenSource.Token;
-            
-            Console.WriteLine($"Создана очередь");
+            Action action;
+            while (!token.IsCancellationRequested)
+            {
+                action = queue.Take();
+                action();
+            }            
         }
-        
+
+        public async void StartAsync(int taskNumber)
+        {
+            await Task.Run(() => Consume(taskNumber));            
+        }
+
         public void Start(int maxConcurrent)
         {
-            Console.WriteLine("Запуск обработки очереди");
-
             for (var i = 0; i < maxConcurrent; i++)
             {
-                Task.Factory.StartNew(Consume);
-            }
-        }
-
-        private void Consume()
-        {
-            foreach (var action in _queue.GetConsumingEnumerable())
-            {
-                if (_token.IsCancellationRequested)
-                {
-                    return;
-                }
-                action();
-            }
+                StartAsync(i);
+            }            
         }
 
         public void Stop()
         {
-            _cancelTokenSource.Cancel();
-            Console.WriteLine("Остановка обработки очереди");
+            cancelTokenSource.Cancel();            
         }
 
         public void Add(Action action)
         {
-            _queue.Add(action);
+            queue.Add(action);
 
-            Console.WriteLine($"Добавлена задача, количество задач: {Amount}");
+            Console.WriteLine($"Добавлена задача. Количество задач: {Amount}");            
         }
 
         public void Clear()
         {
-            _queue = new BlockingCollection<Action>();
+            queue = new BlockingCollection<Action>();
 
-            Console.WriteLine("Очистка очереди");            
-        }
+            Console.WriteLine("Очередь очищена");
+        }        
     }
 }
