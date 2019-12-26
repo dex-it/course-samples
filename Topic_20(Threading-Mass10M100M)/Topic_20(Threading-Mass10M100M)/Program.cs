@@ -9,8 +9,13 @@ namespace Topic_20_Threading_Mass10M100M_
 	{		
 		static void Main(string[] args)
 		{
-			int[] mass10M =  new int[10000000];
-			int[] mass100M = new int[100000000];	
+			
+			int[] mass100M = new int[100_000_000];
+
+			for (int i = 0; i < mass100M.Length; i++)
+			{
+				mass100M[i] = i;
+			}
 
 			var generationmass = new GenerationMass();
 			
