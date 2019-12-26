@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,54 +10,53 @@ namespace Topic_20_Threading_Mass10M100M_
 	{
 		public void SerialCalc(int[] mass)
 		{
-			long medium;			
 			var time = new Stopwatch();
 
-			time.Start();			
+			time.Start();
 
-			medium = LocalMedium(mass.Length, 0, mass);
-			
+			var medium = LocalMedium(mass.Length, 0, mass);
+
 			time.Stop();
 			Console.WriteLine("The sequential study is complete.");
-			Console.WriteLine($"max = {mass[mass.Length - 1]}, final medium = {medium}");
+			Console.WriteLine($"max = {mass.Last()}, final medium = {medium}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
 		}
 
 
 		public void ParallelCalc(int[] mass)
-		{			
-			long mediumSum = 0;
-			int part = 1_000_000;
-			int countOfPart = mass.Length / part;		
+		{
+			long SumOfMediums = 0;
+			var part = 1_000_000;
+			var countOfPart = mass.Length / part;
 
 			var time = new Stopwatch();
 
 			time.Start();
-			
-			Parallel.For(0, countOfPart, index => 
+
+			Parallel.For(0, countOfPart, index =>
 			{
-				Interlocked.Add(ref mediumSum, LocalMedium(part, index, mass));
+				Interlocked.Add(ref SumOfMediums, LocalMedium(part, index, mass));
 			});
 
 			time.Stop();
 
 			Console.WriteLine("\nThe parallel study is complete.");
-			Console.WriteLine($"max = {mass[mass.Length - 1]} final medium = {mediumSum/countOfPart}");
+			Console.WriteLine($"max = {mass.Last()} final medium = {SumOfMediums / countOfPart}");
 			Console.WriteLine($" _ _ time = {time.Elapsed} _ _ ");
 
 		}
 		private long LocalMedium(int part, int i, int[] mass)
 		{
-			long medium;
-			long sum = 0;
+			var sum = 0;
+			var min = i * part;
+			var max = (i * part) + part;
 
-			for (int j = i * part; j < ((i * part) + part); j++)
+			for (int j = min; j < max; j++)
 			{
-				sum += mass[j];				
+				sum += mass[j];
 			}
 
-			medium = sum / part;			
-			return medium;
+			return sum / part;
 		}
-	} 
+	}
 }
