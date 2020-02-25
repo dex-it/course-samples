@@ -9,7 +9,7 @@ namespace PetsOOP
     interface IAnimal
     {
         void MakeSound();
-        //void Move();
+        void Move(int distance);
         //еще один
 
     }
@@ -17,9 +17,6 @@ namespace PetsOOP
     public abstract class Pet : IAnimal
     {
         private string _name;
-        private string _color;
-        int _x;
-        int _y;
         public string Name
         {
             get { return _name; }
@@ -27,76 +24,80 @@ namespace PetsOOP
         }
 
         public abstract void MakeSound();
-
-        public string Color
-        {
-            get { return _color; }
-            set
-            {//проверка, существует ли указанный окрас в перечислении ColorType
-                if (Enum.IsDefined(typeof(ColorType), value))
-                {
-                    _color = value;
-                    Console.WriteLine("The {0} color is valid.", _color.ToString());
-                }
-                else { Console.WriteLine("Error! Please, choose valid color!"); }
-            }
-
-        }
-
-        //виды окраса
-        enum ColorType
-        {
-            spotted,//пятнистый
-            striped,//в полосочку
-            wholecoloured//одноцветный
-        }
-
-
+        public abstract void Move(int distance);
     }
 
     public class Cat : Pet
     {
         public Cat()
         {
+            this.Name = "NoName";
             Console.WriteLine("Cat was succesfully added!");
         }
 
         public Cat(string name)
-        {
-            Console.WriteLine("Cat \""+name+"\" was succesfully added!");
+        {            
             Name = name;
         }
 
         public override void  MakeSound()
         {
-            Console.WriteLine("Meow! Meow!");
+            Console.WriteLine("Cat says: \"Meow! Meow!\"");
         }
-
-        
+        public override void Move(int distance)
+        {
+            Console.WriteLine("Cat ran {0} meters", distance);
+        }
     }
 
     public class Dog : Pet
     {
         public Dog()
         {
+            this.Name = "NoName";
             Console.WriteLine("Dog was succesfully added!");
         }
         public Dog(string name)
         {
             Name = name;
-            Console.WriteLine("Dog \""+name+"\" was succesfully added!");
-            
         }
 
         public override void MakeSound()
         {
-            Console.WriteLine("Woof! Woof!");
+            Console.WriteLine("Dog says: \"Woof! Woof!\"");
+        }
+        public override void Move(int distance)
+        {
+            Console.WriteLine("Dog ran {0} meters", distance);
         }
 
     }
 
-    
-    class Program
+    public class Fish : Pet
+    {
+        public Fish()
+        {
+            this.Name = "NoName";
+            Console.WriteLine("Dog was succesfully added!");
+        }
+        public Fish(string name)
+        {
+            Name = name;
+        }
+
+        public override void MakeSound()
+        {
+            Console.WriteLine("Fish don't speak, silly :)");
+        }
+        public override void Move(int distance)
+        {
+            Console.WriteLine("Fish swam {0} meters", distance);
+        }
+
+    }
+
+
+    class PetsOOP
     {
         public static void AddPet(List<Pet> pets, int code, string name)
         {
@@ -112,6 +113,11 @@ namespace PetsOOP
                         pets.Add(new Dog(name));                        
                         break;
                     }
+                case 3:
+                    {
+                        pets.Add(new Fish(name));
+                        break;
+                    }
                 default:
                     {
                         Console.WriteLine("Error! Please, choose valid number.");
@@ -122,21 +128,26 @@ namespace PetsOOP
         static void Main(string[] args)
         {
             List<Pet> pets = new List<Pet>();
-            Console.WriteLine("Hello!\nWhich pet would you like to add?\n1 - Cat, 2 - Dog ");
-            int pet_code = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("What is your pet's name?");
-            string pet_name = Console.ReadLine();
-            AddPet(pets, pet_code, pet_name);
-            
-
-
+            Console.WriteLine("Hello!\nHow many pets do you want to add? ");
+            int n = Int32.Parse(Console.ReadLine());
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Which pet would you like to add?\n1 - Cat, 2 - Dog, 3 - Fish ");
+                int pet_code = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("What is your pet's name?");
+                string pet_name = Console.ReadLine();
+                AddPet(pets, pet_code, pet_name);
+            }   
 
             //вывод на экран всех животных
             Console.WriteLine("\nCurrent list of pets:");
             for (int i = 0; i < pets.Count; i++)
             {
-                Console.WriteLine("Class:"+pets[i].GetType()+ ", name:" + pets[i].Name + " ");
+                Console.WriteLine("Class:"+pets[i].GetType());
+                Console.WriteLine("name: " + pets[i].Name);                
                 pets[i].MakeSound();
+                pets[i].Move(5);
+                Console.WriteLine("\n");
             }
 
            
