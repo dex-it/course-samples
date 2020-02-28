@@ -27,7 +27,7 @@ namespace Типы_значения_Клонирование
              //  return this.MemberwiseClone();   //для упрощения
             }
         }
-        class Company
+        struct Company
         {
             public string Name { get; set; }
         }
