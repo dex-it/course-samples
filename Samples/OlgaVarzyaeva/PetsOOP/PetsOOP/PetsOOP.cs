@@ -11,7 +11,6 @@ namespace PetsOOP
         void MakeSound();
         void Move(int distance);
     }
-
     public abstract class Pet : IAnimal
     {
         private string _name;
@@ -20,7 +19,6 @@ namespace PetsOOP
             get { return _name; }
             set { _name = value; }
         }
-
         public abstract void MakeSound();
         public abstract void Move(int distance);
     }
@@ -32,13 +30,11 @@ namespace PetsOOP
             this.Name = "NoName";
             Console.WriteLine("Cat was succesfully added!");
         }
-
         public Cat(string name)
-        {            
+        {
             Name = name;
         }
-
-        public override void  MakeSound()
+        public override void MakeSound()
         {
             Console.WriteLine("Cat says: \"Meow! Meow!\"");
         }
@@ -59,7 +55,6 @@ namespace PetsOOP
         {
             Name = name;
         }
-
         public override void MakeSound()
         {
             Console.WriteLine("Dog says: \"Woof! Woof!\"");
@@ -68,7 +63,6 @@ namespace PetsOOP
         {
             Console.WriteLine("Dog ran {0} meters", distance);
         }
-
     }
 
     public class Fish : Pet
@@ -82,7 +76,6 @@ namespace PetsOOP
         {
             Name = name;
         }
-
         public override void MakeSound()
         {
             Console.WriteLine("Fish don't speak, silly :)");
@@ -91,10 +84,7 @@ namespace PetsOOP
         {
             Console.WriteLine("Fish swam {0} meters", distance);
         }
-
     }
-
-
     class PetsOOP
     {
         public static void AddPet(List<Pet> pets, int code, string name)
@@ -103,12 +93,12 @@ namespace PetsOOP
             {
                 case 1:
                     {
-                        pets.Add(new Cat(name));                        
+                        pets.Add(new Cat(name));
                         break;
                     }
                 case 2:
                     {
-                        pets.Add(new Dog(name));                        
+                        pets.Add(new Dog(name));
                         break;
                     }
                 case 3:
@@ -135,24 +125,21 @@ namespace PetsOOP
                 Console.WriteLine("What is your pet's name?");
                 string pet_name = Console.ReadLine();
                 AddPet(pets, pet_code, pet_name);
-            }   
-
+            }
             //вывод на экран всех животных
             Console.WriteLine("\nCurrent list of pets:");
             for (int i = 0; i < pets.Count; i++)
             {
-                Console.WriteLine("Class:"+pets[i].GetType());
-                Console.WriteLine("name: " + pets[i].Name);                
+                Console.WriteLine("Class:" + pets[i].GetType());
+                Console.WriteLine("name: " + pets[i].Name);
                 pets[i].MakeSound();
                 pets[i].Move(5);
                 Console.WriteLine("\n");
             }
-
-           
             Console.ReadKey();
         }
-    
 
-        
+
+
     }
 }
