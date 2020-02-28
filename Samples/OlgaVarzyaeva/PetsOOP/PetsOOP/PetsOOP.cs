@@ -10,8 +10,6 @@ namespace PetsOOP
     {
         void MakeSound();
         void Move(int distance);
-        //еще один
-
     }
 
     public abstract class Pet : IAnimal
