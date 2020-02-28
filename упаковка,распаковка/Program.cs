@@ -24,7 +24,7 @@ namespace упаковка_распаковка
             st.Restart();
             for (int i = 0; i < 100; i++)
             {
-                n= (int)o;//расспаковка
+                n= (int)o;//расспаковка.
             }
             st.Stop();
             string time2 = st.ElapsedTicks.ToString();
