@@ -7,7 +7,7 @@ namespace ООП_глава3
         static void Main(string[] args)
         {
 
-           
+
             while (true)
             {
                 Console.WriteLine("Выберете фигуру:1-квадрат,2-прямоугольник,3-круг,4-треугольник....при выходе введите 0");
@@ -38,8 +38,8 @@ namespace ООП_глава3
                         Console.WriteLine("Введите длину высоты:"); treugolnik.Visota = Convert.ToDouble(Console.ReadLine());
                         treugolnik.S_tr(treugolnik.Storona1, treugolnik.Visota);
                         break;
-             
-                } 
+
+                }
             }
         }
     }
@@ -50,10 +50,10 @@ namespace ООП_глава3
         public double Storona1 { get { return a; } set { a = value; } } //свойства
         public double Storona2 { get { return b; } set { b = value; } }
         public double Radius { get { return r; } set { r = value; } }
-        public double Visota { get { return h; } set { h = value; } }     
+        public double Visota { get { return h; } set { h = value; } }
 
     }
-   interface I_ploshad_kvadrata  //интерфейс с сигнатурой для нахлждения площади
+    interface I_ploshad_kvadrata  //интерфейс с сигнатурой для нахлждения площади
     {
         void S_kv(double a, double b);
     }
@@ -83,7 +83,7 @@ namespace ООП_глава3
         public void S_kr(double r)
         {
             Console.WriteLine("Площадь круга =" + (Math.PI * Math.Pow(r, 2)).ToString());
-        }    
+        }
     }
     public class Pryamougolnik : Figure, I_ploshad_pryamougolnika
     {
@@ -91,13 +91,13 @@ namespace ООП_глава3
         {
             if (a == b)
                 Console.WriteLine("Площадь прямоугольника =" + (a * b).ToString());
-        }       
+        }
     }
     public class Treugolnik : Figure, I_ploshad_treugolnika
     {
         public void S_tr(double a, double h)
-        {      
-                Console.WriteLine("Площадь треугольника =" + ((a * h)/2.0).ToString());
+        {
+            Console.WriteLine("Площадь треугольника =" + ((a * h) / 2.0).ToString());
         }
     }
 }
