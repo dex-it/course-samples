@@ -9,14 +9,14 @@ namespace упаковка_распаковка
         static void Main(string[] args)
         {
             int n = 0;
-            object o=new object();
+            object o = new object();
 
             Stopwatch st = new Stopwatch();
             st.Start();
 
             for (int i = 0; i < 100; i++)
-            { 
-                o= n; //упаковка
+            {
+                o = n; //упаковка
             }
 
             st.Stop();
@@ -24,7 +24,7 @@ namespace упаковка_распаковка
             st.Restart();
             for (int i = 0; i < 100; i++)
             {
-                n= (int)o;//расспаковка.
+                n = (int)o;//расспаковка.
             }
             st.Stop();
             string time2 = st.ElapsedTicks.ToString();
