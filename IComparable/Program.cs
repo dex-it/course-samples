@@ -27,7 +27,9 @@ namespace IComparable_interfase
 
 
             Console.WriteLine("Сортировка по площади");
+          
             Array.Sort(tr, new TreugolnikComparer());
+            
             foreach (Treugolnik t in tr)
             {
                 Console.WriteLine("Треугольник с сторонами: Катет1=" + t.Katet1 + "  Катет2=" + t.Katet2 + "  Гипоьенуза=" + t.Gipotenuza + "  Площадь=" + t.Katet1*t.Katet2/2);
