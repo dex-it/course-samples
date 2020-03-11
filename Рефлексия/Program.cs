@@ -39,10 +39,10 @@ namespace Рефлексия
                 var get_fields = get_type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance); //получаем все не публичные поля
                 var values_fields = get_fields.Select(x => $"{x.Name} : {x.GetValue(ob)}");
 
-                var get_methods = get_type.GetMethods();
+                var get_methods = get_type.GetMethods(); //получение методов
                 var values_methods = get_methods.Select(x => $"{x.Name} -тип метода> {x.ReturnType.Name}");
 
-                var get_constructors = get_type.GetConstructors();
+                var get_constructors = get_type.GetConstructors(); //получение конструкторов
                 var values_constructors = get_constructors.Select(x => $" \n {x.Name} - параметры: {string.Join(",", x.GetParameters().Select(y=>$"{y.ParameterType.Name}-{y.Name}"))}");
 
                 return "Cвойства: "+string.Join(", \n", values_properties)+"\n Поля: "+ string.Join(", \n", values_fields)+"\n Методы: " + string.Join(", \n", values_methods) + "\n Конструкторы: " + string.Join(", \n", values_constructors); // формируем строку
