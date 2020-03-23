@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading;
 using NUnit.Framework;
 
 namespace Stage1.EnumeratorTest
@@ -17,18 +15,22 @@ namespace Stage1.EnumeratorTest
                 "third"
             };
 
-            foreach (var item in list)
-            { 
-                Console.WriteLine(item);
-            }
+            foreach (var item in list) Console.WriteLine(item.Value);
 
-            while (list.MovePrevious())
-            {
-                Console.WriteLine(list.Current.Value);
-            }
-            
+
+            using var listEnumerator = list.GetEnumerator() as DoubleLinkedListEnumerator<string>;
+
+
+            while (listEnumerator.MovePrevious()) Console.WriteLine(list.Current.Value);
+
+            listEnumerator.Reset();
+
+
+
+            while (listEnumerator.MoveNext()) Console.WriteLine(list.Current.Value);
+
+
+            listEnumerator.Reset();
         }
-        
-        
     }
 }
