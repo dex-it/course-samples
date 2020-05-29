@@ -1,0 +1,52 @@
+﻿using System;
+using System.Threading;
+
+
+namespace TestEventsNumbersStream
+{
+    class NumbersStream
+    {
+
+        private int _currentNumber;
+        private Thread _thread;
+        private bool isThreadStart;
+        public event EventHandler<int> CurrentNumberChanged;
+        public int CurrentNumber
+        {
+            get
+            {
+                return _currentNumber;
+            }
+        }
+        public void StartStream()
+        {
+            _thread = new Thread(MakeNewNumber);
+            isThreadStart = true;
+            _thread.Start();
+        }
+        public void StopStream()
+        {
+            if (_thread != null)
+                isThreadStart = false;
+        }
+
+        private void MakeNewNumber()
+        {
+            Random rnd = new Random();
+            while (isThreadStart)
+            {
+                Thread.Sleep(rnd.Next(500, 3000));
+                _currentNumber = rnd.Next(1, 100);
+                OnPropertyChanged(_currentNumber);
+            }
+        }
+
+        private void OnPropertyChanged(int currentNumber)
+        {
+            if (CurrentNumberChanged != null)
+            {
+                CurrentNumberChanged(this, currentNumber);
+            }
+        }
+    }
+}

@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12 TestUniqueCollections", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsLine", "TestEvents\14 TestEventsLine.csproj", "{F5E52BFA-8D31-43B0-B8D0-BA0937D927F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsStreamNumbers", "TestEventsStreamNumbers\14 TestEventsStreamNumbers.csproj", "{860CCEAD-EDB9-42BD-B518-00F2996C9FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsNumbersStream", "TestEventsStreamNumbers\14 TestEventsNumbersStream.csproj", "{860CCEAD-EDB9-42BD-B518-00F2996C9FF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 TestOOP", "TestOOP\3 TestOOP.csproj", "{482EBFE5-F664-4DC6-940E-48C08AA6D298}"
 EndProject

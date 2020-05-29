@@ -28,7 +28,20 @@ namespace TestEvents
             line = new List<int>();
             Threshold = 1;
         }
+        public void Dispose()
+        {
+            if (SpecialEvent != null)
+                foreach (EventHandler<SpecialEventArgs> ev in SpecialEvent.GetInvocationList())
+                {
+                    SpecialEvent -= ev;
+                }
 
+            if (PropertyChanged != null)
+                foreach (PropertyChangedEventHandler ev in PropertyChanged.GetInvocationList())
+                {
+                    PropertyChanged -= ev;
+                }
+        }
         public void SetThreshold(int threshold)
         {
             Threshold = threshold;
@@ -60,20 +73,7 @@ namespace TestEvents
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-        public void Dispose()
-        {
-            if (SpecialEvent != null)
-                foreach (EventHandler<SpecialEventArgs> ev in SpecialEvent.GetInvocationList())
-                {
-                    SpecialEvent -= ev;
-                }
-
-            if (PropertyChanged != null)
-                foreach (PropertyChangedEventHandler ev in PropertyChanged.GetInvocationList())
-                {
-                    PropertyChanged -= ev;
-                }
-        }
+        
 
     }
 

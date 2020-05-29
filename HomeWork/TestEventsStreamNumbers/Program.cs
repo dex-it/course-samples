@@ -1,12 +1,22 @@
 ﻿using System;
 
-namespace TestEventsStreamNumbers
+namespace TestEventsNumbersStream
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            NumbersStream numbersStream = new NumbersStream();
+            numbersStream.CurrentNumberChanged += (sender, eventArgs) =>
+            {
+                MessageOnConsole(eventArgs.ToString());
+            };
+            numbersStream.StartStream();
+        }
+
+        static void MessageOnConsole(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }
