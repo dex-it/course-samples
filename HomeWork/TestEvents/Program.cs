@@ -10,6 +10,10 @@ namespace TestEvents
             Random rnd = new Random();
 
             line.SpecialEvent += Line_SpecialEvent;
+            line.PropertyChanged += (sender, eventArgs) =>
+            {
+                Console.WriteLine("Изменилось свойство: "+ eventArgs.PropertyName);
+            };
 
             Console.WriteLine("Введите порог очереди");
             int threshold;
