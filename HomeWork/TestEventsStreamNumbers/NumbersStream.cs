@@ -37,11 +37,11 @@ namespace TestEventsNumbersStream
             {
                 Thread.Sleep(rnd.Next(500, 3000));
                 _currentNumber = rnd.Next(1, 100);
-                OnPropertyChanged(_currentNumber);
+                OnCurrentNumberChanged(_currentNumber);
             }
         }
 
-        private void OnPropertyChanged(int currentNumber)
+        private void OnCurrentNumberChanged(int currentNumber)
         {
             if (CurrentNumberChanged != null)
             {
