@@ -32,8 +32,6 @@ namespace TestEventsNumbersStream
             };
             Console.WriteLine("Запускаю поток");
             numbersStream.StartStream();
-            
-            
         }
 
         static void MessageOnConsole(string message)

@@ -2,7 +2,7 @@
 
 namespace TestEventsNumbersStream
 {
-    class NumberAnalyzer
+    class NumberAnalyzer: IDisposable
     {
         private int _previousNumber;
         private int _percentageThreshold;
@@ -12,7 +12,14 @@ namespace TestEventsNumbersStream
         {
             _percentageThreshold = percentageThreshold;
         }
-
+        public void Dispose()
+        {
+            if (BigDifference != null)
+                foreach (EventHandler<double> ev in BigDifference.GetInvocationList())
+                {
+                    BigDifference -= ev;
+                }
+        }
         public event EventHandler<double> BigDifference;
 
         public void Analyz(int number)

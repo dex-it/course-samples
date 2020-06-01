@@ -4,12 +4,21 @@ using System.Threading;
 
 namespace TestEventsNumbersStream
 {
-    class NumbersStream
+    class NumbersStream: IDisposable
     {
 
         private int _currentNumber;
         private Thread _thread;
         private bool isThreadStart;
+        public void Dispose()
+        {
+            if (CurrentNumberChanged != null)
+                foreach (EventHandler<int> ev in CurrentNumberChanged.GetInvocationList())
+                {
+                    CurrentNumberChanged -= ev;
+                }
+        }
+
         public event EventHandler<int> CurrentNumberChanged;
         public int CurrentNumber
         {
@@ -48,5 +57,7 @@ namespace TestEventsNumbersStream
                 CurrentNumberChanged(this, currentNumber);
             }
         }
+
+
     }
 }
