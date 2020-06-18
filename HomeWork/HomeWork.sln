@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsNumbersStream"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 TestOOP", "TestOOP\3 TestOOP.csproj", "{482EBFE5-F664-4DC6-940E-48C08AA6D298}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17 Extentions", "17 Extentions\17 Extentions.csproj", "{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{482EBFE5-F664-4DC6-940E-48C08AA6D298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{482EBFE5-F664-4DC6-940E-48C08AA6D298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{482EBFE5-F664-4DC6-940E-48C08AA6D298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
