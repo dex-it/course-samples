@@ -18,7 +18,8 @@ namespace _17_Extentions
                     if (btn.Key == ConsoleKey.Enter)
                     {
                         break;
-                    }else if (btn.Key == ConsoleKey.Backspace)
+                    }
+                    else if (btn.Key == ConsoleKey.Backspace)
                     {
                         if (!String.IsNullOrEmpty(numbers))
                             numbers = numbers.Remove(numbers.Length - 1);
