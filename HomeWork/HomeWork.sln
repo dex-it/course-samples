@@ -3,29 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4 TestICloneable", "InterfaceICloneable\4 TestICloneable.csproj", "{2DEE21B7-11D9-4F2B-8EAB-FD5D2E90F115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4_TestICloneable", "InterfaceICloneable\4_TestICloneable.csproj", "{2DEE21B7-11D9-4F2B-8EAB-FD5D2E90F115}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5 TypeCastingAndConversion", "TypeCastingAndConversion\5 TypeCastingAndConversion.csproj", "{3B046975-3E3E-4D5A-9883-B43AD53E0D86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5_TypeCastingAndConversion", "TypeCastingAndConversion\5_TypeCastingAndConversion.csproj", "{3B046975-3E3E-4D5A-9883-B43AD53E0D86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7 TestIEnumerable", "TestIEnumerable\7 TestIEnumerable.csproj", "{8B504D15-753F-4223-A14C-E6374B854948}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_TestIEnumerable", "TestIEnumerable\7_TestIEnumerable.csproj", "{8B504D15-753F-4223-A14C-E6374B854948}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "8 TestIQueryable", "TestIQueryable\8 TestIQueryable.csproj", "{505BC0FF-AB66-4550-9B06-7646A33DC9B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "8_TestIQueryable", "TestIQueryable\8_TestIQueryable.csproj", "{505BC0FF-AB66-4550-9B06-7646A33DC9B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "9 TestIComparable", "TestIComparable\9 TestIComparable.csproj", "{EF9C23C3-1170-496C-B034-0C0392FF5D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "9_TestIComparable", "TestIComparable\9_TestIComparable.csproj", "{EF9C23C3-1170-496C-B034-0C0392FF5D58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10 TestGetHashCodeAndEquals", "TestGetHashCodeAndEquals\10 TestGetHashCodeAndEquals.csproj", "{40A84863-BB0C-4288-9E5A-63E9F2B747A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_TestGetHashCodeAndEquals", "TestGetHashCodeAndEquals\10_TestGetHashCodeAndEquals.csproj", "{40A84863-BB0C-4288-9E5A-63E9F2B747A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11 TestDictionary", "TestList\11 TestDictionary.csproj", "{86410CA1-B70D-4BFB-AE04-5FA9392FAE28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11_TestDictionary", "TestList\11_TestDictionary.csproj", "{86410CA1-B70D-4BFB-AE04-5FA9392FAE28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12 TestUniqueCollections", "TestGeneric\12 TestUniqueCollections.csproj", "{38FAB770-9294-4E7D-BED3-7FD5BB229F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_TestUniqueCollections", "TestGeneric\12_TestUniqueCollections.csproj", "{38FAB770-9294-4E7D-BED3-7FD5BB229F04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsLine", "TestEvents\14 TestEventsLine.csproj", "{F5E52BFA-8D31-43B0-B8D0-BA0937D927F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14_TestEventsLine", "TestEvents\14_TestEventsLine.csproj", "{F5E52BFA-8D31-43B0-B8D0-BA0937D927F4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14 TestEventsNumbersStream", "TestEventsStreamNumbers\14 TestEventsNumbersStream.csproj", "{860CCEAD-EDB9-42BD-B518-00F2996C9FF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 TestOOP", "TestOOP\3 TestOOP.csproj", "{482EBFE5-F664-4DC6-940E-48C08AA6D298}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_TestOOP", "TestOOP\3_TestOOP.csproj", "{482EBFE5-F664-4DC6-940E-48C08AA6D298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17 Extentions", "17 Extentions\17 Extentions.csproj", "{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "17_Extentions", "17 Extentions\17_Extentions.csproj", "{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_Reflection", "18 Reflection\18_Reflection.csproj", "{340FE467-0144-4554-98B3-45B87A54CE95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38FCEBC4-2E40-4AE4-8C0A-B87C71A18385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340FE467-0144-4554-98B3-45B87A54CE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340FE467-0144-4554-98B3-45B87A54CE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340FE467-0144-4554-98B3-45B87A54CE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340FE467-0144-4554-98B3-45B87A54CE95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
