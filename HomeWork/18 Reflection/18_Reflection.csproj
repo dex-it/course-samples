@@ -52,5 +52,14 @@
   <ItemGroup>
     <Content Include="ConsoleApp1.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestOOP\3_TestOOP.csproj">
+      <Project>{482ebfe5-f664-4dc6-940e-48c08aa6d298}</Project>
+      <Name>3_TestOOP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
