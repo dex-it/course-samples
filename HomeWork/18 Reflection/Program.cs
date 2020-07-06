@@ -28,12 +28,7 @@ namespace _18_Reflection
             //Получаю поле Name класса Photo
             var namePhoto = photo.GetType().GetProperty("Name").GetValue(photo);
 
-
             Console.WriteLine(namePhoto);
-
-
-
-
             Console.ReadKey();
         }
     }
