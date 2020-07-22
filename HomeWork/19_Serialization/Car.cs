@@ -10,15 +10,10 @@ namespace _19_Serialization
     [Serializable]
     public class Car
     {
-        public Colors Color { get; set; }
+        public Colors? Color { get; set; }
         public int YearOfIssue { get; set; }
-        public Engine engine { get; set; }
-
-        public class Engine
-        {
-            public double Volume { get; set; }
-            public TypeOfFuel TypeOfFuel { get; set; }
-        }
+        public Engine Engine { get; set; }
+        
 
         public override string ToString()
         {
@@ -26,8 +21,14 @@ namespace _19_Serialization
                                  "Цвет: {1}; " +
                                  "Объем двигателя {2}; " +
                                  "Тип топлива: {3}", 
-                YearOfIssue, Color, engine.Volume, engine.TypeOfFuel);
+                YearOfIssue, Color, Engine.Volume, Engine.TypeOfFuel);
         }
+    }
+
+    public class Engine
+    {
+        public double Volume { get; set; }
+        public TypeOfFuel TypeOfFuel { get; set; }
     }
 
     public enum TypeOfFuel

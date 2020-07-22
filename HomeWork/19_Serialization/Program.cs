@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -32,18 +33,18 @@ namespace _19_Serialization
                 {
                     YearOfIssue = 2010,
                     Color = Colors.Black,
-                    engine = new Car.Engine{TypeOfFuel = TypeOfFuel.Petrol95, Volume = 2.0}
+                    Engine = new Engine{TypeOfFuel = TypeOfFuel.Petrol95, Volume = 2.0}
                 },
                 new Car 
                 {
                     YearOfIssue = 2015,
                     Color = Colors.Silver,
-                    engine = new Car.Engine { TypeOfFuel = TypeOfFuel.Diesel, Volume = 2.2 }
+                    Engine = new Engine { TypeOfFuel = TypeOfFuel.Diesel, Volume = 2.2 }
                 }, new Car
                 {
                     YearOfIssue = 1993,
                     Color = Colors.Red,
-                    engine = new Car.Engine { TypeOfFuel = TypeOfFuel.Petrol92, Volume = 1.6 }
+                    Engine = new Engine { TypeOfFuel = TypeOfFuel.Petrol92, Volume = 1.6 }
                 } };
         }
 
