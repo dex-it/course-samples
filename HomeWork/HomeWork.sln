@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_Reflection", "18 Reflect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19_Serialization", "19_Serialization\19_Serialization.csproj", "{77037CF3-EA70-4EFC-8311-6D119B5B6DF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20_RegularExpression", "20_RegularExpression\20_RegularExpression.csproj", "{5DBFC943-7DC6-4F5E-AD25-57BDF6EED27E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{77037CF3-EA70-4EFC-8311-6D119B5B6DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77037CF3-EA70-4EFC-8311-6D119B5B6DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77037CF3-EA70-4EFC-8311-6D119B5B6DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DBFC943-7DC6-4F5E-AD25-57BDF6EED27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBFC943-7DC6-4F5E-AD25-57BDF6EED27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBFC943-7DC6-4F5E-AD25-57BDF6EED27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBFC943-7DC6-4F5E-AD25-57BDF6EED27E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
