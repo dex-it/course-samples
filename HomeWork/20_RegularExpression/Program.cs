@@ -13,15 +13,78 @@ namespace _20_RegularExpression
     {
         static void Main(string[] args)
         {
-            string line = "Какой-то текст, который от другого текста не тексту отличается";
-            using (WebClient webClient = new WebClient())
-                line = webClient.DownloadString("http://www.cbr.ru/scripts/XML_daily.asp");
-            Match match = Regex.Match(line, "<Name>Доллар США</Name><Value>(.*?)</Value>");
+            bool isWorking = true;
+            Console.WriteLine("Выберите задание:");
+            Console.WriteLine("1 - Выделить числа из текста");
+            Console.WriteLine("2 - Выделить параметры из строки запроса");
+            Console.WriteLine("3 - Удалить из выражения повторяющиеся пробелы");
+            Console.WriteLine("4 - Проверить что вводимое число - корректный номер телефонаа");
+            
 
-            Console.WriteLine(match.Groups[1].Value);
-           
+            ConsoleKeyInfo keyInfo;
+            while (isWorking) 
+            {
+                int code;
+                if (!int.TryParse(Console.ReadKey().KeyChar.ToString(), out code))
+                {
+                    Console.Write("\b \b");
+                }
 
-            Console.ReadLine();
+                isWorking = false;
+                switch (code)
+                {
+                    case 1:
+                        GetNumbersFromText();
+                        break;
+                    case 2:
+                        GetParametersFromURL();
+                        break;
+                    case 3:
+                        RemoveDuplicateSpaces();
+                        break;
+                    case 4:
+                        IsCorrectPhoneNumber();
+                        break;
+                    default:
+                        isWorking = true;
+                        break;
+                }
+            }
+
+            Console.WriteLine();
+            CloseProgramEsc();
+        }
+
+        private static void GetNumbersFromText()
+        {
+            string line = Console.ReadLine();
+            string pattern = "";
+            MatchCollection match = Regex.Matches(line, pattern);
+
+            
+        }
+
+        private static void GetParametersFromURL()
+        {
+            
+        }
+        private static void RemoveDuplicateSpaces()
+        {
+            
+        }
+        private static void IsCorrectPhoneNumber()
+        {
+            
+        }
+
+        private static void CloseProgramEsc()
+        {
+            ConsoleKeyInfo btn;
+            do
+            {
+                Console.WriteLine("Для выхода нажмите Esc");
+                btn = Console.ReadKey(true);
+            } while (btn.Key != ConsoleKey.Escape);
         }
     }
 }
